@@ -276,7 +276,7 @@ export function LandingPageComponent() {
         </div>
       </section>
 
-      <Footer className="w-full bg-transparent" /> {/* Made footer background transparent */}
+      <Footer className="w-full" /> {/* Made footer background transparent */}
     </div>
   )
 }
