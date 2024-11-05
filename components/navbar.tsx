@@ -6,7 +6,11 @@ import { Button } from "./ui/button"
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 
-export function Navbar() {
+interface NavbarProps {
+  className?: string;
+}
+
+export function Navbar({ className }: NavbarProps) {
   const pathname = usePathname()
   
   const navigation = [
@@ -31,8 +35,8 @@ export function Navbar() {
           />
         </div>
 
-        <div className="flex-1 flex justify-center mr-[70px]">
-          <nav className="flex items-center space-x-10">
+        <div className="flex-1 flex justify-center mr-[30px]">
+          <nav className="flex items-center space-x-9">
             {navigation.map((item) => (
               <Link
                 key={item.name}

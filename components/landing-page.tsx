@@ -98,107 +98,105 @@ export function LandingPageComponent() {
       </div>
 
       {/* Video Section */}
-      <section className="py-20 bg-[#EDFFF0]">
-        <div className="w-[1300px] h-[800px] mx-auto rounded-xl overflow-hidden relative">
-          <div className="relative h-full group">
-            <video
-              ref={videoRef}
-              src="/videos/Xpo720p.mp4"
-              className="object-cover w-full h-full rounded-xl cursor-pointer"
-              loop
-              playsInline
-              preload="auto"
-              muted
-              autoPlay
-              onLoadedData={() => {
+      <div className="w-[1300px] h-[800px] mx-auto rounded-xl overflow-hidden py-20 relative bg-[#EDFFF0]">
+        <div className="relative h-full group"> {/* Added group for hover effects */}
+          <video
+            ref={videoRef}
+            src="/videos/Xpo720p.mp4"
+            className="object-cover w-full h-full rounded-xl cursor-pointer"
+            loop
+            playsInline
+            preload="auto"
+            muted
+            autoPlay
+            onLoadedData={() => {
+              videoRef.current?.play();
+              setIsPlaying(true);
+            }}
+            onClick={() => {
+              if (videoRef.current?.paused) {
                 videoRef.current?.play();
                 setIsPlaying(true);
-              }}
-              onClick={() => {
-                if (videoRef.current?.paused) {
-                  videoRef.current?.play();
-                  setIsPlaying(true);
-                } else {
-                  videoRef.current?.pause();
-                  setIsPlaying(false);
+              } else {
+                videoRef.current?.pause();
+                setIsPlaying(false);
+              }
+            }}
+          />
+          
+          {/* Video Controls Overlay - appears on hover */}
+          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent 
+                          opacity-0 group-hover:opacity-100 transition-opacity">
+            {/* Progress Bar */}
+            <input 
+              type="range"
+              className="w-full h-1 bg-gray-400 rounded-lg appearance-none cursor-pointer"
+              value={(videoRef.current?.currentTime || 0) / (videoRef.current?.duration || 1) * 100}
+              onChange={(e) => {
+                if (videoRef.current) {
+                  const time = (videoRef.current.duration * parseInt(e.target.value)) / 100;
+                  videoRef.current.currentTime = time;
                 }
               }}
             />
             
-            {/* Video Controls Overlay - appears on hover */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent 
-                            opacity-0 group-hover:opacity-100 transition-opacity">
-              {/* Progress Bar */}
-              <input 
-                type="range"
-                className="w-full h-1 bg-gray-400 rounded-lg appearance-none cursor-pointer"
-                value={(videoRef.current?.currentTime || 0) / (videoRef.current?.duration || 1) * 100}
-                onChange={(e) => {
-                  if (videoRef.current) {
-                    const time = (videoRef.current.duration * parseInt(e.target.value)) / 100;
-                    videoRef.current.currentTime = time;
-                  }
-                }}
-              />
-              
-              {/* Controls Row */}
-              <div className="flex items-center justify-between mt-2">
-                <div className="flex items-center gap-4">
-                  {/* Play/Pause */}
-                  <button onClick={() => {
-                    if (videoRef.current?.paused) {
-                      videoRef.current?.play();
-                      setIsPlaying(true);
-                    } else {
-                      videoRef.current?.pause();
-                      setIsPlaying(false);
-                    }
-                  }}>
-                    {isPlaying ? 
-                      <PauseCircle size={24} className="text-white" /> : 
-                      <PlayCircle size={24} className="text-white" />
-                    }
-                  </button>
-                  
-                  {/* Volume Control */}
-                  <button onClick={() => {
-                    if (videoRef.current) {
-                      videoRef.current.muted = !videoRef.current.muted;
-                      setIsMuted(prev => !prev);
-                    }
-                  }}>
-                    {isMuted ? 
-                      <VolumeX size={24} className="text-white" /> : 
-                      <Volume2 size={24} className="text-white" />
-                    }
-                  </button>
-                  
-                  {/* Time Display */}
-                  <span className="text-white text-sm">
-                    {formatTime(videoRef.current?.currentTime || 0)} / {formatTime(videoRef.current?.duration || 0)}
-                  </span>
-                </div>
-                
-                {/* Fullscreen Button */}
+            {/* Controls Row */}
+            <div className="flex items-center justify-between mt-2">
+              <div className="flex items-center gap-4">
+                {/* Play/Pause */}
                 <button onClick={() => {
-                  if (videoRef.current) {
-                    if (document.fullscreenElement) {
-                      document.exitFullscreen();
-                    } else {
-                      videoRef.current.requestFullscreen();
-                    }
+                  if (videoRef.current?.paused) {
+                    videoRef.current?.play();
+                    setIsPlaying(true);
+                  } else {
+                    videoRef.current?.pause();
+                    setIsPlaying(false);
                   }
                 }}>
-                  <Maximize2 size={24} className="text-white" />
+                  {isPlaying ? 
+                    <PauseCircle size={24} className="text-white" /> : 
+                    <PlayCircle size={24} className="text-white" />
+                  }
                 </button>
+                
+                {/* Volume Control */}
+                <button onClick={() => {
+                  if (videoRef.current) {
+                    videoRef.current.muted = !videoRef.current.muted;
+                    setIsMuted(prev => !prev);
+                  }
+                }}>
+                  {isMuted ? 
+                    <VolumeX size={24} className="text-white" /> : 
+                    <Volume2 size={24} className="text-white" />
+                  }
+                </button>
+                
+                {/* Time Display */}
+                <span className="text-white text-sm">
+                  {formatTime(videoRef.current?.currentTime || 0)} / {formatTime(videoRef.current?.duration || 0)}
+                </span>
               </div>
+              
+              {/* Fullscreen Button */}
+              <button onClick={() => {
+                if (videoRef.current) {
+                  if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                  } else {
+                    videoRef.current.requestFullscreen();
+                  }
+                }
+              }}>
+                <Maximize2 size={24} className="text-white" />
+              </button>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Industry Partners Section */}
-      <section className="pt-20 bg-[#EDFFF0]">
+      <section className="py-20 bg-[#EDFFF0]">
         <div className="w-[1300px] mx-auto px-4">
           <h2 className="text-[80px] leading-[90px] tracking-[-8px] font-bold text-center mb-12 font-[var(--font-tilt-warp)] text-[#287838]">
             Be at the frontier of fun - the toy industry is evolving 
