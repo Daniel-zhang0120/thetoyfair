@@ -13,6 +13,7 @@ const config: Config = {
   			'tilt-warp': ['var(--font-tilt-warp)'],
   		},
   		colors: {
+  			'custom-green': '#EDFFF0',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   				card: {

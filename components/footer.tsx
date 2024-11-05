@@ -2,9 +2,13 @@ import Link from "next/link"
 import { Trophy } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export function Footer() {
+interface FooterProps {
+  className?: string;
+}
+
+export const Footer = ({ className }: FooterProps) => {
   return (
-    <footer className="w-full bg-[#EDFFF0]">
+    <footer className={`bg-custom-green ${className || ''}`}>
       <div className="w-[980px] mx-auto px-4 bg-[#EDFFF0]">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
