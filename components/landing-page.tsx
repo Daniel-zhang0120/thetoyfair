@@ -8,6 +8,7 @@ import { PlayCircle, PauseCircle, VolumeX, Volume2, Maximize2 } from "lucide-rea
 import { Navbar } from "@/components/navbar" 
 import { Footer } from "@/components/footer" 
 import Head from 'next/head';
+import Link from 'next/link';
 
 export function LandingPageComponent() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -29,15 +30,35 @@ export function LandingPageComponent() {
     }
   ]
 
-  const partners = [
-    "LEGO", "Mattel", "Hasbro", "Fisher-Price", "Melissa & Doug", "Playmobil"
-  ]
-
   const stats = [
-    { number: "4,000+", label: "Visitors" },
-    { number: "200+", label: "Exhibitors" },
-    { number: "50+", label: "Countries" },
-    { number: "1,000+", label: "Brands" }
+    { 
+      number: "4,000+", 
+      label: "Visitors",
+      subText1: "Anticipated visitors",
+      subText2: "Register now >",
+      link: "/visitors"
+    },
+    { 
+      number: "200+", 
+      label: "Brands",
+      subText1: "Leading manufacturers",
+      subText2: "See who's exhibiting >",
+      link: "/brands"
+    },
+    { 
+      number: "30+", 
+      label: "Days",
+      subText1: "Of virtual networking",
+      subText2: "See the schedule >",
+      link: "/schedule"
+    },
+    { 
+      number: "24/7", 
+      label: "Convenience",
+      subText1: "Access anytime",
+      subText2: "How to visit",
+      link: "/access"
+    }
   ]
 
   const formatTime = (seconds: number): string => {
@@ -48,7 +69,7 @@ export function LandingPageComponent() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#EDFFF0]">
       <Head>
         {/* Importing the Pacifico font from Google Fonts */}
         <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet" />
@@ -98,8 +119,8 @@ export function LandingPageComponent() {
       </div>
 
       {/* Video Section */}
-      <div className="w-[1300px] h-[800px] mx-auto rounded-xl overflow-hidden py-20 relative bg-[#EDFFF0]">
-        <div className="relative h-full group"> {/* Added group for hover effects */}
+      <div className="w-[1300px] h-[800px] mx-auto rounded-xl overflow-hidden py-20 relative">
+        <div className="relative h-full group">
           <video
             ref={videoRef}
             src="/videos/Xpo720p.mp4"
@@ -261,19 +282,19 @@ export function LandingPageComponent() {
 
       {/* Statistics */}
       <section className="pb-20 bg-[#EDFFF0]">
-        <div className="relative w-full h-[300px] flex items-center">
+        <div className="relative w-full h-[360px] flex items-center">
           {/* Background Image */}
           <div className="absolute inset-0 overflow-hidden">
             <Image
-              src="/images/Footer with stats.png"
+              src="/images/Gradient Background.png"
               alt="Statistics background"
               fill
-              className="object-cover brightness-75"
+              className="object-cover brightness-110"
               quality={100}
               sizes="100vw"
             />
-            {/* Optional overlay for better text readability */}
-            <div className="absolute inset-0 bg-black/30"></div>
+            {/* Lighter overlay */}
+            <div className="absolute inset-0 bg-black/10"></div>
           </div>
           
           {/* Stats content */}
@@ -281,8 +302,35 @@ export function LandingPageComponent() {
             <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-4xl font-bold text-white">{stat.number}</div>
-                  <div className="text-lg text-white/80">{stat.label}</div>
+                  <div className="mb-4 h-[120px] flex items-center justify-center">
+                    <Image
+                      src={
+                        index === 0 ? "/images/Visitor_icon.png" :
+                        index === 1 ? "/images/Brands_icon.png" :
+                        index === 2 ? "/images/globe_icon.png" :
+                        "/images/convenice_icon.png"
+                      }
+                      alt={`${stat.label} icon`}
+                      width={110}
+                      height={120}
+                      className="object-contain h-[120px] w-auto"
+                    />
+                  </div>
+                  <div className="text-[47px] leading-[56.4px] tracking-[-2.35px] font-bold font-poppins text-[#212121]">
+                    {stat.number}
+                  </div>
+                  <div className="text-[30px] leading-[42px] tracking-[-1.5px] font-bold font-poppins text-[#212121]">
+                    {stat.label}
+                  </div>
+                  <div className="text-[13px] leading-[24px] font-normal font-poppins text-[#212121] mt-1">
+                    {stat.subText1}
+                  </div>
+                  <Link 
+                    href={stat.link}
+                    className="text-[14.6px] leading-[24px] font-bold text-[#FF54FB] mt-4 block hover:text-[#FF54FB]/80 transition-colors"
+                  >
+                    {stat.subText2}
+                  </Link>
                 </div>
               ))}
             </div>

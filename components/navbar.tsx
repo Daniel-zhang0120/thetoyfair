@@ -15,7 +15,7 @@ export function Navbar({ className }: NavbarProps) {
   
   const navigation = [
     { name: 'HOME', href: '/', className: 'ml-32' },
-    { name: 'VISIT', href: '/visit' },
+    { name: 'VISIT', href: '/exhibit' },
     { name: 'EXHIBIT', href: '/exhibit' },
     { name: 'BRANDS', href: '/brands' },
   ]
