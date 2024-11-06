@@ -21,7 +21,7 @@ export function Navbar({ className }: NavbarProps) {
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-green-200 bg-green-500/90 backdrop-blur-sm font-poppins">
+    <header className="sticky top-0 z-50 w-full bg-green-500/90 backdrop-blur-sm font-poppins">
       <div className="flex h-16 items-center px-4 w-full justify-between">
         <div className="flex-[0_0_200px] flex items-center justify-center mr-2">
           <Image
