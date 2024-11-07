@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { PlayCircle } from "lucide-react"
 import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 
 export function VisitPageComponent() {
   const categories = [
@@ -65,36 +66,65 @@ export function VisitPageComponent() {
     <div className="flex flex-col min-h-screen bg-[#EDFFF0]">
       <Navbar className="w-full bg-transparent" />
 
-      {/* Hero Section */}
-      <section className="relative py-20 bg-muted">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Why You Should Visit
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                Discover the latest innovations in sports equipment, connect with industry leaders, and stay ahead of market trends.
-              </p>
-              <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full text-lg font-semibold hover:bg-primary/90 transition-colors">
-                Register Now
-              </button>
-            </div>
-            <div className="relative aspect-video">
-              <Image
-                src="/images/Partner 7.png"
-                alt="Trade Show Floor"
-                fill
-                className="object-cover rounded-xl"
-              />
-            </div>
+      {/* Hero Section with Wave_Blue */}
+      <section className="relative py-20 bg-muted pt-100">
+        {/* Wave_Blue background */}
+        <div className="absolute inset-0 bottom-[-400px] overflow-visible pointer-events-none" style={{ zIndex: 0 }}>
+          <div className="pt-56">
+            <Image
+              src="/images/Wave_Red.png"
+              alt="Red Wave Background"
+              width={1920}
+              height={918}
+              className="w-full"
+              priority
+            />
+          </div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative flex items-center justify-between" style={{ zIndex: 10, marginTop: '300px' }}>
+          <div className="flex-1">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Why You Should Visit
+            </h1>
+            <p className="text-xl text-muted-foreground mb-8">
+              Discover the latest innovations in sports equipment, connect with industry leaders, and stay ahead of market trends.
+            </p>
+            <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full text-lg font-semibold hover:bg-primary/90 transition-colors">
+              Register Now
+            </button>
+          </div>
+          <div className="flex-1 relative aspect-video">
+            <Image
+              src="/images/exhibitor_sample.png"
+              alt="Trade Show Floor"
+              fill
+              className="object-cover rounded-xl"
+            />
           </div>
         </div>
       </section>
 
-      {/* Product Categories */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      {/* Empty space div */}
+      <div className="h-[500px]"></div>
+
+      {/* Product Categories with Wave_Red */}
+      <section className="relative py-20">
+        {/* Wave_Red background */}
+        <div className="absolute inset-0 bottom-[-400px] overflow-visible pointer-events-none" style={{ zIndex: 0 }}>
+          <div className="pt-56 mt-10">
+            <Image
+              src="/images/Wave_Blue.png"
+              alt="Blue Wave Background"
+              width={1920}
+              height={918}
+              className="w-full"
+              priority
+            />
+          </div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative" style={{ zIndex: 1 }}>
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             Product Categories
           </h2>
@@ -136,13 +166,12 @@ export function VisitPageComponent() {
                 <PlayCircle className="w-12 h-12" />
               </button>
             </div>
-            <video
-              className="w-full h-full object-cover"
-              poster="/images/Partner 1.png"
-            >
-              <source src="/videos/promo-video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <Image
+              src="/images/Partner 1.png"
+              alt="Video thumbnail"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
@@ -165,6 +194,8 @@ export function VisitPageComponent() {
           </div>
         </div>
       </section>
+
+      <Footer className="w-full" />
     </div>
   )
 }
