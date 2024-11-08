@@ -102,13 +102,13 @@ export function LandingPageComponent() {
             <p className="text-[#F249CD] text-[30px] leading-normal tracking-[0px] font-poppins font-bold animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s]">
               12 January 2026 - 28 February 2026
             </p>
-            <h1 className="text-[96px] leading-[93.5px] tracking-[-8px] font-bold mb-4 font-tilt-warp">
+            <h1 className="text-[96px] leading-[93.5px] tracking-[-8px] font-normal mb-4 font-tilt-warp">
               <span className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s] tracking-[-8px] leading-[93.5px] text-[96px] font-normal">
-                Sourcing <span className="text-[#4AD966] ">toys</span> has never been
+                Sourcing <span className="text-[#4AD966] font-normal">toys</span> has never been
               </span>
               <br />
-              <span className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.6s]">
-                <span className="text-[#4AD966] font-bold">so much fun !</span>
+              <span className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.6s] tracking-[-8px] leading-[93.5px] text-[96px] font-normal">
+                <span className="text-[#4AD966] font-normal">so much fun !</span>
               </span>
             </h1>
             <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.8s]">
@@ -219,7 +219,7 @@ export function LandingPageComponent() {
       {/* Industry Partners Section */}
       <section className="py-20 bg-[#EDFFF0]">
         <div className="w-[1300px] mx-auto px-4">
-          <h2 className="text-[80px] leading-[90px] tracking-[-8px] font-bold text-center mb-12 font-tilt-warp text-[#287838]">
+          <h2 className="text-[80px] leading-[90px] tracking-[-8px] text-center mb-12 font-tilt-warp text-[#287838]">
             Be at the frontier of fun - the toy industry is evolving 
           </h2>
           <h3 className="text-[30px] leading-normal font-semibold text-center mb-8 text-[#F249CD]">
