@@ -1,66 +1,14 @@
 'use client'
 
+import { useRef} from "react"
 import Image from "next/image"
-import { Card } from "@/components/ui/card"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { PlayCircle } from "lucide-react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { PartnersCarousel } from "./partners-carousel"
 
 export function VisitPageComponent() {
-  const categories = [
-    {
-      name: "Team Sports Equipment",
-      image: "/images/Partner 1.png"
-    },
-    {
-      name: "Fitness Gear",
-      image: "/images/Partner 2.png"
-    },
-    {
-      name: "Sports Apparel",
-      image: "/images/Partner 3.png"
-    },
-    {
-      name: "Training Technology",
-      image: "/images/Partner 4.png"
-    },
-    {
-      name: "Sports Nutrition",
-      image: "/images/Partner 5.png"
-    },
-    {
-      name: "Fan Merchandise",
-      image: "/images/Partner 6.png"
-    }
-  ]
-
-  const brands = [
-    {
-      name: "Brand 1",
-      logo: "/images/Partner 1.png"
-    },
-    {
-      name: "Brand 2",
-      logo: "/images/Partner 2.png"
-    },
-    {
-      name: "Brand 3",
-      logo: "/images/Partner 3.png"
-    },
-    {
-      name: "Brand 4",
-      logo: "/images/Partner 4.png"
-    },
-    {
-      name: "Brand 5",
-      logo: "/images/Partner 5.png"
-    },
-    {
-      name: "Brand 6",
-      logo: "/images/Partner 6.png"
-    }
-  ]
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
     <div className="flex flex-col min-h-screen bg-[#EDFFF0]">
@@ -82,24 +30,44 @@ export function VisitPageComponent() {
           </div>
         </div>
         
-        <div className="container mx-auto px-4 relative flex items-center justify-between" style={{ zIndex: 10, marginTop: '300px' }}>
-          <div className="flex-1">
+        <div className="container mx-auto px-4 relative flex items-center justify-between" 
+          style={{ 
+            zIndex: 10, 
+            marginTop: '300px',
+            maxWidth: '1400px',
+            height: '918px',
+            width: '100%'
+          }}>
+          <div className="flex-1 px-8" style={{ marginTop: '-330px' }}>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Why You Should Visit
+              Find fabulous recognized brands as well as the hottest newcomers at the <span className="text-[#00A651]">UK`&apos;`s first online Toy</span> trade show.
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Discover the latest innovations in sports equipment, connect with industry leaders, and stay ahead of market trends.
-            </p>
+            
+            <ul className="list-disc pl-6 mb-8 text-white" style={{ fontFamily: 'Poppins', fontSize: '24px', fontWeight: 600 }}>
+              <li className="mb-4">
+                For the first time trade shows work around you
+                <p className="text-base font-normal mt-1">No need to re-arrange your schedule or arrange cover. Come and go as you please, whenever it suits you.</p>
+              </li>
+              <li className="mb-4">
+                Reduce the hassle and cost
+                <p className="text-base font-normal mt-1">No need to re-arrange your schedule or arrange cover. Come and go as you please, whenever it suits you.</p>
+              </li>
+              <li className="mb-4">
+                Get more information - faster
+                <p className="text-base font-normal mt-1">No need to re-arrange your schedule or arrange cover. Come and go as you please, whenever it suits you.</p>
+              </li>
+            </ul>
+
             <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full text-lg font-semibold hover:bg-primary/90 transition-colors">
               Register Now
             </button>
           </div>
-          <div className="flex-1 relative aspect-video">
+          <div className="flex-1 relative h-[800px]" style={{ marginTop: '-250px' }}>
             <Image
               src="/images/exhibitor_sample.png"
               alt="Trade Show Floor"
               fill
-              className="object-cover rounded-xl"
+              className="object-contain rounded-xl"
             />
           </div>
         </div>
@@ -108,11 +76,11 @@ export function VisitPageComponent() {
       {/* Empty space div */}
       <div className="h-[500px]"></div>
 
-      {/* Product Categories with Wave_Red */}
+      {/* Product Categories with Wave_Blue */}
       <section className="relative py-20">
-        {/* Wave_Red background */}
+        {/* Wave_Blue background */}
         <div className="absolute inset-0 bottom-[-400px] overflow-visible pointer-events-none" style={{ zIndex: 0 }}>
-          <div className="pt-56 mt-10">
+          <div className="pt-56 -mt-[800px]">
             <Image
               src="/images/Wave_Blue.png"
               alt="Blue Wave Background"
@@ -124,33 +92,29 @@ export function VisitPageComponent() {
           </div>
         </div>
         
-        <div className="container mx-auto px-4 relative" style={{ zIndex: 1 }}>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Product Categories
-          </h2>
-          <Carousel className="max-w-5xl mx-auto">
-            <CarouselContent>
-              {categories.map((category, index) => (
-                <CarouselItem key={index} className="md:basis-1/3">
-                  <Card className="p-4">
-                    <div className="aspect-square relative mb-4">
-                      <Image
-                        src={category.image}
-                        alt={category.name}
-                        fill
-                        className="object-cover rounded-lg"
-                      />
-                    </div>
-                    <h3 className="text-xl font-semibold text-center">
-                      {category.name}
-                    </h3>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+        <div className="container mx-auto px-4 relative" style={{ zIndex: 1, marginTop: '-400px' }}>
+          <PartnersCarousel />
+          
+          {/* Video Section */}
+          <div className="w-[1300px] h-[800px] mx-auto rounded-xl overflow-hidden mt-20 relative">
+            <div className="relative h-full group">
+              <video
+                ref={videoRef}
+                src="/videos/Xpo720p.mp4"
+                className="object-cover w-full h-full rounded-xl cursor-pointer"
+                loop
+                playsInline
+                preload="auto"
+                muted
+                autoPlay
+                onClick={() => {
+                  if (videoRef.current) {
+                    videoRef.current.muted = !videoRef.current.muted;
+                  }
+                }}
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -172,25 +136,6 @@ export function VisitPageComponent() {
               fill
               className="object-cover"
             />
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Brands */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Featured Brands
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {brands.map((brand, index) => (
-              <div
-                key={index}
-                className="aspect-square bg-muted rounded-lg flex items-center justify-center text-xl font-semibold"
-              >
-                {brand.name}
-              </div>
-            ))}
           </div>
         </div>
       </section>

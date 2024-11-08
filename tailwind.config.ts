@@ -11,6 +11,7 @@ const config: Config = {
   	extend: {
   		fontFamily: {
   			'tilt-warp': ['var(--font-tilt-warp)'],
+			'poppins': ['var(--font-poppins)'],
   		},
   		colors: {
   			'custom-green': '#EDFFF0',

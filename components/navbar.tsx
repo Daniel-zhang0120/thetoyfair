@@ -1,7 +1,6 @@
 'use client'
 
 import Link from "next/link"
-import { Trophy } from "lucide-react"
 import { Button } from "./ui/button"
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
@@ -10,7 +9,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export function Navbar({ className }: NavbarProps) {
+export function Navbar({ }: NavbarProps) {
   const pathname = usePathname()
   
   const navigation = [

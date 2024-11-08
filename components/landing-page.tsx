@@ -7,7 +7,6 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { PlayCircle, PauseCircle, VolumeX, Volume2, Maximize2 } from "lucide-react"
 import { Navbar } from "@/components/navbar" 
 import { Footer } from "@/components/footer" 
-import Head from 'next/head';
 import Link from 'next/link';
 
 export function LandingPageComponent() {
@@ -70,10 +69,11 @@ export function LandingPageComponent() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#EDFFF0]">
+      {/*
       <Head>
-        {/* Importing the Pacifico font from Google Fonts */}
         <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet" />
       </Head>
+      */}
       <Navbar className="w-full bg-transparent" /> {/* Made navbar background transparent */}
 
       {/* Hero Section */}
@@ -102,9 +102,9 @@ export function LandingPageComponent() {
             <p className="text-[#F249CD] text-[30px] leading-normal tracking-[0px] font-poppins font-bold animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s]">
               12 January 2026 - 28 February 2026
             </p>
-            <h1 className="text-[96px] leading-[93.5px] tracking-[-8px] font-bold mb-4 font-[var(--font-tilt-warp)]">
-              <span className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]">
-                Sourcing <span className="text-[#4AD966] font-bold">toys</span> has never been
+            <h1 className="text-[96px] leading-[93.5px] tracking-[-8px] font-bold mb-4 font-tilt-warp">
+              <span className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s] tracking-[-8px] leading-[93.5px] text-[96px] font-normal">
+                Sourcing <span className="text-[#4AD966] ">toys</span> has never been
               </span>
               <br />
               <span className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.6s]">
@@ -219,7 +219,7 @@ export function LandingPageComponent() {
       {/* Industry Partners Section */}
       <section className="py-20 bg-[#EDFFF0]">
         <div className="w-[1300px] mx-auto px-4">
-          <h2 className="text-[80px] leading-[90px] tracking-[-8px] font-bold text-center mb-12 font-[var(--font-tilt-warp)] text-[#287838]">
+          <h2 className="text-[80px] leading-[90px] tracking-[-8px] font-bold text-center mb-12 font-tilt-warp text-[#287838]">
             Be at the frontier of fun - the toy industry is evolving 
           </h2>
           <h3 className="text-[30px] leading-normal font-semibold text-center mb-8 text-[#F249CD]">
@@ -265,7 +265,7 @@ export function LandingPageComponent() {
                 <CarouselItem key={index}>
                   <Card className="p-8 bg-[#EDFFF0]">
                     <blockquote className="text-xl text-center">
-                      "{testimonial.quote}"
+                      `&quot;`{testimonial.quote} `&quot;`
                       <footer className="mt-4 text-muted-foreground">
                         {testimonial.author}
                       </footer>
