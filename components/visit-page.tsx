@@ -12,7 +12,7 @@ export function VisitPageComponent() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#EDFFF0]">
-      <Navbar className="w-full bg-transparent" style={{ paddingBottom: '200px' }} />
+      <Navbar className="w-full bg-transparent" />
 
       {/* Hero Section with Wave_Red */}
       <section className="relative py-20 bg-muted pt-100">
@@ -50,9 +50,9 @@ export function VisitPageComponent() {
             height: '918px',
             width: '100%'
           }}>
-          <div className="flex-1 px-8" style={{ marginTop: '-330px' }}>
-            <h1 className="font-bold mb-6" style={{ fontSize: '45px', letterSpacing: '-2.5px', lineHeight: '53px' }}>
-              Find fabulous recognized brands as well as the hottest newcomers at the <span className="text-[#00A651]">UK's first online Toy</span> trade show.
+          <div className="flex-1 px-8" style={{ marginTop: '-330px', maxWidth: '600px' }}>
+            <h1 className="font-bold mb-6" style={{ fontSize: '40px', letterSpacing: '-2.5px', lineHeight: '53px', fontWeight: '900', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)' }}>
+              Find fabulous recognized brands as well as the hottest newcomers at the <span className="text-[#00A651]">UK&apos;s first online Toy</span> trade show.
             </h1>
             
             <ol className="list-decimal pl-6 mb-8 text-white" style={{ fontFamily: 'Poppins', fontSize: '24px', fontWeight: 600, lineHeight: '30px' }}>
@@ -168,7 +168,7 @@ export function VisitPageComponent() {
           {/* Title spanning full width */}
           <h2 className="text-[64px] leading-[56px] tracking-[-4.25px] font-bold mb-10 text-white w-full font-poppins" 
             style={{ marginTop: '100px', marginLeft: '100px' }}>
-            ...and it's better for the <span className="text-[64px]">environment</span>
+            ...and it&apos;s better for the <span className="text-[64px]">environment</span>
           </h2>
           
           {/* Content flex container */}

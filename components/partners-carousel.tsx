@@ -55,7 +55,7 @@ export function PartnersCarousel() {
   return (
     <div className="w-full max-w-7xl mx-auto">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-5">
+        <div className="flex gap-5 px-5">
           {doubledPartners.map((partner, index) => (
             <div 
               key={index} 
