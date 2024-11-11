@@ -2,7 +2,6 @@
 
 import { useRef} from "react"
 import Image from "next/image"
-import { PlayCircle } from "lucide-react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { PartnersCarousel } from "./partners-carousel"
@@ -13,10 +12,22 @@ export function VisitPageComponent() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#EDFFF0]">
-      <Navbar className="w-full bg-transparent" />
+      <Navbar className="w-full bg-transparent" style={{ paddingBottom: '200px' }} />
 
       {/* Hero Section with Wave_Red */}
       <section className="relative py-20 bg-muted pt-100">
+        {/* Text1.svg positioned above Wave_Red */}
+        <div className="absolute inset-0" style={{ zIndex: 1, top: '-70px', left: '350px' }}>
+          <Image
+            src="/images/Text1.svg"
+            alt="Text1"
+            width={1088.93}
+            height={682.94}
+            className="w-auto"
+            priority
+          />
+        </div>
+
         {/* Wave_Red background */}
         <div className="absolute inset-0 bottom-[-400px] overflow-visible pointer-events-none" style={{ zIndex: 0 }}>
           <div className="pt-56">
@@ -40,24 +51,33 @@ export function VisitPageComponent() {
             width: '100%'
           }}>
           <div className="flex-1 px-8" style={{ marginTop: '-330px' }}>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Find fabulous recognized brands as well as the hottest newcomers at the <span className="text-[#00A651]">UK`&apos;`s first online Toy</span> trade show.
+            <h1 className="font-bold mb-6" style={{ fontSize: '45px', letterSpacing: '-2.5px', lineHeight: '53px' }}>
+              Find fabulous recognized brands as well as the hottest newcomers at the <span className="text-[#00A651]">UK's first online Toy</span> trade show.
             </h1>
             
-            <ul className="list-disc pl-6 mb-8 text-white" style={{ fontFamily: 'Poppins', fontSize: '24px', fontWeight: 600 }}>
+            <ol className="list-decimal pl-6 mb-8 text-white" style={{ fontFamily: 'Poppins', fontSize: '24px', fontWeight: 600, lineHeight: '30px' }}>
               <li className="mb-4">
                 For the first time trade shows work around you
-                <p className="text-base font-normal mt-1">No need to re-arrange your schedule or arrange cover. Come and go as you please, whenever it suits you.</p>
+                <p className="mt-1" style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400', maxWidth: '500px', marginLeft: '0', fontFamily: 'Poppins' }}>
+                  No need to re-arrange your schedule or arrange cover. Come and go as you please, whenever it suits you.
+                </p>
+                <div style={{ width: '500px', height: '1px', backgroundColor: 'rgba(255, 255, 255, 0.2)', marginTop: '10px' }}></div>
               </li>
               <li className="mb-4">
                 Reduce the hassle and cost
-                <p className="text-base font-normal mt-1">No need to re-arrange your schedule or arrange cover. Come and go as you please, whenever it suits you.</p>
+                <p className="mt-1" style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400', maxWidth: '500px', marginLeft: '0', fontFamily: 'Poppins' }}>
+                  Say goodbye to cramped commuter trains, car park shuttles and expensive hotels.
+                </p>
+                <div style={{ width: '500px', height: '1px', backgroundColor: 'rgba(255, 255, 255, 0.2)', marginTop: '10px' }}></div>
               </li>
               <li className="mb-4">
                 Get more information - faster
-                <p className="text-base font-normal mt-1">No need to re-arrange your schedule or arrange cover. Come and go as you please, whenever it suits you.</p>
+                <p className="mt-1" style={{ fontSize: '16px', lineHeight: '24px', fontWeight: '400', maxWidth: '500px', marginLeft: '0', fontFamily: 'Poppins' }}>
+                  Find a larger choice of exhibitors across more sectors of your market in a fraction of the time - find what you want faster.
+                </p>
+                <div style={{ width: '500px', height: '1px', backgroundColor: 'rgba(255, 255, 255, 0.2)', marginTop: '10px' }}></div>
               </li>
-            </ul>
+            </ol>
 
             <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full text-lg font-semibold hover:bg-primary/90 transition-colors">
               Register Now
@@ -79,6 +99,18 @@ export function VisitPageComponent() {
 
       {/* Product Categories with Wave_Blue */}
       <section className="relative py-20">
+        {/* Text2.svg positioned above Wave_Blue */}
+        <div className="absolute inset-0" style={{ zIndex: 1, top: '-700px' , left: '350px'}}>
+          <Image
+            src="/images/Text2.svg"
+            alt="Text2"
+            width={1088.93}
+            height={682.94}
+            className="w-auto"
+            priority
+          />
+        </div>
+
         {/* Wave_Blue background */}
         <div className="absolute inset-0 bottom-[-400px] overflow-visible pointer-events-none" style={{ zIndex: 0 }}>
           <div className="pt-56 -mt-[800px]">
@@ -135,16 +167,16 @@ export function VisitPageComponent() {
           }}>
           {/* Title spanning full width */}
           <h2 className="text-[64px] leading-[56px] tracking-[-4.25px] font-bold mb-10 text-white w-full font-poppins" 
-            style={{ marginTop: '100px', paddingLeft: '50px' }}>
+            style={{ marginTop: '100px', marginLeft: '100px' }}>
             ...and it's better for the <span className="text-[64px]">environment</span>
           </h2>
           
           {/* Content flex container */}
           <div className="flex items-center justify-between" style={{ marginTop: '-200px' }}>
-            <div className="flex-1 px-8" style={{ maxWidth: '800px' }}>
-              <p className="text-[20px] leading-[1.5] tracking-normal font-medium text-white" 
-                style={{ fontFamily: 'Poppins' }}>
-                Feel good about drastically reducing your carbon footprint by eliminating the scandalous waste of traditional trade shows. No more single use stands. No reckless waste bound for landfill. No more emission-heavy flights and travel.
+            <div className="flex-1 px-8" style={{ maxWidth: '700px', marginLeft: '50px' }}>
+              <p className="text-[20px] leading-[1.5] tracking-normal font-medium text-white font-poppins">
+                Feel good about drastically reducing your carbon footprint by eliminating the scandalous waste of traditional trade shows.<br /><br />
+                No more single use stands. No reckless waste bound for landfill. No more emission-heavy flights and travel.
               </p>
             </div>
             <div className="flex-1 relative h-[800px]">
