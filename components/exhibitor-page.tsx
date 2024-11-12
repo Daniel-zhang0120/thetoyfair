@@ -135,7 +135,7 @@ export function ExhibitorPageComponent() {
       <div className="relative" style={{ marginTop: '-200px' }}>
         {/* Text positioned above Wave_Pink */}
         <section className="relative py-20 bg-white pt-100">
-          <div className="absolute inset-0" style={{ zIndex: 1, top: '-610px', left: '560px' }}>
+          <div className="absolute inset-0" style={{ zIndex: 1, top: '-610px', left: '650px' }}>
             <div style={{ bottom: '200px' }}>
               <h1
                 className="font-poppins font-extrabold"
@@ -149,7 +149,7 @@ export function ExhibitorPageComponent() {
                   backgroundClip: 'text',
                 }}
               >
-                Why should you visit?
+                What to expect
               </h1>
             </div>
           </div>
@@ -172,7 +172,7 @@ export function ExhibitorPageComponent() {
           </div>
 
           {/* Second Wave_Pink background with padding, positioned 110px below the first */}
-          <div className="absolute inset-0 top-[-400px] overflow-visible pointer-events-none" style={{ zIndex: 0, paddingTop: '150px'}}>
+          <div className="absolute inset-0 top-[-600px] overflow-visible pointer-events-none" style={{ zIndex: 0, paddingTop: '150px', paddingBottom: '100px' }}>
             <div className="pt-56">
               <Image
                 src="/images/Wave_Pink.png"
@@ -185,11 +185,11 @@ export function ExhibitorPageComponent() {
             </div>
           </div>
           {/* Spacer element to add space below the wave */}
-          <div style={{ height: '300px' }}></div>
+          <div style={{ height: '500px' }}></div>
         </section>
       </div>
 
-      <div className="container mx-auto px-4 relative" style={{ zIndex: 1, marginTop: '-500px' }}>
+      <div className="container mx-auto px-4 relative" style={{ zIndex: 1, marginTop: '-900px' }}>
         <PartnersCarousel />
         
         {/* Video Section */}
@@ -214,44 +214,59 @@ export function ExhibitorPageComponent() {
         </div>
       </div>
 
+       {/* Green Wave Section with Content */}
+       <section className="relative py-20 bg-white" style={{ paddingTop: '800px' }}>
+        {/* Content Section */}
+        <div className="container mx-auto px-4 relative" 
+          style={{ 
+            zIndex: 1, 
+            marginTop: '-470px',
+            maxWidth: '1400px',
+            width: '100%',
+            paddingRight: '200px'
+          }}>
+          {/* Title spanning full width */}
+          <h2 className="text-[64px] leading-[56px] tracking-[-4.25px] font-bold mb-10 text-white w-full font-poppins" 
+            style={{ marginTop: '130px', marginLeft: '100px' }}>
+            ...and it&apos;s better for the <span className="text-[64px]">environment</span>
+          </h2>
+          
+          {/* Content flex container */}
+          <div className="flex items-center justify-between" style={{ marginTop: '-130px' }}>
+            <div className="flex-1 px-8" style={{ maxWidth: '700px', marginLeft: '50px', marginTop: '-110px' }}>
+              <p className="text-[20px] leading-[1.5] tracking-normal font-medium text-white font-poppins">
+                Feel good about drastically reducing your carbon footprint by eliminating the scandalous waste of traditional trade shows.<br /><br />
+                No more single use stands. No reckless waste bound for landfill. No more emission-heavy flights and travel.
+              </p>
+            </div>
+            <div className="flex-1 relative h-[800px]" style={{ marginTop: '-120px' }}>
+              <Image
+                src="/images/enviorment.png"
+                alt="Environmental Impact"
+                fill
+                className="object-contain rounded-xl"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Wave_Green background */}
+        <div className="absolute inset-0 bottom-[-400px] overflow-visible pointer-events-none" style={{ zIndex: 0, paddingTop: '700px' }}>
+          <div className="pt-56 -mt-[700px]">
+            <Image
+              src="/images/Wave_Green.png"
+              alt="Green Wave Background"
+              width={1920}
+              height={918}
+              className="w-full"
+              priority
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Empty space div */}
       <div className="h-[100px] bg-white"></div>
-
-      {/* Container for the entire Green Wave Section */}
-      <div className="relative" style={{ marginTop: '100px' }}>
-        {/* Wave_Green Section */}
-        <section className="relative" style={{ paddingBottom: '100px' }}>
-          {/* First Wave_Green background */}
-          <div className="absolute inset-0 top-[0px] overflow-visible pointer-events-none" style={{ zIndex: 0 }}>
-            <div className="pt-56">
-              <Image
-                src="/images/Wave_Green.png"
-                alt="Green Wave Background"
-                width={1920}
-                height={918}
-                className="w-full"
-                priority
-              />
-            </div>
-          </div>
-
-          {/* Second Wave_Green background with padding */}
-          <div className="absolute inset-0 top-[110px] overflow-visible pointer-events-none" style={{ zIndex: 0, paddingTop: '150px'}}>
-            <div className="pt-56">
-              <Image
-                src="/images/Wave_Green.png"
-                alt="Green Wave Background"
-                width={1920}
-                height={918}
-                className="w-full"
-                priority
-              />
-            </div>
-          </div>
-          {/* Spacer element to add space below the wave */}
-          <div style={{ height: '300px' }}></div>
-        </section>
-      </div>
 
       {/* Join Us Text Section */}
       <section className="relative bg-white" style={{ marginTop: '100px' }}>
