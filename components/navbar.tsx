@@ -43,7 +43,7 @@ export function Navbar({ }: NavbarProps) {
                 className={`
                   text-[17px] font-semibold font-poppins transition-all duration-200
                   hover:text-black
-                  ${pathname === item.href ? 'text-pink-400 font-bold' : 'text-white'}
+                  ${pathname === item.href ? 'text-[#9747FF] font-bold' : 'text-white'}
                   ${item.className || ''}
                 `}
               >
