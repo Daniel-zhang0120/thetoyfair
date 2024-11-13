@@ -9,7 +9,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export function Navbar({ }: NavbarProps) {
+export function Navbar({ className }: NavbarProps) {
   const pathname = usePathname()
   
   const navigation = [
@@ -17,10 +17,11 @@ export function Navbar({ }: NavbarProps) {
     { name: 'VISIT', href: '/visit' },
     { name: 'EXHIBIT', href: '/exhibit' },
     { name: 'BRANDS', href: '/brands' },
+    { name: 'MEDIA', href: '/media' },
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-green-500/90 backdrop-blur-sm font-poppins">
+    <header className={`sticky top-0 z-50 w-full bg-green-500/90 backdrop-blur-sm font-poppins ${className || ''}`}>
       <div className="flex h-16 items-center px-4 w-full justify-between">
         <div className="flex-[0_0_200px] flex items-center justify-center mr-2">
           <Image
