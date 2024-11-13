@@ -19,7 +19,7 @@ export const Footer = ({ className }: FooterProps) => {
   };
 
   return (
-    <footer className={`bg-custom-green ${className || ''}`}>
+    <footer className={`bg-custom-green ${className || ''}`} style={{ borderTop: '80px solid #EDFFF0' }}>
       <div className="w-[980px] mx-auto px-4 bg-[#EDFFF0]">
         <div className="grid grid-cols-1 md:grid-cols-[550px_1fr] gap-14">
           <div className="space-y-4">

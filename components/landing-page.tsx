@@ -281,7 +281,7 @@ export function LandingPageComponent() {
       </section>
 
       {/* Statistics */}
-      <section className="pb-20 bg-[#EDFFF0]">
+      <section className="bg-[#EDFFF0]">
         <div className="relative w-full h-[360px] flex items-center">
           {/* Background Image */}
           <div className="absolute inset-0 overflow-hidden">

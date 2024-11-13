@@ -265,6 +265,40 @@ export function ExhibitorPageComponent() {
         </div>
       </section>
 
+      {/* Duplicate "Why should you visit?" Text Below Green Section */}
+      <section className="relative py-20 bg-white pt-100">
+        <div className="absolute inset-0" style={{ zIndex: 1, top: '90px', left: '560px' }}>
+          <div style={{ bottom: '200px' }}>
+            <h1
+              className="font-poppins font-extrabold"
+              style={{
+                fontSize: '80px',
+                letterSpacing: '-4.25px',
+                lineHeight: '90px',
+                background: 'linear-gradient(90deg, #F249CD 24%, #5D43FF 49%, #9747FF 85%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Why should you visit?
+            </h1>
+          </div>
+        </div>
+
+        {/* Image with increased padding below the text */}
+        <div className="mt-[200px] flex justify-center">
+          <Image
+            src="/images/exhibiting_benefits.png"
+            alt="Exhibiting Benefits"
+            width={1200}
+            height={0} // Set height to 0 to allow it to hug the content
+            className="w-[1200px] h-auto" // Ensure the image maintains aspect ratio
+            priority
+          />
+        </div>
+      </section>
+
       {/* Empty space div */}
       <div className="h-[100px] bg-white"></div>
 
