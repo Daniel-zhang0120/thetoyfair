@@ -7,12 +7,12 @@ import { Footer } from './footer'
 
 // Mock data for latest blog posts
 const latestPosts = [
-  { id: 1, title: 'The Future of AI', image: '/placeholder.svg?height=200&width=300', author: 'Jane Doe' },
-  { id: 2, title: 'Web Development Trends', image: '/placeholder.svg?height=200&width=300', author: 'John Smith' },
-  { id: 3, title: 'Mastering React Hooks', image: '/placeholder.svg?height=200&width=300', author: 'Alice Johnson' },
-  { id: 4, title: 'The Art of UX Design', image: '/placeholder.svg?height=200&width=300', author: 'Bob Williams' },
-  { id: 5, title: 'Cybersecurity Essentials', image: '/placeholder.svg?height=200&width=300', author: 'Eve Brown' },
-  { id: 6, title: 'Machine Learning Basics', image: '/placeholder.svg?height=200&width=300', author: 'Charlie Davis' },
+  { id: 1, title: 'The Future of AI', image: '/images/picture2.png', author: 'Jane Doe' },
+  { id: 2, title: 'Web Development Trends', image: '/images/picture3.png', author: 'John Smith' },
+  { id: 3, title: 'Mastering React Hooks', image: '/images/picture4.png', author: 'Alice Johnson' },
+  { id: 4, title: 'The Art of UX Design', image: '/images/picture5.png', author: 'Bob Williams' },
+  { id: 5, title: 'Cybersecurity Essentials', image: '/images/picture6.png', author: 'Eve Brown' },
+  { id: 6, title: 'Machine Learning Basics', image: '/images/picture7.png', author: 'Charlie Davis' },
 ]
 
 export default function BlogPage() {
@@ -24,7 +24,7 @@ export default function BlogPage() {
         {/* Main featured post */}
         <div className="relative mb-12">
           <Image
-            src="/placeholder.svg?height=600&width=1200"
+            src="/images/picture1.png"
             alt="Featured blog post"
             width={1200}
             height={600}

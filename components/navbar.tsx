@@ -21,7 +21,10 @@ export function Navbar({ className }: NavbarProps) {
   ]
 
   return (
-    <header className={`sticky top-0 z-50 w-full bg-green-500/90 backdrop-blur-sm font-poppins ${className || ''}`}>
+    <header
+      className={`sticky top-0 z-50 w-full backdrop-blur-sm font-poppins ${className || ''}`}
+      style={{ backgroundColor: '#4AD966' }}
+    >
       <div className="flex h-16 items-center px-4 w-full justify-between">
         <div className="flex-[0_0_200px] flex items-center justify-center mr-2">
           <Image
