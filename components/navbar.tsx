@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "./ui/button"
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
+import ShareButton from './ui/ShareButton';
 
 interface NavbarProps {
   className?: string;
@@ -71,6 +72,7 @@ export function Navbar({ className }: NavbarProps) {
           >
             BOOK A STAND
           </Button>
+          <ShareButton />
         </div>
       </div>
     </header>
