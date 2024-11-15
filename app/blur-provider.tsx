@@ -1,12 +1,15 @@
 "use client";
 import { createContext, useState } from 'react';
 
-export const BlurContext = createContext({
+export const BlurContext = createContext<{
+  isBlurred: boolean;
+  setIsBlurred: React.Dispatch<React.SetStateAction<boolean>>;
+}>({
   isBlurred: false,
-  setIsBlurred: (value: boolean) => {},
+  setIsBlurred: () => {},
 });
 
-const BlurProvider = ({ children }: { children: React.ReactNode }) => {
+export function BlurProvider({ children }: { children: React.ReactNode }) {
   const [isBlurred, setIsBlurred] = useState(false);
 
   return (
@@ -14,7 +17,4 @@ const BlurProvider = ({ children }: { children: React.ReactNode }) => {
       {children}
     </BlurContext.Provider>
   );
-};
-
-export { BlurProvider };
-export default BlurProvider; 
+} 
