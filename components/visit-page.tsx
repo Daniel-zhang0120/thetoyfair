@@ -222,7 +222,7 @@ export function VisitPageComponent() {
         <div className="absolute inset-0 bottom-[-400px] overflow-visible pointer-events-none" style={{ zIndex: 0 }}>
           <div className="pt-56 -mt-[700px]">
             <Image
-              src="/images/Wave_Green.png"
+              src="/images/Wave_Green_svg.svg"
               alt="Green Wave Background"
               width={1920}
               height={918}

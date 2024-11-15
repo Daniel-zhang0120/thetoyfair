@@ -58,17 +58,18 @@ export function Navbar({ className }: NavbarProps) {
           </nav>
         </div>
 
-        <div className="flex-[0_0_200px] flex items-center justify-center gap-2">
+        <div className="flex-[0_0_200px] flex items-center justify-end gap-4 mr-8">
           <Button 
             variant="outline"
             size="custom"
-            className="hidden sm:inline-flex text-[14px] hover:font-bold"
+            className="text-[14px] hover:font-bold"
           >
             BUY A TICKET
           </Button>
           <Button 
             variant="default"
             size="custom"
+            className="mr-4"
           >
             BOOK A STAND
           </Button>

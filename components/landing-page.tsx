@@ -308,7 +308,7 @@ export function LandingPageComponent() {
                         index === 0 ? "/images/Visitor_icon.png" :
                         index === 1 ? "/images/Brands_icon.png" :
                         index === 2 ? "/images/globe_icon.png" :
-                        "/images/convenice_icon.png"
+                        "/images/convenice_icon_svg.svg"
                       }
                       alt={`${stat.label} icon`}
                       width={110}
