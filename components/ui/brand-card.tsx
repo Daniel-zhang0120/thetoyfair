@@ -1,7 +1,21 @@
 import React from "react";
 import Image from "next/image";
+interface BrandData {
+  standNumber: string;
+  type: string;
+  companyImage: string;
+  title: string;
+  description: string;
+  exhibitorImage: string;
+  exhibitorName: string;
+  jobTitle: string;
+}
 
-const BrandCard = (props: any) => {
+interface BrandCardProps {
+  brandData: BrandData;
+}
+
+const BrandCard = (props: BrandCardProps) => {
   const { brandData } = props;
   const {
     standNumber,
