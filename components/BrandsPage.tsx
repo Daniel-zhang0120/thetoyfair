@@ -1,9 +1,8 @@
-'use client'
+"use client";
 
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import { Footer } from "@/components/footer";
+import { Navbar } from "@/components/navbar";
+import BrandCard from "./ui/brand-card";
 
 const brands = [
   {
@@ -21,7 +20,8 @@ const brands = [
     standNumber: "Stand #102",
     title: "Brand 2",
     companyImage: "/images/brand1.png",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     exhibitorImage: "/images/exhibitor1.png",
     exhibitorName: "Exhibitor 2",
     jobTitle: "Marketing Manager",
@@ -31,7 +31,8 @@ const brands = [
     standNumber: "Stand #103",
     title: "Brand 3",
     companyImage: "/images/brand1.png",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     exhibitorImage: "/images/exhibitor1.png",
     exhibitorName: "Exhibitor 3",
     jobTitle: "Sales Director",
@@ -51,7 +52,8 @@ const brands = [
     standNumber: "Stand #105",
     title: "Brand 5",
     companyImage: "/images/brand1.png",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     exhibitorImage: "/images/exhibitor1.png",
     exhibitorName: "Exhibitor 5",
     jobTitle: "Operations Manager",
@@ -61,7 +63,8 @@ const brands = [
     standNumber: "Stand #106",
     title: "Brand 6",
     companyImage: "/images/brand1.png",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     exhibitorImage: "/images/exhibitor1.png",
     exhibitorName: "Exhibitor 6",
     jobTitle: "HR Manager",
@@ -81,7 +84,8 @@ const brands = [
     standNumber: "Stand #108",
     title: "Brand 8",
     companyImage: "/images/brand1.png",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     exhibitorImage: "/images/exhibitor1.png",
     exhibitorName: "Exhibitor 8",
     jobTitle: "CFO",
@@ -91,7 +95,8 @@ const brands = [
     standNumber: "Stand #109",
     title: "Brand 9",
     companyImage: "/images/brand1.png",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     exhibitorImage: "/images/exhibitor1.png",
     exhibitorName: "Exhibitor 9",
     jobTitle: "COO",
@@ -111,7 +116,8 @@ const brands = [
     standNumber: "Stand #111",
     title: "Brand 11",
     companyImage: "/images/brand1.png",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     exhibitorImage: "/images/exhibitor1.png",
     exhibitorName: "Exhibitor 11",
     jobTitle: "Chief Engineer",
@@ -121,7 +127,8 @@ const brands = [
     standNumber: "Stand #112",
     title: "Brand 12",
     companyImage: "/images/brand1.png",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     exhibitorImage: "/images/exhibitor1.png",
     exhibitorName: "Exhibitor 12",
     jobTitle: "Chief Scientist",
@@ -141,7 +148,8 @@ const brands = [
     standNumber: "Stand #114",
     title: "Brand 14",
     companyImage: "/images/brand1.png",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     exhibitorImage: "/images/exhibitor1.png",
     exhibitorName: "Exhibitor 14",
     jobTitle: "Chief Strategist",
@@ -151,7 +159,8 @@ const brands = [
     standNumber: "Stand #115",
     title: "Brand 15",
     companyImage: "/images/brand1.png",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     exhibitorImage: "/images/exhibitor1.png",
     exhibitorName: "Exhibitor 15",
     jobTitle: "Chief Analyst",
@@ -160,49 +169,9 @@ const brands = [
 
 function BrandsGrid() {
   return (
-    <div className="grid grid-cols-4 gap-3 p-4" style={{ paddingLeft: '350px', paddingRight: '350px', minHeight: '100vh' }}>
-      {brands.map((brand, index) => (
-        <div
-          key={index}
-          className="border rounded-lg flex flex-col items-center"
-          style={{ 
-            width: "278px", 
-            margin: "6.25px", 
-            backgroundColor: "#EDFFF0", 
-            borderRadius: "20px",
-            padding: "20px",
-            height: "auto",
-            justifyContent: "space-between",
-          }}
-        >
-          <div className="flex flex-col items-center">
-            <span className="bg-gray-200 text-black px-2 py-1 rounded-full text-xs mb-5">{brand.type}</span>
-            <span className="text-xs text-black mb-5">{brand.standNumber}</span>
-            <Image
-              src={brand.companyImage}
-              alt={`${brand.title} Image`}
-              width={250}
-              height={150}
-              className="mb-5"
-            />
-            <h2 className="text-lg font-bold mb-5 text-black">{brand.title}</h2>
-            <p className="text-sm text-black text-center" style={{ marginBottom: "20px" }}>{brand.description}</p>
-            <Button className="mb-5 border-black text-black">Visit Booth</Button>
-          </div>
-          <div className="flex items-center" style={{ paddingTop: "20px", paddingBottom: "20px" }}>
-            <Image
-              src={brand.exhibitorImage}
-              alt={`${brand.exhibitorName} Image`}
-              width={50}
-              height={50}
-              className="rounded-full mr-2"
-            />
-            <div className="text-center">
-              <h3 className="font-semibold text-black">{brand.exhibitorName}</h3>
-              <p className="text-xs text-black">{brand.jobTitle}</p>
-            </div>
-          </div>
-        </div>
+    <div className="mt-4 columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-x-8">
+      {brands.map((card, index) => (
+        <BrandCard key={index} brandData={card} />
       ))}
     </div>
   );
@@ -214,17 +183,23 @@ export function BrandsPageComponent() {
       <Navbar className="w-full bg-transparent" />
 
       {/* Brands Page Information Section */}
-      <div className="flex-grow flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Welcome to the Brands Page</h1>
-          <p className="text-lg">Discover a wide range of brands and their latest offerings.</p>
+      <div className="flex items-center justify-center py-8 bg-gray-100">
+        <div className="container text-center">
+          <h1 className="text-4xl font-bold mb-4">
+            Welcome to the Brands Page
+          </h1>
+          <p className="text-lg text-gray-600">
+            Discover a wide range of brands and their latest offerings.
+          </p>
         </div>
       </div>
 
       {/* Brands Grid Section */}
-      <BrandsGrid />
+      <div className="container mx-auto py-8">
+        <BrandsGrid />
+      </div>
 
       <Footer className="w-full" />
     </div>
-  )
+  );
 }
