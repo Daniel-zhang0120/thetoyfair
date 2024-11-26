@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+
 interface BrandData {
   standNumber: string;
   type: string;
@@ -9,6 +10,8 @@ interface BrandData {
   exhibitorImage: string;
   exhibitorName: string;
   jobTitle: string;
+  hall: string;
+  productTags: string[];
 }
 
 interface BrandCardProps {
@@ -22,22 +25,26 @@ const BrandCard = (props: BrandCardProps) => {
     type,
     companyImage: productImg,
     title,
-    description: description,
+    description,
     exhibitorImage: userImg,
     exhibitorName: userName,
     jobTitle: userRole,
+    hall,
+    productTags,
   } = brandData;
 
   return (
-    <div className=" break-inside-avoid bg-gradient-to-b from-[#F9F9EE] to-[#E3E3D9] w-full mx-auto p-6 rounded-2xl text-center shadow-lg m-2">
+    <div className="break-inside-avoid bg-gradient-to-b from-[#F9F9EE] to-[#E3E3D9] w-full mx-auto p-6 rounded-2xl text-center shadow-lg m-2">
       <div className="flex flex-col items-center gap-5 mb-4">
         {/* Type Badge */}
         <div className="text-white bg-[#9747FF] py-1 px-4 text-sm font-semibold rounded-md">
           <span>{type}</span>
         </div>
 
-        {/* Stand Number */}
-        <p className="text-xs font-light mt-1">{standNumber}</p>
+        {/* Hall and Stand Number - Updated to be together and larger */}
+        <p className="text-lg font-medium mt-1">
+          Hall {hall} - Stand {standNumber}
+        </p>
 
         {/* Company Image */}
         {productImg && (
@@ -51,6 +58,18 @@ const BrandCard = (props: BrandCardProps) => {
             />
           </div>
         )}
+
+        {/* Product Tags - Added below image */}
+        <div className="flex flex-wrap gap-2 justify-center">
+          {productTags.map((tag, index) => (
+            <span
+              key={index}
+              className="bg-[#9747FF] text-white px-4 py-1 rounded-full text-sm hover:bg-[#8033FF] transition-colors"
+            >
+              {tag.trim()}
+            </span>
+          ))}
+        </div>
 
         {/* Title */}
         <h1 className="font-semibold text-2xl leading-none">{title}</h1>
@@ -68,19 +87,20 @@ const BrandCard = (props: BrandCardProps) => {
           Visit Show
         </a>
 
-        {/* Contact Info */}
+        {/* Contact Info - Fixed circular dimensions */}
         <div className="flex items-center gap-5 mt-4">
-          <Image
-            src={userImg}
-            alt="profile-pic"
-            width={60}
-            height={60}
-            className="object-cover max-w-[60px] w-full h-full"
-          />
+          <div className="relative w-[60px] h-[60px] flex-shrink-0">
+            <Image
+              src={userImg}
+              alt="profile-pic"
+              fill
+              className="rounded-full object-cover"
+            />
+          </div>
 
-          <div className="text-center w-full ">
+          <div className="text-center w-full">
             <h3 className="font-semibold text-black">{userName}</h3>
-            <p className="ttext-xs text-black">{userRole}</p>
+            <p className="text-xs text-black">{userRole}</p>
           </div>
         </div>
       </div>
