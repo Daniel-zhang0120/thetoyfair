@@ -30,6 +30,12 @@ const formatTags = (tagString: string): string[] => {
   return tagString.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0)
 }
 
+// Add this helper function at the top of the file
+const truncateText = (text: string, limit: number = 300) => {
+  if (text.length <= limit) return text;
+  return text.slice(0, limit) + '...';
+};
+
 export default function APIRequestPage() {
   const [brands, setBrands] = useState<Brand[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -190,7 +196,7 @@ export default function APIRequestPage() {
   }
 
   const handleEdit = (brand: Brand) => {
-    console.log(brand,"brand")
+    console.log("Starting edit for brand:", brand)
     setEditingBrand(brand.BrandID)
     setEditFormData({
       brand_id: brand.BrandID,
@@ -219,19 +225,52 @@ export default function APIRequestPage() {
     setError(null)
 
     try {
+      // Separate brand_id from the rest of the data
+      const { brand_id, ...data } = editFormData
+      
+      // Log the values to verify they're correct
+      console.log("brand_id being sent:", brand_id)
+      console.log("edit data being sent:", data)
+
+      const requestData = {
+        brand_id: brand_id,
+        data: {
+          brand_name: data.brand_name,
+          brands_image: data.brands_image,
+          description: data.description,
+          stand_number: data.stand_number,
+          hall: data.hall,
+          product_tag: data.product_tag,
+          location: data.location,
+          exhibitor_id: data.exhibitor_id
+        }
+      }
+
+      console.log('Final request data:', requestData)
+
       const response = await fetch('http://127.0.0.1:5000/api/brands/edit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(editFormData)
+        body: JSON.stringify(requestData)
       })
 
+      const responseText = await response.text()
+      console.log('Raw response:', responseText)
+
       if (!response.ok) {
-        throw new Error('Failed to update brand')
+        throw new Error(`HTTP error! status: ${response.status}, body: ${responseText}`)
       }
 
-      // Reset form and refresh brands
+      let result
+      try {
+        result = JSON.parse(responseText)
+        console.log('Parsed response:', result)
+      } catch (parseError) {
+        throw new Error(`Invalid JSON response: ${responseText}`)
+      }
+
       setEditingBrand(null)
       setEditFormData({
         brand_id: '',
@@ -244,11 +283,11 @@ export default function APIRequestPage() {
         hall: '',
         exhibitor_id: ''
       })
-      // Refetch brands
-      setIsLoading(true)
+      
       fetchBrands()
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred')
+      console.error('Edit error:', err)
+      setError(err instanceof Error ? err.message : 'An error occurred while updating the brand')
     } finally {
       setIsSubmitting(false)
     }
@@ -457,7 +496,7 @@ export default function APIRequestPage() {
                   onChange={handleChange}
                   required
                   rows={3}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none whitespace-pre-line"
                 />
               </div>
 
@@ -649,7 +688,7 @@ export default function APIRequestPage() {
 
                     <div>
                       <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-                        Description
+                        Description (max 300 characters)
                       </label>
                       <textarea
                         id="description"
@@ -657,9 +696,13 @@ export default function APIRequestPage() {
                         value={editFormData.description}
                         onChange={handleEditChange}
                         required
+                        maxLength={300}
                         rows={3}
-                        className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
+                        className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none whitespace-pre-line"
                       />
+                      <p className="mt-1 text-sm text-gray-500">
+                        {editFormData.description.length}/300 characters
+                      </p>
                     </div>
 
                     <div>
@@ -758,7 +801,9 @@ export default function APIRequestPage() {
                 <h1 className="font-semibold text-2xl leading-none">{brand.brand_name}</h1>
 
                 {/* Description */}
-                <p className="text-sm font-light leading-5">{brand.description}</p>
+                <p className="text-sm font-light leading-5 whitespace-pre-line">
+                  {truncateText(brand.description)}
+                </p>
 
                 {/* Visit Show Link */}
                 <a

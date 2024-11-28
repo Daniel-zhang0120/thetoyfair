@@ -18,6 +18,11 @@ interface BrandCardProps {
   brandData: BrandData;
 }
 
+const truncateText = (text: string, limit: number = 300) => {
+  if (text.length <= limit) return text;
+  return text.slice(0, limit) + '...';
+};
+
 const BrandCard = (props: BrandCardProps) => {
   const { brandData } = props;
   const {
@@ -76,7 +81,9 @@ const BrandCard = (props: BrandCardProps) => {
 
         {/* Description */}
         {description && (
-          <p className="text-sm font-light leading-5">{description}</p>
+          <p className="text-sm font-light leading-5 whitespace-pre-line">
+            {truncateText(description)}
+          </p>
         )}
 
         {/* Visit Show Link */}
