@@ -190,6 +190,7 @@ export default function APIRequestPage() {
   }
 
   const handleEdit = (brand: Brand) => {
+    console.log(brand,"brand")
     setEditingBrand(brand.BrandID)
     setEditFormData({
       brand_id: brand.BrandID,
@@ -578,6 +579,168 @@ export default function APIRequestPage() {
                     className="object-cover w-full h-full"
                   />
                 </div>
+
+                {editingBrand === brand.BrandID && (
+              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                <div className="bg-white p-6 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                  <h2 className="text-2xl font-bold mb-4">Edit Brand</h2>
+                  <form onSubmit={handleEditSubmit} className="space-y-4">
+                    <div>
+                      <label htmlFor="brand_name" className="block text-sm font-medium text-gray-700">
+                        Brand Name
+                      </label>
+                      <input
+                        type="text"
+                        id="brand_name"
+                        name="brand_name"
+                        value={editFormData.brand_name}
+                        onChange={handleEditChange}
+                        required
+                        className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="brands_image" className="block text-sm font-medium text-gray-700">
+                        Image URL
+                      </label>
+                      <input
+                        type="url"
+                        id="brands_image"
+                        name="brands_image"
+                        value={editFormData.brands_image}
+                        onChange={handleEditChange}
+                        required
+                        className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="stand_number" className="block text-sm font-medium text-gray-700">
+                          Stand Number
+                        </label>
+                        <input
+                          type="text"
+                          id="stand_number"
+                          name="stand_number"
+                          value={editFormData.stand_number}
+                          onChange={handleEditChange}
+                          required
+                          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="hall" className="block text-sm font-medium text-gray-700">
+                          Hall
+                        </label>
+                        <input
+                          type="text"
+                          id="hall"
+                          name="hall"
+                          value={editFormData.hall}
+                          onChange={handleEditChange}
+                          required
+                          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+                        Description
+                      </label>
+                      <textarea
+                        id="description"
+                        name="description"
+                        value={editFormData.description}
+                        onChange={handleEditChange}
+                        required
+                        rows={3}
+                        className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="product_tag" className="block text-sm font-medium text-gray-700">
+                        Product Tags (comma-separated)
+                      </label>
+                      <input
+                        type="text"
+                        id="product_tag"
+                        name="product_tag"
+                        value={editFormData.product_tag}
+                        onChange={handleEditChange}
+                        placeholder="tag1, tag2, tag3"
+                        required
+                        className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
+                      />
+                      {editFormData.product_tag && (
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          {formatTags(editFormData.product_tag).map((tag, index) => (
+                            <span
+                              key={index}
+                              className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      <label htmlFor="location" className="block text-sm font-medium text-gray-700">
+                        Location
+                      </label>
+                      <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        value={editFormData.location}
+                        onChange={handleEditChange}
+                        required
+                        className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="exhibitor_id" className="block text-sm font-medium text-gray-700">
+                        Exhibitor ID
+                      </label>
+                      <input
+                        type="text"
+                        id="exhibitor_id"
+                        name="exhibitor_id"
+                        value={editFormData.exhibitor_id}
+                        onChange={handleEditChange}
+                        required
+                        className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
+                      />
+                    </div>
+
+                    <div className="flex gap-4">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
+                      >
+                        {isSubmitting ? 'Saving...' : 'Save Changes'}
+                      </button>
+                      
+                      <button
+                        type="button"
+                        onClick={() => setEditingBrand(null)}
+                        className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            )}
 
                 {/* Product Tags */}
                 <div className="flex flex-wrap gap-2 justify-center">
