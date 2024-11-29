@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import ImageUpload from '../components/ImageUpload'
 
 // Updated types to match your API response
 type Exhibitor = {
@@ -78,28 +79,29 @@ export default function APIRequestPage() {
     exhibitor_id: ''
   })
 
-  useEffect(() => {
-    async function fetchBrands() {
-      try {
-        const response = await fetch('http://127.0.0.1:5000/api/brands')
-        if (!response.ok) {
-          throw new Error('Failed to fetch brands')
-        }
-        const result = await response.json()
-        console.log('API Response:', result)
-        
-        // Access the data array from the response
-        if (!result.data || !Array.isArray(result.data)) {
-          throw new Error('Invalid data format received from API')
-        }
-        
-        setBrands(result.data)
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred')
-      } finally {
-        setIsLoading(false)
+  async function fetchBrands() {
+    try {
+      const response = await fetch('http://127.0.0.1:5000/api/brands')
+      if (!response.ok) {
+        throw new Error('Failed to fetch brands')
       }
+      const result = await response.json()
+      console.log('API Response:', result)
+      
+      // Access the data array from the response
+      if (!result.data || !Array.isArray(result.data)) {
+        throw new Error('Invalid data format received from API')
+      }
+      
+      setBrands(result.data)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred')
+    } finally {
+      setIsLoading(false)
     }
+  }
+  useEffect(() => {
+    
 
     fetchBrands()
   }, [])
@@ -233,8 +235,6 @@ export default function APIRequestPage() {
       console.log("edit data being sent:", data)
 
       const requestData = {
-        brand_id: brand_id,
-        data: {
           brand_name: data.brand_name,
           brands_image: data.brands_image,
           description: data.description,
@@ -244,11 +244,10 @@ export default function APIRequestPage() {
           location: data.location,
           exhibitor_id: data.exhibitor_id
         }
-      }
 
       console.log('Final request data:', requestData)
 
-      const response = await fetch('http://127.0.0.1:5000/api/brands/edit', {
+      const response = await fetch(`http://127.0.0.1:5000/api/brands/edit/${brand_id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -440,16 +439,16 @@ export default function APIRequestPage() {
 
               <div>
                 <label htmlFor="brands_image" className="block text-sm font-medium text-gray-700">
-                  Image URL
+                  Brand Image
                 </label>
-                <input
-                  type="url"
-                  id="brands_image"
-                  name="brands_image"
-                  value={formData.brands_image}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
+                <ImageUpload
+                  onImageUrlChange={(url) => {
+                    setFormData(prev => ({
+                      ...prev,
+                      brands_image: url
+                    }))
+                  }}
+                  currentImageUrl={formData.brands_image}
                 />
               </div>
 
@@ -641,16 +640,16 @@ export default function APIRequestPage() {
 
                     <div>
                       <label htmlFor="brands_image" className="block text-sm font-medium text-gray-700">
-                        Image URL
+                        Brand Image
                       </label>
-                      <input
-                        type="url"
-                        id="brands_image"
-                        name="brands_image"
-                        value={editFormData.brands_image}
-                        onChange={handleEditChange}
-                        required
-                        className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
+                      <ImageUpload
+                        onImageUrlChange={(url) => {
+                          setEditFormData(prev => ({
+                            ...prev,
+                            brands_image: url
+                          }))
+                        }}
+                        currentImageUrl={editFormData.brands_image}
                       />
                     </div>
 

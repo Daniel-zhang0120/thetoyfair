@@ -5,14 +5,12 @@ export default function SearchBar({ onSearch }: {
     brandName: string;
     location: string;
     hall: string;
-    standNumber: string;
     productTag: string;
   }) => void 
 }) {
   const [brandName, setBrandName] = useState('');
   const [location, setLocation] = useState('');
   const [hall, setHall] = useState('');
-  const [standNumber, setStandNumber] = useState('');
   const [productTag, setProductTag] = useState('');
 
   const handleSubmit = () => {
@@ -20,7 +18,6 @@ export default function SearchBar({ onSearch }: {
       brandName,
       location,
       hall,
-      standNumber,
       productTag
     });
   };
@@ -61,16 +58,6 @@ export default function SearchBar({ onSearch }: {
         <div className="px-4 py-3.5 flex-1 min-w-[150px] hover:bg-gray-100 transition-colors cursor-pointer group">
           <input
             type="text"
-            placeholder="Stand number..."
-            className="outline-none w-full bg-transparent cursor-pointer group-hover:placeholder-gray-600"
-            value={standNumber}
-            onChange={(e) => setStandNumber(e.target.value)}
-          />
-        </div>
-
-        <div className="px-4 py-3.5 flex-1 min-w-[150px] hover:bg-gray-100 transition-colors cursor-pointer group rounded-r-[2rem] mr-2">
-          <input
-            type="text"
             placeholder="Product tag..."
             className="outline-none w-full bg-transparent cursor-pointer group-hover:placeholder-gray-600"
             value={productTag}
@@ -78,7 +65,7 @@ export default function SearchBar({ onSearch }: {
           />
         </div>
 
-        <div className="p-2">
+        <div className="divide-x-0">
           <button
             onClick={handleSubmit}
             className="bg-primary h-full px-8 py-3 rounded-full hover:bg-primary/90 transition whitespace-nowrap text-white"
