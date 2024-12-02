@@ -35,14 +35,14 @@ export function BrandsPageComponent() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/brands')
+    fetch('http://51.20.144.151:5000/api/brands')
       .then(response => response.json())
       .then(data => {
         setBrands(data.data);
         setFilteredBrands(data.data);
         setIsLoading(false);
       })
-      .catch(err => {
+      .catch(_ => {
         setError('Failed to fetch brands');
         setIsLoading(false);
       });
@@ -52,21 +52,18 @@ export function BrandsPageComponent() {
     brandName: string;
     location: string;
     hall: string;
-    standNumber: string;
     productTag: string;
   }) => {
     const filtered = brands.filter(brand => {
       const matchBrandName = brand.brand_name.toLowerCase().includes(filters.brandName.toLowerCase());
       const matchLocation = brand.location.toLowerCase().includes(filters.location.toLowerCase());
       const matchHall = brand.hall.toLowerCase().includes(filters.hall.toLowerCase());
-      const matchStand = brand.stand_number.toLowerCase().includes(filters.standNumber.toLowerCase());
       const matchTag = brand.product_tag.toLowerCase().includes(filters.productTag.toLowerCase());
 
       return (
         (!filters.brandName || matchBrandName) &&
         (!filters.location || matchLocation) &&
         (!filters.hall || matchHall) &&
-        (!filters.standNumber || matchStand) &&
         (!filters.productTag || matchTag)
       );
     });

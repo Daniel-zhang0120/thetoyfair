@@ -1,3 +1,8 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "root": true,
+  "extends": "next/core-web-vitals",
+  "ignorePatterns": ["node_modules/", ".next/"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
 }

@@ -1,13 +1,15 @@
 import { useState } from 'react';
 
-export default function SearchBar({ onSearch }: { 
+type SearchBarProps = {
   onSearch: (filters: {
     brandName: string;
     location: string;
     hall: string;
     productTag: string;
-  }) => void 
-}) {
+  }) => void;
+};
+
+export default function SearchBar({ onSearch }: SearchBarProps) {
   const [brandName, setBrandName] = useState('');
   const [location, setLocation] = useState('');
   const [hall, setHall] = useState('');

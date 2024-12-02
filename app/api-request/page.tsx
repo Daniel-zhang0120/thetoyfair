@@ -81,7 +81,7 @@ export default function APIRequestPage() {
 
   async function fetchBrands() {
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/brands')
+      const response = await fetch('http://51.20.144.151:5000/api/brands')
       if (!response.ok) {
         throw new Error('Failed to fetch brands')
       }
@@ -120,7 +120,7 @@ export default function APIRequestPage() {
     setError(null)
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/brands/add', {
+      const response = await fetch('http://51.20.144.151:5000/api/brands/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -168,7 +168,7 @@ export default function APIRequestPage() {
     setError(null)
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/brands/exhibitor/add', {
+      const response = await fetch('http://51.20.144.151:5000/api/brands/exhibitor/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -247,7 +247,7 @@ export default function APIRequestPage() {
 
       console.log('Final request data:', requestData)
 
-      const response = await fetch(`http://127.0.0.1:5000/api/brands/edit/${brand_id}`, {
+      const response = await fetch(`http://51.20.144.151:5000/api/brands/edit/${brand_id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -266,7 +266,7 @@ export default function APIRequestPage() {
       try {
         result = JSON.parse(responseText)
         console.log('Parsed response:', result)
-      } catch (parseError) {
+      } catch (_) {
         throw new Error(`Invalid JSON response: ${responseText}`)
       }
 
@@ -622,7 +622,7 @@ export default function APIRequestPage() {
               <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                 <div className="bg-white p-6 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
                   <h2 className="text-2xl font-bold mb-4">Edit Brand</h2>
-                  <form onSubmit={handleEditSubmit} className="space-y-4">
+                  <form onSubmit={(e)=>handleEditSubmit(e)} className="space-y-4">
                     <div>
                       <label htmlFor="brand_name" className="block text-sm font-medium text-gray-700">
                         Brand Name
