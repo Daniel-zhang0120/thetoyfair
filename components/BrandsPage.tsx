@@ -168,10 +168,9 @@ function BrandsGrid() {
           style={{ 
             width: "278px", 
             margin: "6.25px", 
-            backgroundColor: "#EDFFF0", 
+            backgroundColor: "#FFF8EF", 
             borderRadius: "20px",
             padding: "20px",
-            height: "auto",
             justifyContent: "space-between",
           }}
         >

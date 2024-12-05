@@ -19,13 +19,13 @@ export const Footer = ({ className }: FooterProps) => {
   };
 
   return (
-    <footer className={`bg-custom-green ${className || ''}`} style={{ borderTop: '80px solid #EDFFF0' }}>
-      <div className="w-[980px] mx-auto px-4 bg-[#EDFFF0]">
+    <footer className={`bg-custom-green ${className || ''}`} style={{ borderTop: '80px solid #FFF8EF' }}>
+      <div className="w-[980px] mx-auto px-4 bg-[#FFF8EF]">
         <div className="grid grid-cols-1 md:grid-cols-[550px_1fr] gap-14">
           <div className="space-y-4">
             <div className="flex items-center">
               <Image 
-                src="/images/toy_logo.png"
+                src="/images/TFG_GIF.gif"
                 alt="Toy Logo"
                 width={200}
                 height={200}

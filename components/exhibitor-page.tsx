@@ -42,7 +42,7 @@ export function ExhibitorPageComponent() {
           <div className="absolute inset-0 top-[-100px] overflow-visible pointer-events-none" style={{ zIndex: 0 }}>
             <div className="pt-56">
               <Image
-                src="/images/Wave_Purple.png"
+                src="/images/Wave_purple.png"
                 alt="Purple Wave Background"
                 width={1920}
                 height={918}
@@ -56,7 +56,7 @@ export function ExhibitorPageComponent() {
           <div className="absolute inset-0 top-[-100px] overflow-visible pointer-events-none" style={{ zIndex: 0, paddingTop: '150px'}}>
             <div className="pt-56">
               <Image
-                src="/images/Wave_Purple.png"
+                src="/images/Wave_purple.png"
                 alt="Purple Wave Background"
                 width={1920}
                 height={918}
@@ -254,7 +254,7 @@ export function ExhibitorPageComponent() {
         <div className="absolute inset-0 bottom-[-400px] overflow-visible pointer-events-none" style={{ zIndex: 0, paddingTop: '700px' }}>
           <div className="pt-56 -mt-[700px]">
             <Image
-              src="/images/Wave_Green.png"
+              src="/images/Wave_green.png"
               alt="Green Wave Background"
               width={1920}
               height={918}
