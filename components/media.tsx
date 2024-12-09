@@ -17,7 +17,7 @@ const latestPosts = [
 
 export default function BlogPage() {
   return (
-    <>
+    <div className="min-h-screen bg-[#FFF8EF]">
       <Navbar />
 
       <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8">
@@ -71,6 +71,6 @@ export default function BlogPage() {
       </div>
 
       <Footer />
-    </>
+    </div>
   )
 }

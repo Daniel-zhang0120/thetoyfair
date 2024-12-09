@@ -14,7 +14,7 @@ const config: Config = {
 			'poppins': ['var(--font-poppins)'],
   		},
   		colors: {
-  			'custom-green': '#EDFFF0',
+  			'custom-green': '#FFF8EF',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   				card: {

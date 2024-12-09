@@ -15,6 +15,7 @@ interface Exhibitor {
   company: string;
 }
 
+<<<<<<< HEAD
 interface APIBrand {
   BrandID: string;
   brand_name: string;
@@ -26,6 +27,55 @@ interface APIBrand {
   hall: string;
   exhibitor_id: string;
   exhibitor: Exhibitor | null;
+=======
+function BrandsGrid() {
+  return (
+    <div className="grid grid-cols-4 gap-3 p-4" style={{ paddingLeft: '350px', paddingRight: '350px', minHeight: '100vh' }}>
+      {brands.map((brand, index) => (
+        <div
+          key={index}
+          className="border rounded-lg flex flex-col items-center"
+          style={{ 
+            width: "278px", 
+            margin: "6.25px", 
+            backgroundColor: "#FFF8EF", 
+            borderRadius: "20px",
+            padding: "20px",
+            justifyContent: "space-between",
+          }}
+        >
+          <div className="flex flex-col items-center">
+            <span className="bg-gray-200 text-black px-2 py-1 rounded-full text-xs mb-5">{brand.type}</span>
+            <span className="text-xs text-black mb-5">{brand.standNumber}</span>
+            <Image
+              src={brand.companyImage}
+              alt={`${brand.title} Image`}
+              width={250}
+              height={150}
+              className="mb-5"
+            />
+            <h2 className="text-lg font-bold mb-5 text-black">{brand.title}</h2>
+            <p className="text-sm text-black text-center" style={{ marginBottom: "20px" }}>{brand.description}</p>
+            <Button className="mb-5 border-black text-black">Visit Booth</Button>
+          </div>
+          <div className="flex items-center" style={{ paddingTop: "20px", paddingBottom: "20px" }}>
+            <Image
+              src={brand.exhibitorImage}
+              alt={`${brand.exhibitorName} Image`}
+              width={50}
+              height={50}
+              className="rounded-full mr-2"
+            />
+            <div className="text-center">
+              <h3 className="font-semibold text-black">{brand.exhibitorName}</h3>
+              <p className="text-xs text-black">{brand.jobTitle}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+>>>>>>> 470d8d7abe7005c38bd566d0d4d352253a097893
 }
 
 export function BrandsPageComponent() {
