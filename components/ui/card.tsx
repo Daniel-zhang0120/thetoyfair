@@ -19,7 +19,7 @@ const Card = React.forwardRef<
     )}
   >
     {images.map((image, index) => (
-      <div key={index} className="flex-shrink-0 border" style={{ borderColor: '#FFF8EF', borderWidth: '2px' }}>
+      <div key={index} className="flex-shrink-0 border" style={{ borderColor: '#4AD966', borderWidth: '2px' }}>
         <Image
           src={image.src}
           alt={image.alt || ""}
