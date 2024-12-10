@@ -24,7 +24,7 @@ export default function ImageUpload({ onImageUrlChange, currentImageUrl }: Image
 
     try {
       // First, get a pre-signed URL from your backend
-      const response = await fetch('http://51.20.144.151:5000/api/upload-url', {
+      const response = await fetch('https://ec2-51-20-144-151.eu-north-1.compute.amazonaws.com/api/upload-url', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
