@@ -81,7 +81,7 @@ export default function APIRequestPage() {
 
   async function fetchBrands() {
     try {
-      const response = await fetch('https://ec2-51-20-144-151.eu-north-1.compute.amazonaws.com/api/brands')
+      const response = await fetch('https://admin.thetoyfair.eu/api/brands')
       if (!response.ok) {
         throw new Error('Failed to fetch brands')
       }
@@ -120,7 +120,7 @@ export default function APIRequestPage() {
     setError(null)
 
     try {
-      const response = await fetch('https://ec2-51-20-144-151.eu-north-1.compute.amazonaws.com/api/brands/add', {
+      const response = await fetch('https://admin.thetoyfair.eu/api/brands/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -168,7 +168,7 @@ export default function APIRequestPage() {
     setError(null)
 
     try {
-      const response = await fetch('https://ec2-51-20-144-151.eu-north-1.compute.amazonaws.com/api/brands/exhibitor/add', {
+      const response = await fetch('https://admin.thetoyfair.eu/api/brands/exhibitor/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -247,7 +247,7 @@ export default function APIRequestPage() {
 
       console.log('Final request data:', requestData)
 
-      const response = await fetch(`https://ec2-51-20-144-151.eu-north-1.compute.amazonaws.com/api/brands/edit/${brand_id}`, {
+      const response = await fetch(`https://admin.thetoyfair.eu/api/brands/edit/${brand_id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
