@@ -67,7 +67,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
           />
         </div>
 
-        <div className="divide-x-0">
+        <div>
           <button
             onClick={handleSubmit}
             className="bg-primary h-full px-8 py-3 rounded-full hover:bg-primary/90 transition whitespace-nowrap text-white"
