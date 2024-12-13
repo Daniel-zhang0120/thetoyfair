@@ -68,7 +68,7 @@ export function LandingPageComponent() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FFF8EF]">
+    <div className="flex flex-col min-h-screen bg-[#F5F0FF]">
       {/*
       <Head>
         <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet" />
@@ -218,7 +218,7 @@ export function LandingPageComponent() {
       </div>
 
       {/* Industry Partners Section */}
-      <section className="py-20 bg-[#FFF8EF]">
+      <section className="py-20 bg-[#F5F0FF]">
         <div className="w-full max-w-[1300px] mx-auto px-4">
           <h2 className="text-3xl md:text-[80px] leading-tight md:leading-[90px] tracking-[-2px] md:tracking-[-8px] text-center mb-12 font-tilt-warp text-[#287838]">
             Be at the frontier of fun - the toy industry is evolving 
@@ -255,7 +255,7 @@ export function LandingPageComponent() {
       </section>
 
       {/* Testimonials Carousel */}
-      <section className="py-20 bg-[#FFF8EF]">
+      <section className="py-20 bg-[#F5F0FF]">
         <div className="container mx-auto px-4">
           <h3 className="text-xl md:text-[30px] leading-normal font-bold text-center mb-8 text-[#F249CD]">
             What are our exhibitors saying...
@@ -264,7 +264,7 @@ export function LandingPageComponent() {
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index}>
-                  <Card className="p-8 bg-[#FFF8EF]">
+                  <Card className="p-8 bg-[#F5F0FF]">
                     <blockquote className="text-xl text-center">
                       `&quot;`{testimonial.quote} `&quot;`
                       <footer className="mt-4 text-muted-foreground">
@@ -282,7 +282,7 @@ export function LandingPageComponent() {
       </section>
 
       {/* Statistics */}
-      <section className="bg-[#FFF8EF]">
+      <section className="bg-[#F5F0FF]">
         <div className="relative w-full h-auto md:h-[360px] py-12 md:py-0 flex items-center">
           {/* Background Image */}
           <div className="absolute inset-0 overflow-hidden">

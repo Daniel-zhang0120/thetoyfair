@@ -19,8 +19,8 @@ export const Footer = ({ className }: FooterProps) => {
   };
 
   return (
-    <footer className={`bg-[#FFF8EF] ${className || ''}`} style={{ borderTop: '80px solid #FFF8EF' }}>
-      <div className="w-[980px] mx-auto px-4 bg-[#FFF8EF]">
+    <footer className={`bg-[#F5F0FF] ${className || ''}`} style={{ borderTop: '80px solid #F5F0FF' }}>
+      <div className="w-[980px] mx-auto px-4 bg-[#F5F0FF]">
         <div className="grid grid-cols-1 md:grid-cols-[550px_1fr] gap-14">
           <div className="space-y-4">
             <div className="flex items-center">

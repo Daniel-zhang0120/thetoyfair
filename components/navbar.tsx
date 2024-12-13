@@ -103,7 +103,7 @@ export function Navbar({ className }: NavbarProps) {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-[#FFF8EF] px-4 pb-4">
+        <div className="md:hidden bg-[#F5F0FF] px-4 pb-4">
           <nav className="flex flex-col space-y-4">
             {navigation.map((item) => (
               <Link
