@@ -27,19 +27,30 @@ export function Navbar({ className }: NavbarProps) {
   return (
     <header
       className={`sticky top-0 z-50 w-full backdrop-blur-sm font-poppins ${className || ''}`}
-      style={{ backgroundColor: '#4AD966' }}
+      style={{ backgroundColor: '#FFD6FF' }}
     >
       <div className="flex h-16 items-center px-4 w-full justify-between">
-        <div className="flex-[0_0_150px] md:flex-[0_0_200px] flex items-center justify-center mr-2">
-          <Image
-            src="/images/toy_logo.png"
-            alt="Toy show icon"
-            width={180}
-            height={40}
-            quality={100}
-            priority
-            className="w-[140px] md:w-[180px]"
-          />
+        <div className="flex-[0_0_150px] md:flex-[0_0_200px] flex items-center justify-start mr-2">
+          <div className="flex items-center justify-start mr-2">
+            <Image
+              src="/images/Logo.png"
+              alt="Toy show icon"
+              width={150}
+              height={60}
+              quality={100}
+              priority
+              className="max-h-[60px] w-auto"
+            />
+            <Image
+              src="/images/GIF.gif"
+              alt="GIF icon"
+              width={150}
+              height={60}
+              quality={100}
+              priority
+              className="max-h-[60px] w-auto p-0"
+            />
+          </div>
         </div>
 
         <button 
@@ -61,8 +72,8 @@ export function Navbar({ className }: NavbarProps) {
                 href={item.href}
                 className={`
                   text-[17px] font-semibold font-poppins transition-all duration-200
-                  hover:text-black
-                  ${pathname === item.href ? 'text-[#9747FF] font-bold' : 'text-white'}
+                  hover:text-[#F249CD]
+                  ${pathname === item.href ? 'text-[#F249CD] font-bold' : 'text-[#454845]'}
                   ${item.className || ''}
                 `}
               >
@@ -76,14 +87,14 @@ export function Navbar({ className }: NavbarProps) {
           <Button 
             variant="outline"
             size="custom"
-            className="text-[14px] hover:font-bold whitespace-nowrap"
+            className="text-[14px] hover:font-bold whitespace-nowrap text-[#3D9BE9] border-[#3D9BE9] hover:bg-[#3D9BE9] hover:text-white"
           >
             BUY A TICKET
           </Button>
           <Button 
-            variant="default"
+            variant="outline"
             size="custom"
-            className="mr-4 whitespace-nowrap"
+            className="mr-4 whitespace-nowrap text-[#F249CD] border-[#F249CD] hover:bg-[#F249CD] hover:text-white"
           >
             BOOK A STAND
           </Button>
@@ -92,7 +103,7 @@ export function Navbar({ className }: NavbarProps) {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-[#4AD966] px-4 pb-4">
+        <div className="md:hidden bg-[#FFF8EF] px-4 pb-4">
           <nav className="flex flex-col space-y-4">
             {navigation.map((item) => (
               <Link
@@ -100,8 +111,8 @@ export function Navbar({ className }: NavbarProps) {
                 href={item.href}
                 className={`
                   text-[17px] font-semibold font-poppins transition-all duration-200
-                  hover:text-black py-2
-                  ${pathname === item.href ? 'text-[#9747FF] font-bold' : 'text-white'}
+                  hover:text-[#F249CD] py-2
+                  ${pathname === item.href ? 'text-[#F249CD] font-bold' : 'text-[#454845]'}
                 `}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -112,14 +123,14 @@ export function Navbar({ className }: NavbarProps) {
               <Button 
                 variant="outline"
                 size="custom"
-                className="text-[14px] hover:font-bold w-full"
+                className="text-[14px] hover:font-bold w-full text-[#3D9BE9] border-[#3D9BE9] hover:bg-[#3D9BE9] hover:text-white"
               >
                 BUY A TICKET
               </Button>
               <Button 
-                variant="default"
+                variant="outline"
                 size="custom"
-                className="w-full"
+                className="w-full text-[#F249CD] border-[#F249CD] hover:bg-[#F249CD] hover:text-white"
               >
                 BOOK A STAND
               </Button>

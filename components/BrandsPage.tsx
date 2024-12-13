@@ -35,7 +35,7 @@ export function BrandsPageComponent() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('https://ec2-51-20-144-151.eu-north-1.compute.amazonaws.com/api/brands')
+    fetch('https://admin.thetoyfair.eu/api/brands/')
       .then(response => response.json())
       .then(data => {
         setBrands(data.data);

@@ -46,7 +46,7 @@ export default function APIRequestPage() {
   
   const [formData, setFormData] = useState({
     brand_name: '',
-    brands_image: '',
+    image_url: '',
     stand_number: '',
     description: '',
     product_tag: '',
@@ -70,7 +70,7 @@ export default function APIRequestPage() {
   const [editFormData, setEditFormData] = useState({
     brand_id: '',
     brand_name: '',
-    brands_image: '',
+    image_url: '',
     stand_number: '',
     description: '',
     product_tag: '',
@@ -81,7 +81,7 @@ export default function APIRequestPage() {
 
   async function fetchBrands() {
     try {
-      const response = await fetch('https://ec2-51-20-144-151.eu-north-1.compute.amazonaws.com/api/brands')
+      const response = await fetch('https://admin.thetoyfair.eu/api/brands/')
       if (!response.ok) {
         throw new Error('Failed to fetch brands')
       }
@@ -120,7 +120,7 @@ export default function APIRequestPage() {
     setError(null)
 
     try {
-      const response = await fetch('https://ec2-51-20-144-151.eu-north-1.compute.amazonaws.com/api/brands/add', {
+      const response = await fetch('https://admin.thetoyfair.eu/api/brands/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ export default function APIRequestPage() {
       // Reset form and refresh brands
       setFormData({
         brand_name: '',
-        brands_image: '',
+        image_url: '',
         stand_number: '',
         description: '',
         product_tag: '',
@@ -168,7 +168,7 @@ export default function APIRequestPage() {
     setError(null)
 
     try {
-      const response = await fetch('https://ec2-51-20-144-151.eu-north-1.compute.amazonaws.com/api/brands/exhibitor/add', {
+      const response = await fetch('https://admin.thetoyfair.eu/api/brands/exhibitor/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -203,7 +203,7 @@ export default function APIRequestPage() {
     setEditFormData({
       brand_id: brand.BrandID,
       brand_name: brand.brand_name,
-      brands_image: brand.image_url,
+      image_url: brand.image_url,
       stand_number: brand.stand_number,
       description: brand.description,
       product_tag: brand.product_tag,
@@ -236,7 +236,7 @@ export default function APIRequestPage() {
 
       const requestData = {
           brand_name: data.brand_name,
-          brands_image: data.brands_image,
+          image_url: data.image_url,
           description: data.description,
           stand_number: data.stand_number,
           hall: data.hall,
@@ -247,7 +247,7 @@ export default function APIRequestPage() {
 
       console.log('Final request data:', requestData)
 
-      const response = await fetch(`https://ec2-51-20-144-151.eu-north-1.compute.amazonaws.com/api/brands/edit/${brand_id}`, {
+      const response = await fetch(`https://admin.thetoyfair.eu/api/brands/edit/${brand_id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -274,7 +274,7 @@ export default function APIRequestPage() {
       setEditFormData({
         brand_id: '',
         brand_name: '',
-        brands_image: '',
+        image_url: '',
         stand_number: '',
         description: '',
         product_tag: '',
@@ -438,17 +438,17 @@ export default function APIRequestPage() {
               </div>
 
               <div>
-                <label htmlFor="brands_image" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="image_url" className="block text-sm font-medium text-gray-700">
                   Brand Image
                 </label>
                 <ImageUpload
                   onImageUrlChange={(url) => {
                     setFormData(prev => ({
                       ...prev,
-                      brands_image: url
+                      image_url: url
                     }))
                   }}
-                  currentImageUrl={formData.brands_image}
+                  currentImageUrl={formData.image_url}
                 />
               </div>
 
@@ -639,17 +639,17 @@ export default function APIRequestPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="brands_image" className="block text-sm font-medium text-gray-700">
+                      <label htmlFor="image_url" className="block text-sm font-medium text-gray-700">
                         Brand Image
                       </label>
                       <ImageUpload
                         onImageUrlChange={(url) => {
                           setEditFormData(prev => ({
                             ...prev,
-                            brands_image: url
+                            image_url: url
                           }))
                         }}
-                        currentImageUrl={editFormData.brands_image}
+                        currentImageUrl={editFormData.image_url}
                       />
                     </div>
 
