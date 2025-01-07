@@ -20,7 +20,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
       brandName,
       location,
       hall,
-      productTag
+      productTag,
     });
   };
 
