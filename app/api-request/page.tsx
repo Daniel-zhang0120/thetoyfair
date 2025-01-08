@@ -46,6 +46,18 @@ type ExhibitorData = {
   profile_picture: string;
 }
 
+// Define the FormData type with all properties
+type FormData = {
+  brand_name: string;
+  image_url: string;
+  stand_number: string;
+  description: string;
+  product_tag: string;
+  location: string;
+  hall: string;
+  exhibitor_id: string;
+};
+
 export default function APIRequestPage() {
   const [brands, setBrands] = useState<Brand[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -147,11 +159,13 @@ export default function APIRequestPage() {
     setError(null)
 
     try {
-      // Create a copy of formData and remove exhibitor_id if it's empty
-      const submitData = { ...formData }
-      if (!submitData.exhibitor_id.trim()) {
-        delete submitData.exhibitor_id
-      }
+      // Create a new object without the exhibitor_id if it's empty
+      const submitData: Partial<FormData> = Object.entries(formData).reduce((acc, [key, value]) => {
+        if (key === 'exhibitor_id' && !value.trim()) {
+          return acc;
+        }
+        return { ...acc, [key]: value };
+      }, {});
 
       const response = await fetch('https://admin.thetoyfair.eu/api/brands/add', {
         method: 'POST',

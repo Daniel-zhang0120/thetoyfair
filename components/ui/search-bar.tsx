@@ -24,6 +24,12 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
     });
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+    }
+  };
+
   return (
     <div className="max-w-[90%] w-[1200px] mx-auto px-4">
       <div className="flex flex-wrap items-center justify-between bg-white rounded-full border shadow-sm divide-x">
@@ -34,6 +40,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             className="outline-none w-full bg-transparent cursor-pointer group-hover:placeholder-gray-600"
             value={brandName}
             onChange={(e) => setBrandName(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
 
@@ -44,6 +51,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             className="outline-none w-full bg-transparent cursor-pointer group-hover:placeholder-gray-600"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
 
@@ -54,6 +62,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             className="outline-none w-full bg-transparent cursor-pointer group-hover:placeholder-gray-600"
             value={hall}
             onChange={(e) => setHall(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
 
@@ -64,6 +73,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             className="outline-none w-full bg-transparent cursor-pointer group-hover:placeholder-gray-600"
             value={productTag}
             onChange={(e) => setProductTag(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
 
