@@ -94,22 +94,29 @@ const BrandCard = (props: BrandCardProps) => {
           Visit Show
         </a>
 
-        {/* Contact Info - Fixed circular dimensions */}
-        <div className="flex items-center gap-5 mt-4">
-          <div className="relative w-[60px] h-[60px] flex-shrink-0">
-            <Image
-              src={userImg}
-              alt="profile-pic"
-              fill
-              className="rounded-full object-cover"
-            />
-          </div>
+        {/* Contact Info - Only display if both userImg and userName are valid and not filler content */}
+        {userImg && 
+         userName && 
+         userImg.trim() !== '' && 
+         userName.trim() !== '' && 
+         userName !== 'No Exhibitor' && 
+         userRole !== 'N/A' ? (
+          <div className="flex items-center gap-5 mt-4">
+            <div className="relative w-[60px] h-[60px] flex-shrink-0">
+              <Image
+                src={userImg}
+                alt="profile-pic"
+                fill
+                className="rounded-full object-cover"
+              />
+            </div>
 
-          <div className="text-center w-full">
-            <h3 className="font-semibold text-black">{userName}</h3>
-            <p className="text-xs text-black">{userRole}</p>
+            <div className="text-center w-full">
+              <h3 className="font-semibold text-black">{userName}</h3>
+              <p className="text-xs text-black">{userRole}</p>
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
     </div>
   );

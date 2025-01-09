@@ -37,6 +37,27 @@ const truncateText = (text: string, limit: number = 300) => {
   return text.slice(0, limit) + '...';
 };
 
+// Add new type for exhibitor data
+type ExhibitorData = {
+  ExhibitorID: string;
+  company: string;
+  name: string;
+  position: string;
+  profile_picture: string;
+}
+
+// Define the FormData type with all properties
+type FormData = {
+  brand_name: string;
+  image_url: string;
+  stand_number: string;
+  description: string;
+  product_tag: string;
+  location: string;
+  hall: string;
+  exhibitor_id: string;
+};
+
 export default function APIRequestPage() {
   const [brands, setBrands] = useState<Brand[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -79,6 +100,23 @@ export default function APIRequestPage() {
     exhibitor_id: ''
   })
 
+  // Add state for exhibitors list
+  const [exhibitors, setExhibitors] = useState<ExhibitorData[]>([])
+
+  // Add function to fetch exhibitors
+  const fetchExhibitors = async () => {
+    try {
+      const response = await fetch('https://admin.thetoyfair.eu/api/brands/exhibitor/display')
+      if (!response.ok) {
+        throw new Error('Failed to fetch exhibitors')
+      }
+      const result = await response.json()
+      setExhibitors(result.data)
+    } catch (err) {
+      console.error('Error fetching exhibitors:', err)
+    }
+  }
+
   async function fetchBrands() {
     try {
       const response = await fetch('https://admin.thetoyfair.eu/api/brands/')
@@ -104,6 +142,7 @@ export default function APIRequestPage() {
     
 
     fetchBrands()
+    fetchExhibitors()
   }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -120,12 +159,20 @@ export default function APIRequestPage() {
     setError(null)
 
     try {
+      // Create a new object without the exhibitor_id if it's empty
+      const submitData: Partial<FormData> = Object.entries(formData).reduce((acc, [key, value]) => {
+        if (key === 'exhibitor_id' && !value.trim()) {
+          return acc;
+        }
+        return { ...acc, [key]: value };
+      }, {});
+
       const response = await fetch('https://admin.thetoyfair.eu/api/brands/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(submitData)
       })
 
       if (!response.ok) {
@@ -291,6 +338,32 @@ export default function APIRequestPage() {
       setIsSubmitting(false)
     }
   }
+
+  // Replace the exhibitor_id input field in both forms with this dropdown
+  const ExhibitorSelect = ({ value, onChange, className = "" }: { 
+    value: string, 
+    onChange: (id: string) => void,
+    className?: string 
+  }) => (
+    <div className={className}>
+      <label htmlFor="exhibitor_select" className="block text-sm font-medium text-gray-700">
+        Exhibitor (Optional)
+      </label>
+      <select
+        id="exhibitor_select"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
+      >
+        <option value="">Select an exhibitor</option>
+        {exhibitors.map((exhibitor) => (
+          <option key={exhibitor.ExhibitorID} value={exhibitor.ExhibitorID}>
+            {exhibitor.name} - {exhibitor.company} ({exhibitor.position})
+          </option>
+        ))}
+      </select>
+    </div>
+  )
 
   if (isLoading) {
     return (
@@ -542,20 +615,10 @@ export default function APIRequestPage() {
                 />
               </div>
 
-              <div>
-                <label htmlFor="exhibitor_id" className="block text-sm font-medium text-gray-700">
-                  Exhibitor ID
-                </label>
-                <input
-                  type="text"
-                  id="exhibitor_id"
-                  name="exhibitor_id"
-                  value={formData.exhibitor_id}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
-                />
-              </div>
+              <ExhibitorSelect
+                value={formData.exhibitor_id}
+                onChange={(id) => setFormData(prev => ({ ...prev, exhibitor_id: id }))}
+              />
             </div>
 
             <div className="flex gap-4">
@@ -751,14 +814,9 @@ export default function APIRequestPage() {
                       <label htmlFor="exhibitor_id" className="block text-sm font-medium text-gray-700">
                         Exhibitor ID
                       </label>
-                      <input
-                        type="text"
-                        id="exhibitor_id"
-                        name="exhibitor_id"
+                      <ExhibitorSelect
                         value={editFormData.exhibitor_id}
-                        onChange={handleEditChange}
-                        required
-                        className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
+                        onChange={(id) => setEditFormData(prev => ({ ...prev, exhibitor_id: id }))}
                       />
                     </div>
 

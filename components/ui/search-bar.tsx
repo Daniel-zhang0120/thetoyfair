@@ -20,8 +20,14 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
       brandName,
       location,
       hall,
-      productTag
+      productTag,
     });
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+    }
   };
 
   return (
@@ -34,6 +40,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             className="outline-none w-full bg-transparent cursor-pointer group-hover:placeholder-gray-600"
             value={brandName}
             onChange={(e) => setBrandName(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
 
@@ -44,6 +51,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             className="outline-none w-full bg-transparent cursor-pointer group-hover:placeholder-gray-600"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
 
@@ -54,6 +62,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             className="outline-none w-full bg-transparent cursor-pointer group-hover:placeholder-gray-600"
             value={hall}
             onChange={(e) => setHall(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
 
@@ -64,10 +73,11 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             className="outline-none w-full bg-transparent cursor-pointer group-hover:placeholder-gray-600"
             value={productTag}
             onChange={(e) => setProductTag(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
 
-        <div className="divide-x-0">
+        <div>
           <button
             onClick={handleSubmit}
             className="bg-primary h-full px-8 py-3 rounded-full hover:bg-primary/90 transition whitespace-nowrap text-white"
