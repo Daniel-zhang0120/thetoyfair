@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Poppins, Tilt_Warp } from "next/font/google";
+import { Poppins, Tilt_Warp, Shrikhand } from "next/font/google";
 import "./globals.css";
 import { BlurProvider } from './blur-provider';
 import ShareButton from '@/components/ui/ShareButton';
@@ -32,6 +32,13 @@ const poppins = Poppins({
   display: 'swap',
 });
 
+const shrikhand = Shrikhand({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-shrikhand',
+  display: 'swap',
+});
+
 export { metadata };
 
 export default function RootLayout({
@@ -42,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${tiltWarp.variable} ${poppins.variable} font-poppins antialiased min-h-screen bg-gradient-to-b from-white via-green-100 to-purple-100`}
+        className={`${geistSans.variable} ${geistMono.variable} ${tiltWarp.variable} ${poppins.variable} ${shrikhand.variable} font-poppins antialiased min-h-screen bg-gradient-to-b from-white via-green-100 to-purple-100`}
       >
         <BlurProvider>
           <ShareButton />

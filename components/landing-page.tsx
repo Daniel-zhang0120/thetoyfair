@@ -98,16 +98,19 @@ export function LandingPageComponent() {
           />
           */}
         <div className="absolute inset-0">
-          <div className="container mx-auto px-4 h-full flex flex-col justify-center items-start text-white text-center" style={{ width: '800px', marginLeft: '100px' }}>
+          <div className="container mx-auto px-4 h-full flex flex-col justify-center items-start text-white text-center" style={{ width: '800px', marginLeft: '300px' }}>
             <p className="text-white text-lg md:text-[30px] leading-normal tracking-[0px] font-poppins font-bold animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s]" style={{ alignSelf: 'flex-start', position: 'relative', top: '500px' }}>
               12 January 2026 - 28 February 2026
             </p>
             <h1 className="text-4xl md:text-[96px] leading-tight md:leading-[93.5px] tracking-[-2px] md:tracking-[-8px] font-normal mb-4 font-tilt-warp text-right" style={{ width: '100%', marginLeft: '700px' }}>
-              <div className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]" style={{ fontSize: '96px', lineHeight: '96px', letterSpacing: '-0.08em' }}>
-                Bringing you the 
+              <div className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]" style={{ fontSize: '96px', lineHeight: '96px', letterSpacing: '-0.04em', fontFamily: 'var(--font-shrikhand)' }}>
+                Discover the 
               </div>
-              <span className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]" style={{ fontSize: '96px', lineHeight: '96px', letterSpacing: '-0.08em' }}>
-                best the US has to offer 
+              <span className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]" style={{ fontSize: '96px', lineHeight: '96px', letterSpacing: '-0.04em', fontFamily: 'var(--font-shrikhand)' }}>
+                best gifts the US 
+              </span>
+              <span className="block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.6s]" style={{ fontSize: '96px', lineHeight: '96px', letterSpacing: '-0.04em', fontFamily: 'var(--font-shrikhand)' }}>
+                has to offer
               </span>
             </h1>
             <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.8s]" style={{ marginTop: '50px' }}>
@@ -266,7 +269,7 @@ export function LandingPageComponent() {
                 <CarouselItem key={index}>
                   <Card className="p-8 bg-[#F5F0FF]">
                     <blockquote className="text-xl text-center">
-                      `&quot;`{testimonial.quote} `&quot;`
+                      &quot;{testimonial.quote} &quot;
                       <footer className="mt-4 text-muted-foreground">
                         {testimonial.author}
                       </footer>

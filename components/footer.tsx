@@ -34,8 +34,8 @@ export const Footer = ({ className }: FooterProps) => {
             </div>
             <div className="space-y-4 w-[400px]">
               <p className="text-[11px]">
-                The Toy Fair is the worlds first online trade show dedicated to the UK Toy Industry. 
-                The Toy Fair is brought to you by Acquamelon and powered by XpoFairs.
+                The Gift Fair is the world&apos;s first online trade show dedicated to the US toy Industry. 
+                The Gift Fair is brought to you by Acquamelon and powered by XpoFairs.
               </p>
               
               <div>
@@ -46,7 +46,7 @@ export const Footer = ({ className }: FooterProps) => {
               <div>
                 <h4 className="font-bold text-[11px] mb-1">Opening Hours</h4>
                 <p className="text-[11px]">
-                  Although the show is accessible 24hours a day 7 days a week Exhibitors will be available:
+                  Although the show is accessible 24 hours a day, 7 days a week. Exhibitors will be available:
                 </p>
                 <p className="text-[11px] mt-1">Monday - Friday 10:00 - 17:00</p>
               </div>
