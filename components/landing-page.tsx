@@ -112,7 +112,7 @@ export function LandingPageComponent() {
               </span>
             </h1>
             <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.8s]">
-              Join the Fun!
+              Join the fun!
             </button>
           </div>
         </div>
@@ -267,7 +267,7 @@ export function LandingPageComponent() {
                 <CarouselItem key={index}>
                   <Card className="p-8 bg-[#EDFFF0]">
                     <blockquote className="text-xl text-center">
-                      `&quot;`{testimonial.quote} `&quot;`
+                      &quot;{testimonial.quote} &quot;
                       <footer className="mt-4 text-muted-foreground">
                         {testimonial.author}
                       </footer>

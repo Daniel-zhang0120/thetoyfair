@@ -236,7 +236,7 @@ export function ExhibitorPageComponent() {
             <div className="flex-1 px-8" style={{ maxWidth: '700px', marginLeft: '50px', marginTop: '-110px' }}>
               <p className="text-[20px] leading-[1.5] tracking-normal font-medium text-white font-poppins">
                 Feel good about drastically reducing your carbon footprint by eliminating the scandalous waste of traditional trade shows.<br /><br />
-                No more single use stands. No reckless waste bound for landfill. No more emission-heavy flights and travel.
+                No more single use stands. No reckless waste bound for landfill. No more emission-heavy travel.
               </p>
             </div>
             <div className="flex-1 relative h-[800px]" style={{ marginTop: '-120px' }}>

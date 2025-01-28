@@ -20,10 +20,10 @@ export const Footer = ({ className }: FooterProps) => {
 
   return (
     <footer className={`bg-custom-green ${className || ''}`} style={{ borderTop: '80px solid #EDFFF0' }}>
-      <div className="w-[980px] mx-auto px-4 bg-[#EDFFF0]">
-        <div className="grid grid-cols-1 md:grid-cols-[550px_1fr] gap-14">
+      <div className="max-w-[980px] w-full mx-auto px-4 sm:px-6 bg-[#EDFFF0]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14">
           <div className="space-y-4">
-            <div className="flex items-center">
+            <div className="flex items-center justify-center lg:justify-start">
               <Image 
                 src="/images/toy_logo.png"
                 alt="Toy Logo"
@@ -32,9 +32,9 @@ export const Footer = ({ className }: FooterProps) => {
                 className="object-contain"
               />
             </div>
-            <div className="space-y-4 w-[400px]">
+            <div className="space-y-4 max-w-[400px] w-full mx-auto lg:mx-0">
               <p className="text-[11px]">
-                The Toy Fair is the worlds first online trade show dedicated to the UK Toy Industry. 
+                The Toy Fair is the world&apos;s first online trade show dedicated to the UK toy industry. 
                 The Toy Fair is brought to you by Acquamelon and powered by XpoFairs.
               </p>
               
@@ -46,15 +46,15 @@ export const Footer = ({ className }: FooterProps) => {
               <div>
                 <h4 className="font-bold text-[11px] mb-1">Opening Hours</h4>
                 <p className="text-[11px]">
-                  Although the show is accessible 24hours a day 7 days a week Exhibitors will be available:
+                  Although the show is accessible 24 hours a day 7 days a week, exhibitors will be available:
                 </p>
                 <p className="text-[11px] mt-1">Monday - Friday 10:00 - 17:00</p>
               </div>
             </div>
           </div>
           
-          <div className="flex justify-end gap-10">
-            <div className="w-[100px]">
+          <div className="flex flex-col sm:flex-row justify-center lg:justify-end gap-8 lg:gap-10">
+            <div className="w-full sm:w-auto">
               <h3 className="font-bold text-[13px] mb-4 text-[#248A37]">The Benefits</h3>
               <ul className="space-y-2">
                 <li>
@@ -80,11 +80,11 @@ export const Footer = ({ className }: FooterProps) => {
               </ul>
             </div>
 
-            <div>
+            <div className="w-full sm:w-auto">
               <h3 className="font-bold text-[13px] mb-4 text-[#248A37]">Company</h3>
               <ul className="space-y-2">
                 <li className="text-[11px] font-normal">
-                  About us
+                  About Us
                 </li>
                 <li className="text-[11px] font-normal">
                   Career
@@ -95,12 +95,12 @@ export const Footer = ({ className }: FooterProps) => {
               </ul>
             </div>
 
-            <div>
+            <div className="w-full sm:w-auto">
               <h3 className="font-bold text-[13px] mb-4 text-[#248A37]">Newsletter</h3>
               <p className="text-[11px] font-normal mb-3">
                 Subscribe to stay updated with the latest news and events
               </p>
-              <div className="w-[300px]">
+              <div className="w-full max-w-[300px]">
                 {!isSubscribed ? (
                   <form onSubmit={handleSubscribe} className="flex gap-2">
                     <input 
@@ -109,11 +109,11 @@ export const Footer = ({ className }: FooterProps) => {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email" 
                       required
-                      className="text-[11px] px-3 py-2 border rounded-md w-[200px] focus:outline-none focus:ring-1 focus:ring-[#248A37]"
+                      className="text-[11px] px-3 py-2 border rounded-md flex-1 min-w-0 focus:outline-none focus:ring-1 focus:ring-[#248A37]"
                     />
                     <Button 
                       type="submit"
-                      className="bg-[#248A37] hover:bg-[#248A37]/90 text-[11px] px-4 py-2"
+                      className="bg-[#248A37] hover:bg-[#248A37]/90 text-[11px] px-4 py-2 whitespace-nowrap"
                     >
                       Subscribe
                     </Button>
@@ -131,7 +131,7 @@ export const Footer = ({ className }: FooterProps) => {
         </div>
 
         <div className="mt-12 pt-8 border-t text-center text-[11px]">
-          <p>©  The Toy Fair 2026. All rights reserved.</p>
+          <p>© The Toy Fair 2026. All rights reserved.</p>
         </div>
       </div>
     </footer>
