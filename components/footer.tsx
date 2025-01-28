@@ -20,10 +20,10 @@ export const Footer = ({ className }: FooterProps) => {
 
   return (
     <footer className={`bg-[#F5F0FF] ${className || ''}`} style={{ borderTop: '80px solid #F5F0FF' }}>
-      <div className="w-[980px] mx-auto px-4 bg-[#F5F0FF]">
-        <div className="grid grid-cols-1 md:grid-cols-[550px_1fr] gap-14">
+      <div className="max-w-[980px] mx-auto px-4 bg-[#F5F0FF]">
+        <div className="grid grid-cols-1 md:grid-cols-[550px_1fr] gap-8 md:gap-14">
           <div className="space-y-4">
-            <div className="flex items-center">
+            <div className="flex items-center justify-center md:justify-start">
               <Image 
                 src="/images/Logo.png"
                 alt="Toy Logo"
@@ -32,18 +32,18 @@ export const Footer = ({ className }: FooterProps) => {
                 className="object-contain"
               />
             </div>
-            <div className="space-y-4 w-[400px]">
-              <p className="text-[11px]">
-                The Gift Fair is the world&apos;s first online trade show dedicated to the US toy Industry. 
-                The Gift Fair is brought to you by Acquamelon and powered by XpoFairs.
+            <div className="space-y-4 w-full md:w-[400px]">
+              <p className="text-[11px] text-center md:text-left">
+                The Toy Fair is the world&apos;s first online trade show dedicated to the UK Toy Industry. 
+                The Toy Fair is brought to you by Acquamelon and powered by XpoFairs.
               </p>
               
-              <div>
+              <div className="text-center md:text-left">
                 <h4 className="font-bold text-[11px] mb-1">Show Days</h4>
                 <p className="text-[11px]">January 08 2025 - February 28 2025</p>
               </div>
 
-              <div>
+              <div className="text-center md:text-left">
                 <h4 className="font-bold text-[11px] mb-1">Opening Hours</h4>
                 <p className="text-[11px]">
                   Although the show is accessible 24 hours a day, 7 days a week. Exhibitors will be available:
@@ -53,8 +53,8 @@ export const Footer = ({ className }: FooterProps) => {
             </div>
           </div>
           
-          <div className="flex justify-end gap-10">
-            <div className="w-[100px]">
+          <div className="grid grid-cols-2 md:flex md:justify-end gap-6 md:gap-10">
+            <div className="w-full md:w-[100px]">
               <h3 className="font-bold text-[13px] mb-4 text-[#248A37]">The Benefits</h3>
               <ul className="space-y-2">
                 <li>
@@ -95,12 +95,12 @@ export const Footer = ({ className }: FooterProps) => {
               </ul>
             </div>
 
-            <div>
+            <div className="col-span-2">
               <h3 className="font-bold text-[13px] mb-4 text-[#248A37]">Newsletter</h3>
               <p className="text-[11px] font-normal mb-3">
                 Subscribe to stay updated with the latest news and events
               </p>
-              <div className="w-[300px]">
+              <div className="w-full md:w-[300px]">
                 {!isSubscribed ? (
                   <form onSubmit={handleSubscribe} className="flex gap-2">
                     <input 
@@ -109,7 +109,7 @@ export const Footer = ({ className }: FooterProps) => {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email" 
                       required
-                      className="text-[11px] px-3 py-2 border rounded-md w-[200px] focus:outline-none focus:ring-1 focus:ring-[#248A37]"
+                      className="text-[11px] px-3 py-2 border rounded-md w-full md:w-[200px] focus:outline-none focus:ring-1 focus:ring-[#248A37]"
                     />
                     <Button 
                       type="submit"
@@ -130,8 +130,8 @@ export const Footer = ({ className }: FooterProps) => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t text-center text-[11px]">
-          <p>©  The Toy Fair 2026. All rights reserved.</p>
+        <div className="mt-8 md:mt-12 pt-8 border-t text-center text-[11px]">
+          <p>© The Toy Fair 2026. All rights reserved.</p>
         </div>
       </div>
     </footer>

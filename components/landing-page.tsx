@@ -77,15 +77,16 @@ export function LandingPageComponent() {
       <Navbar className="w-full bg-transparent" /> {/* Made navbar background transparent */}
 
       {/* Hero Section */}
-      <div className="relative h-screen">
+      <div className="relative h-[60vh] md:h-[100vh] w-full overflow-hidden">
         <Image
             src="/images/TGFUSA.png"
             alt="The gift fair USA"
             fill
-            className="object-cover brightness-100"
+            className="object-cover w-full h-full brightness-100"
             priority
             quality={100}
             sizes="100vw"
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
           />
       {/*
         <video
@@ -98,22 +99,30 @@ export function LandingPageComponent() {
           />
           */}
         <div className="absolute inset-0">
-          <div className="container mx-auto px-4 h-full flex flex-col justify-center items-start text-white text-center" style={{ width: '800px', marginLeft: '300px' }}>
-            <p className="text-white text-lg md:text-[30px] leading-normal tracking-[0px] font-poppins font-bold animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s]" style={{ alignSelf: 'flex-start', position: 'relative', top: '500px' }}>
-              12 January 2026 - 28 February 2026
-            </p>
-            <h1 className="text-4xl md:text-[96px] leading-tight md:leading-[93.5px] tracking-[-2px] md:tracking-[-8px] font-normal mb-4 font-tilt-warp text-right" style={{ width: '100%', marginLeft: '700px' }}>
-              <div className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]" style={{ fontSize: '96px', lineHeight: '96px', letterSpacing: '-0.04em', fontFamily: 'var(--font-shrikhand)' }}>
+          {/* Main heading - moved right on mobile */}
+          <div className="absolute top-[calc(3rem+100px)] md:top-[calc(5rem+200px)] right-0 md:right-[calc(4rem+150px)] max-w-[90%] md:max-w-[800px]">
+            <h1 className="text-3xl md:text-[96px] leading-tight md:leading-[93.5px] tracking-[-1px] md:tracking-[-8px] font-normal text-right text-white">
+              <div className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]" 
+                   style={{ fontSize: 'inherit', lineHeight: '1.2', letterSpacing: '-0.04em', fontFamily: 'var(--font-shrikhand)' }}>
                 Discover the 
               </div>
-              <span className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]" style={{ fontSize: '96px', lineHeight: '96px', letterSpacing: '-0.04em', fontFamily: 'var(--font-shrikhand)' }}>
+              <span className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]" 
+                    style={{ fontSize: 'inherit', lineHeight: '1.2', letterSpacing: '-0.04em', fontFamily: 'var(--font-shrikhand)' }}>
                 best gifts the US 
               </span>
-              <span className="block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.6s]" style={{ fontSize: '96px', lineHeight: '96px', letterSpacing: '-0.04em', fontFamily: 'var(--font-shrikhand)' }}>
+              <span className="block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.6s]" 
+                    style={{ fontSize: 'inherit', lineHeight: '1.2', letterSpacing: '-0.04em', fontFamily: 'var(--font-shrikhand)' }}>
                 has to offer
               </span>
             </h1>
-            <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.8s]" style={{ marginTop: '50px' }}>
+          </div>
+
+          {/* Date text and button group - moved left on mobile */}
+          <div className="absolute bottom-[calc(1rem+50px)] md:bottom-[calc(2rem+100px)] left-[calc(1rem-20px)] md:left-[calc(4rem+100px)] flex flex-col gap-2 md:gap-4">
+            <p className="text-white text-base md:text-[30px] leading-normal tracking-[0px] font-poppins font-bold animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s]">
+              12 January 2026 - 28 February 2026
+            </p>
+            <button className="w-[180px] md:w-[250px] bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 md:px-8 py-2 md:py-3 rounded-full text-base md:text-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.8s]">
               Join the Fun!
             </button>
           </div>

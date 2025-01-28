@@ -41,15 +41,6 @@ export function Navbar({ className }: NavbarProps) {
               priority
               className="max-h-[60px] w-auto"
             />
-            <Image
-              src="/images/GIF.gif"
-              alt="GIF icon"
-              width={150}
-              height={60}
-              quality={100}
-              priority
-              className="max-h-[60px] w-auto p-0"
-            />
           </div>
         </div>
 
