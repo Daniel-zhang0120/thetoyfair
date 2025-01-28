@@ -157,8 +157,8 @@ export function VisitPageComponent() {
           <PartnersCarousel />
           
           {/* Video Section */}
-          <div className="w-[1300px] h-[800px] mx-auto rounded-xl overflow-hidden mt-5 relative">
-            <div className="relative h-full group">
+          <div className="w-full max-w-[1300px] mx-auto rounded-xl overflow-hidden mt-5 relative">
+            <div className="relative aspect-video group">
               <video
                 ref={videoRef}
                 src="/videos/Xpo720p.mp4"
@@ -248,23 +248,22 @@ export function VisitPageComponent() {
       </section>
 
       {/* Join Us Text Section */}
-      <section className="relative bg-white" style={{ marginTop: '100px' }}>
+      <section className="relative bg-white pt-10 pb-10 md:pt-20 md:pb-20" style={{ marginTop: '100px' }}>
         <div 
           className="mx-auto text-center flex flex-col items-center"
           style={{ 
-            width: '1200px',
+            width: '100%',
+            maxWidth: '1200px',
             minHeight: '500px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            padding: '0 20px'
           }}
         >
           <h2 
-            className="font-poppins font-extrabold"
+            className="font-poppins font-extrabold text-[40px] md:text-[80px] leading-[1.2] tracking-[-1px] md:tracking-[-4.25px] text-center"
             style={{ 
-              fontSize: '80px',
-              letterSpacing: '0',
-              lineHeight: '1.2',
               background: 'linear-gradient(90deg, #9747FF 0%, #349EFF 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -275,7 +274,7 @@ export function VisitPageComponent() {
           </h2>
           <Button 
             variant="outline" 
-            className="mt-[30px] border-[#3D9BE9] text-[#3D9BE9] hover:bg-[#3D9BE9]"
+            className="mt-[20px] md:mt-[30px] border-[#3D9BE9] text-[#3D9BE9] hover:bg-[#3D9BE9]"
           >
             Buy Ticket
           </Button>

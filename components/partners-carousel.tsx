@@ -53,21 +53,21 @@ export function PartnersCarousel() {
   const doubledPartners = [...partners, ...partners]
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
+    <div className="w-full max-w-7xl mx-auto px-4">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-5 px-5">
+        <div className="flex gap-3 md:gap-5 px-2 md:px-5">
           {doubledPartners.map((partner, index) => (
             <div 
               key={index} 
               className="flex-[0_0_auto]"
             >
               <div className="flex items-center justify-center">
-                <div className="h-[202px] w-[202px] relative bg-white rounded-lg shadow-sm overflow-hidden">
+                <div className="h-[120px] w-[120px] md:h-[202px] md:w-[202px] relative bg-white rounded-lg shadow-sm overflow-hidden">
                   <Image
                     src={partner.image}
                     alt={partner.name}
                     fill
-                    className="object-contain p-4"
+                    className="object-contain p-2 md:p-4"
                     priority
                   />
                 </div>
