@@ -125,6 +125,9 @@ export function Navbar({ className }: NavbarProps) {
               >
                 BOOK A STAND
               </Button>
+              <div className="flex justify-center pt-2">
+                <ShareButton />
+              </div>
             </div>
           </nav>
         </div>

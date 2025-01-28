@@ -75,19 +75,21 @@ export function BrandsPageComponent() {
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar className="w-full bg-transparent" />
 
-      <div className="flex items-center justify-center py-8 bg-white">
+      <div className="flex items-center justify-center py-4 md:py-8 bg-white px-4 md:px-8">
         <div className="container text-center">
-          <h1 className="text-4xl font-bold mb-4">
+          <h1 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">
             Welcome to the Brands Page
           </h1>
-          <p className="text-lg text-gray-600 mb-8">
+          <p className="text-base md:text-lg text-gray-600 mb-4 md:mb-8 px-2 md:px-0">
             Discover a wide range of brands and their latest offerings.
           </p>
-          <SearchBar onSearch={handleSearch} />
+          <div className="mt-4 md:mt-0">
+            <SearchBar onSearch={handleSearch} />
+          </div>
         </div>
       </div>
 
-      <div className="container mx-auto py-8">
+      <div className="container mx-auto py-4 md:py-8">
         <BrandsGrid 
           filteredBrands={filteredBrands}
           isLoading={isLoading}
@@ -109,23 +111,24 @@ function BrandsGrid({ filteredBrands, isLoading, error }: {
   if (error) return <div className="text-2xl text-red-500 text-center py-10">{error}</div>;
 
   return (
-    <div className="mt-4 columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-x-8">
+    <div className="mt-4 px-4 space-y-6 md:space-y-0 md:columns-2 lg:columns-3 xl:columns-4 gap-x-8">
       {filteredBrands.map((brand) => (
-        <BrandCard
-          key={brand.BrandID}
-          brandData={{
-            standNumber: brand.stand_number,
-            type: "Standard",
-            companyImage: brand.image_url,
-            title: brand.brand_name,
-            description: brand.description,
-            exhibitorImage: brand.exhibitor?.profile_picture || "/placeholder.jpg",
-            exhibitorName: brand.exhibitor?.name || "No Exhibitor",
-            jobTitle: brand.exhibitor?.position || "N/A",
-            hall: brand.hall,
-            productTags: brand.product_tag.split(',').map(tag => tag.trim())
-          }}
-        />
+        <div key={brand.BrandID} className="mb-6 md:mb-0 transform scale-90 md:scale-100 origin-top">
+          <BrandCard
+            brandData={{
+              standNumber: brand.stand_number,
+              type: "Standard",
+              companyImage: brand.image_url,
+              title: brand.brand_name,
+              description: brand.description,
+              exhibitorImage: brand.exhibitor?.profile_picture || "/placeholder.jpg",
+              exhibitorName: brand.exhibitor?.name || "No Exhibitor",
+              jobTitle: brand.exhibitor?.position || "N/A",
+              hall: brand.hall,
+              productTags: brand.product_tag.split(',').map(tag => tag.trim())
+            }}
+          />
+        </div>
       ))}
     </div>
   );

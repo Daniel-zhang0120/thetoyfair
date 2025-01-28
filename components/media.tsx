@@ -20,7 +20,7 @@ export default function BlogPage() {
     <>
       <Navbar />
 
-      <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-8">
         {/* Main featured post */}
         <div className="relative mb-12">
           <Image
@@ -30,10 +30,13 @@ export default function BlogPage() {
             height={600}
             className="rounded-lg object-cover w-full"
           />
-          <div className="absolute bottom-0 left-0 w-1/2 bg-white/90 p-6 m-6 rounded-lg shadow-lg">
-            <h1 className="text-3xl font-bold mb-2">The Evolution of Technology</h1>
-            <p className="text-gray-600">By Alex Thompson</p>
-            <Link href="#" className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+          <div className="absolute bottom-0 left-0 w-full md:w-1/2 bg-white/90 p-4 md:p-6 m-0 md:m-6 rounded-lg shadow-lg">
+            <h1 className="text-xl md:text-3xl font-bold mb-2 line-clamp-2">The Evolution of Technology</h1>
+            <p className="text-gray-600 text-sm md:text-base">By Alex Thompson</p>
+            <Link 
+              href="#" 
+              className="mt-2 md:mt-4 inline-block bg-blue-500 text-white px-3 py-1.5 md:px-4 md:py-2 rounded text-sm md:text-base hover:bg-blue-600 transition-colors"
+            >
               Read More
             </Link>
           </div>
