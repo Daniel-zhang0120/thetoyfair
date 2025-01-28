@@ -193,8 +193,8 @@ export function ExhibitorPageComponent() {
         <PartnersCarousel />
         
         {/* Video Section */}
-        <div className="w-[1300px] h-[800px] mx-auto rounded-xl overflow-hidden mt-5 relative">
-          <div className="relative h-full group">
+        <div className="w-full max-w-[1300px] mx-auto rounded-xl overflow-hidden mt-5 relative">
+          <div className="relative aspect-video group">
             <video
               ref={videoRef}
               src="/videos/Xpo720p.mp4"
@@ -303,23 +303,22 @@ export function ExhibitorPageComponent() {
       <div className="h-[100px] bg-white"></div>
 
       {/* Join Us Text Section */}
-      <section className="relative bg-white" style={{ marginTop: '100px' }}>
+      <section className="relative bg-white pt-0 pb-0 md:pt-10 md:pb-10" style={{ marginTop: '100px' }}>
         <div 
           className="mx-auto text-center flex flex-col items-center"
           style={{ 
-            width: '1200px',
-            minHeight: '500px', // Adjusted height to ensure text fits
+            width: '100%', // Maintain full width for responsiveness
+            maxWidth: '1200px', // Maintain max width for larger screens
+            minHeight: '500px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            padding: '0 20px' // Added padding for smaller screens
           }}
         >
           <h2 
-            className="font-poppins font-extrabold"
+            className="font-poppins font-extrabold text-[40px] md:text-[80px] leading-[1.2] tracking-[-1px] md:tracking-[-4.25px] text-center" // Responsive font size
             style={{ 
-              fontSize: '80px',
-              letterSpacing: '0',
-              lineHeight: '1.2', // Adjusted line height for better fit
               background: 'linear-gradient(90deg, #9747FF 0%, #349EFF 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -330,7 +329,7 @@ export function ExhibitorPageComponent() {
           </h2>
           <Button 
             variant="outline" 
-            className="mt-[30px] border-[#3D9BE9] text-[#3D9BE9] hover:bg-[#3D9BE9]"
+            className="mt-[20px] md:mt-[30px] border-[#3D9BE9] text-[#3D9BE9] hover:bg-[#3D9BE9]"
           >
             Buy Ticket
           </Button>
