@@ -52,7 +52,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${tiltWarp.variable} ${poppins.variable} ${shrikhand.variable} font-poppins antialiased min-h-screen bg-gradient-to-b from-white via-green-100 to-purple-100`}
       >
         <BlurProvider>
-          <ShareButton />
+          {/* <ShareButton /> */}
           <BlurContent>
             {children}
           </BlurContent>

@@ -1,35 +1,37 @@
-'use client'
+"use client";
 
-import Link from "next/link"
-import { Button } from "./ui/button"
-import { usePathname } from 'next/navigation'
-import Image from 'next/image'
-import ShareButton from './ui/ShareButton'
-import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+import ShareButton from "./ui/ShareButton";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 interface NavbarProps {
   className?: string;
 }
 
 export function Navbar({ className }: NavbarProps) {
-  const pathname = usePathname()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  
+  const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const navigation = [
-    { name: 'HOME', href: '/', className: 'md:ml-32' },
-    { name: 'VISIT', href: '/visit' },
-    { name: 'EXHIBIT', href: '/exhibit' },
-    { name: 'BRANDS', href: '/brands' },
-    { name: 'MEDIA', href: '/media' },
-  ]
+    { name: "HOME", href: "/", className: "" },
+    { name: "VISIT", href: "/visit" },
+    { name: "EXHIBIT", href: "/exhibit" },
+    { name: "BRANDS", href: "/brands" },
+    { name: "MEDIA", href: "/media" },
+  ];
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full backdrop-blur-sm font-poppins ${className || ''}`}
-      style={{ backgroundColor: '#FFD6FF' }}
+      className={`sticky top-0 z-50 w-full backdrop-blur-sm font-poppins ${
+        className || ""
+      }`}
+      style={{ backgroundColor: "#FFD6FF" }}
     >
-      <div className="flex h-16 items-center px-4 w-full justify-between">
+      <div className="flex h-16 items-center px-3 w-full justify-between">
         <div className="flex-[0_0_150px] md:flex-[0_0_200px] flex items-center justify-start mr-2">
           <div className="flex items-center justify-start mr-2">
             <Image
@@ -44,8 +46,8 @@ export function Navbar({ className }: NavbarProps) {
           </div>
         </div>
 
-        <button 
-          className="md:hidden p-2 ml-auto mr-4"
+        <button
+          className="md:hidden p-2 ml-auto z-10"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
@@ -55,17 +57,21 @@ export function Navbar({ className }: NavbarProps) {
           )}
         </button>
 
-        <div className="hidden md:flex flex-1 justify-center mr-[30px]">
-          <nav className="flex items-center space-x-9">
+        <div className="hidden md:flex flex-grow justify-center">
+          <nav className="flex items-center space-x-6 lg:space-x-9">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={`
-                  text-[17px] font-semibold font-poppins transition-all duration-200
+                  text-[17px] md:text-[12px] lg:text-[17px] font-semibold font-poppins transition-all duration-200
                   hover:text-[#F249CD]
-                  ${pathname === item.href ? 'text-[#F249CD] font-bold' : 'text-[#454845]'}
-                  ${item.className || ''}
+                  ${
+                    pathname === item.href
+                      ? "text-[#F249CD] font-bold"
+                      : "text-[#454845]"
+                  }
+                  ${item.className || ""}
                 `}
               >
                 {item.name}
@@ -74,18 +80,19 @@ export function Navbar({ className }: NavbarProps) {
           </nav>
         </div>
 
-        <div className="hidden md:flex flex-[0_0_200px] items-center justify-end gap-4 mr-8">
-          <Button 
+        <div className="hidden md:flex items-center gap-4 shrink-0">
+          {" "}
+          <Button
             variant="outline"
             size="custom"
-            className="text-[14px] hover:font-bold whitespace-nowrap text-[#3D9BE9] border-[#3D9BE9] hover:bg-[#3D9BE9] hover:text-white"
+            className="text-[14px] md:text-[12px] md:px-[10px] lg:px-[24px] lg:text-[14px] hover:font-bold whitespace-nowrap text-[#3D9BE9] border-[#3D9BE9] hover:bg-[#3D9BE9] hover:text-white"
           >
             BUY A TICKET
           </Button>
-          <Button 
+          <Button
             variant="outline"
             size="custom"
-            className="mr-4 whitespace-nowrap text-[#F249CD] border-[#F249CD] hover:bg-[#F249CD] hover:text-white"
+            className="text-[14px] whitespace-nowrap md:text-[12px] md:px-[10px] lg:px-[24px] lg:text-[14px]  text-[#F249CD] border-[#F249CD] hover:bg-[#F249CD] hover:text-white"
           >
             BOOK A STAND
           </Button>
@@ -94,7 +101,7 @@ export function Navbar({ className }: NavbarProps) {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-[#F5F0FF] px-4 pb-4">
+        <div className="md:hidden bg-[#F5F0FF] px-4 pb-4 absolute top-16 left-0 w-full z-50">
           <nav className="flex flex-col space-y-4">
             {navigation.map((item) => (
               <Link
@@ -103,7 +110,11 @@ export function Navbar({ className }: NavbarProps) {
                 className={`
                   text-[17px] font-semibold font-poppins transition-all duration-200
                   hover:text-[#F249CD] py-2
-                  ${pathname === item.href ? 'text-[#F249CD] font-bold' : 'text-[#454845]'}
+                  ${
+                    pathname === item.href
+                      ? "text-[#F249CD] font-bold"
+                      : "text-[#454845]"
+                  }
                 `}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -111,17 +122,17 @@ export function Navbar({ className }: NavbarProps) {
               </Link>
             ))}
             <div className="flex flex-col space-y-3 pt-4">
-              <Button 
+              <Button
                 variant="outline"
                 size="custom"
-                className="text-[14px] hover:font-bold w-full text-[#3D9BE9] border-[#3D9BE9] hover:bg-[#3D9BE9] hover:text-white"
+                className="text-[14px] md:text-[12px] hover:font-bold w-full text-[#3D9BE9] border-[#3D9BE9] hover:bg-[#3D9BE9] hover:text-white"
               >
                 BUY A TICKET
               </Button>
-              <Button 
+              <Button
                 variant="outline"
                 size="custom"
-                className="w-full text-[#F249CD] border-[#F249CD] hover:bg-[#F249CD] hover:text-white"
+                className="w-full md: text-[#F249CD] border-[#F249CD] hover:bg-[#F249CD] hover:text-white"
               >
                 BOOK A STAND
               </Button>
@@ -133,5 +144,5 @@ export function Navbar({ className }: NavbarProps) {
         </div>
       )}
     </header>
-  )
+  );
 }
