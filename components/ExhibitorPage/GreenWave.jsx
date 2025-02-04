@@ -16,7 +16,7 @@ const GreenWave = () => {
           className={styles.whyHead}
           style={{ color: "#FFFFFF", zIndex: 100 }}
         >
-          ...and it's better for the environment
+          ...and it&apos;s better for the environment
         </h3>
         <div className={styles.infoContainer}>
           <div className={styles.block1}>

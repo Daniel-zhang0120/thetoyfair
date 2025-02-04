@@ -25,7 +25,7 @@ const ExhibitorWay = () => {
             </p>
             <p className={styles.whyPara}>
               No need for manuals, contractors, set-up, travel and hassle. Save
-              months' worth of planning.
+              months&apos;worth of planning.
             </p>
           </div>
           <div className={styles.block2}>

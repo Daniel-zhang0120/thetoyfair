@@ -200,7 +200,7 @@ const PurpleWave = () => {
           <div className={styles.landingBio}>
             <h2 className={styles.bioMainHead}>
               Be part of the future at the{" "}
-              <span className={styles.yellow}>UK's first online gift</span>{" "}
+              <span className={styles.yellow}>UK&apos;s first online gift</span>{" "}
               trade show.
             </h2>
             <div className={styles.quickList}>
