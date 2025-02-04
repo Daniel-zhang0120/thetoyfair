@@ -8,7 +8,7 @@ const nextConfig = {
       'plus.unsplash.com',
       'awsbrandbucket.s3.eu-north-1.amazonaws.com',
       'awsbrandbucket.s3.amazonaws.com',
-      
+      'imagedelivery.net',
     ],
   },
 };

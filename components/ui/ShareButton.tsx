@@ -1,18 +1,19 @@
 "use client";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { BlurContext } from "@/app/blur-provider";
 import Image from "next/image";
 
 type Platform = "facebook" | "instagram" | "whatsapp" | "twitter" | "copy";
 
 const ShareButton = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const { setIsBlurred } = useContext(BlurContext);
+  const { setIsBlurred ,isExpanded , setIsExpanded} = useContext(BlurContext);
+  const modalRef = useRef<HTMLDivElement>(null); // Ref for the modal
 
-  const handleShareClick = () => {
-    setIsBlurred(true);
-    setIsExpanded(true);
-  };
+
+  // const handleShareClick = () => {
+  //   setIsBlurred(true);
+  //   setIsExpanded(true);
+  // };
 
   const handleClose = () => {
     setIsBlurred(false);
@@ -49,13 +50,13 @@ const ShareButton = () => {
 
   return (
     <>
-      <button
+      {/* <button
         onClick={handleShareClick}
-        className="w-6 h-6 bg-cover bg-center top-4 right-4 z-[60]"
+        className="w-6 h-6 bg-cover fixed bg-center top-4 right-4 z-[60]"
         style={{ backgroundImage: "url('/images/Share_button.svg')" }}
       >
         <span className="sr-only">Share</span>
-      </button>
+      </button> */}
       {isExpanded && (
         <div className="fixed inset-0 flex items-center justify-center z-[60]">
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -66,6 +67,7 @@ const ShareButton = () => {
               borderColor: "white",
               borderRadius: "1rem",
             }}
+            ref={modalRef}
           >
             <button
               onClick={handleClose}

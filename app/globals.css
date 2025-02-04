@@ -104,3 +104,14 @@ body {
     @apply bg-background text-foreground;
   }
 }
+/* @media screen and (max-width:640px) {
+  .pink-video-container{
+    width:500px !important;
+  }
+}
+
+@media screen and (max-width:576px) {
+  .pink-video-container{
+    width:400px
+  }
+} */

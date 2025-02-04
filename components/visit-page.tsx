@@ -4,7 +4,7 @@ import { useRef} from "react"
 import Image from "next/image"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { PartnersCarousel } from "./partners-carousel"
+import { PartnersCarousel } from "@/components/CommonComponent/PartnersCarousal"
 import { Button } from "@/components/ui/button"
 
 export function VisitPageComponent() {

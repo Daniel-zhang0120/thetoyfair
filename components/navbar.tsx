@@ -4,9 +4,9 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import ShareButton from "./ui/ShareButton";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { BlurContext } from "@/app/blur-provider";
 
 interface NavbarProps {
   className?: string;
@@ -15,6 +15,7 @@ interface NavbarProps {
 export function Navbar({ className }: NavbarProps) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { setIsBlurred, setIsExpanded } = useContext(BlurContext);
 
   const navigation = [
     { name: "HOME", href: "/", className: "" },
@@ -23,6 +24,11 @@ export function Navbar({ className }: NavbarProps) {
     { name: "BRANDS", href: "/brands" },
     { name: "MEDIA", href: "/media" },
   ];
+
+  const handleShareClick = () => {
+    setIsBlurred(true);
+    setIsExpanded(true);
+  };
 
   return (
     <header
@@ -96,7 +102,14 @@ export function Navbar({ className }: NavbarProps) {
           >
             BOOK A STAND
           </Button>
-          <ShareButton />
+          <button
+            onClick={handleShareClick}
+            className="w-6 h-6 bg-cover bg-center top-4 right-4 z-[60]"
+            style={{ backgroundImage: "url('/images/Share_button.svg')" }}
+          >
+            <span className="sr-only">Share</span>
+          </button>
+          {/* <ShareButton /> */}
         </div>
       </div>
 
@@ -137,7 +150,14 @@ export function Navbar({ className }: NavbarProps) {
                 BOOK A STAND
               </Button>
               <div className="flex justify-center pt-2">
-                <ShareButton />
+                {/* <ShareButton /> */}
+                <button
+                  onClick={handleShareClick}
+                  className="w-6 h-6 bg-cover bg-center top-4 right-4 z-[60]"
+                  style={{ backgroundImage: "url('/images/Share_button.svg')" }}
+                >
+                  <span className="sr-only">Share</span>
+                </button>
               </div>
             </div>
           </nav>

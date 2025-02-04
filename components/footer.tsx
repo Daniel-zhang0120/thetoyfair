@@ -20,7 +20,7 @@ export const Footer = ({ className }: FooterProps) => {
 
   return (
     <footer
-      className={`bg-[#F5F0FF] ${className || ""}`}
+      className={`bg-[#F5F0FF] w-full overflow-hidden  ${className || ""}`}
       style={{ borderTop: "80px solid #F5F0FF" }}
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 bg-[#F5F0FF]">

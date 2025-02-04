@@ -1,0 +1,67 @@
+.wavyBg{
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    z-index: -10;
+    transform: translate(-50%, -50%);
+    top: 53.5%;
+    left: 50%;
+}
+
+.wavyUp{
+    margin-bottom: -5px;
+}
+
+.wavyDown{
+    margin-top: -5px;
+    transform: rotateZ(180deg);
+}
+
+.wavyMiddle{
+    width: 2600px;
+    background: rgb(246, 214, 223);
+}
+
+.reverse{
+    transform: translate(-50%, -50%) rotateY(180deg) ;
+}
+
+/* @media screen and (max-width: 1300px){
+    .wavyBg{
+        width: 1400px;
+    }
+
+    .wavyMiddle{
+        min-width: 1400px;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .wavyBg{
+        width: 1200px;
+    }
+
+    .wavyMiddle{
+        width: 1200px;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .wavyBg{
+        width: 1000px;
+    }
+
+    .wavyMiddle{
+        width: 1000px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .wavyBg{
+        width: 700px;
+    }
+
+    .wavyMiddle{
+        width: 700px;
+    }
+} */
