@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import styles from "./ExhibitorWay.module.css";
-import { supportsWebP } from "@/app/helper/newformatecheck";
-import images from "@/app/helper/imageIDs";
+import { supportsWebP } from "../../app/helper/newFormateCheck";
+import images from "../../app/helper/imageIDs";
 
 const ExhibitorWay = () => {
   return (
