@@ -5,8 +5,9 @@ import styles from "./ExhibitorWay.module.css";
 import WavyBG from "../CommonComponent/WaveBg/WaveBG";
 import { useMediaQuery } from "react-responsive";
 import HeroSection from "./HeroSection";
+import text1 from "../../public/images/Text1.png";
 
-const PinkWave = ({ color, title, isImage = false, imageSrc }) => {
+const PinkWave = ({ color, title, isImage = false, imageSrc = text1 }) => {
   const videoRef = useRef(null);
   const isMobile = useMediaQuery({ maxWidth: 600 });
   const isTablet = useMediaQuery({ maxWidth: 768, maxHeight: 1100 });
