@@ -6,7 +6,7 @@ import WavyBG from "../CommonComponent/WaveBg/WaveBG";
 import { useMediaQuery } from "react-responsive";
 import HeroSection from "./HeroSection";
 
-const PinkWave = ({ color, title }) => {
+const PinkWave = ({ color, title, isImage = false, imageSrc }) => {
   const videoRef = useRef(null);
   const isMobile = useMediaQuery({ maxWidth: 600 });
   const isTablet = useMediaQuery({ maxWidth: 768, maxHeight: 1100 });
@@ -15,7 +15,12 @@ const PinkWave = ({ color, title }) => {
     <>
       <div className={styles.expectContainer}>
         {/* <PageHead text="What To Expect?" notTop colorGradient="purpleMulti" /> */}
-        <HeroSection title={title ? title :"What To Expect?"} />
+        <HeroSection
+          title={title ? title : "What To Expect?"}
+          isImage={isImage}
+          top={30}
+          imageSrc={imageSrc}
+        />
         <div className={styles.expectContent}>
           <PartnersCarousel />
           <div className="max-w-[400px] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1200px] 2xl:max-w-[1300px] mx-auto rounded-xl overflow-hidden mt-5 relative">
@@ -40,7 +45,7 @@ const PinkWave = ({ color, title }) => {
           <WavyBG
             color={color ? color : "#E770C1"}
             height={isMobile ? "430px" : isTablet ? "600px" : "575px"}
-            top={isMobile ? "200px" : isTablet ? "650px" : "725px"}
+            top={isMobile ? "200px" : isTablet ? "650px" : "752px"}
             reverse
           />
         </div>
