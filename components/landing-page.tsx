@@ -85,7 +85,7 @@ export function LandingPageComponent() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F5F0FF]">
+    <div className="flex flex-col min-h-screen bg-[#EDFFF0]">
       {/*
       <Head>
         <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet" />
@@ -96,70 +96,36 @@ export function LandingPageComponent() {
       {/* Hero Section */}
       <div className="relative h-[60vh] md:h-[100vh] w-full overflow-hidden">
         <Image
-          src="/images/TGFUSA.png"
-          alt="The gift fair USA"
-          fill
-          className="object-cover w-full h-full brightness-100"
-          priority
-          quality={100}
-          sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center" }}
-        />
+            src="/images/Toy_fair_im1.png"
+            alt="Sports Licensing Event Banner"
+            fill
+            className="object-cover brightness-75"
+            priority
+            quality={100}
+            sizes="100vw"
+          />
 
-        <div className="absolute inset-0 flex flex-col justify-between">
-          <div className="mt-16 md:mt-32 px-4 md:px-0 flex justify-end">
-            <div className="max-w-full md:max-w-[800px] mr-4 md:mr-8">
-              <h1 className="text-3xl md:text-[96px] leading-tight md:leading-[93.5px] tracking-[-1px] md:tracking-[-8px] font-normal text-right text-white">
-                <div
-                  className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]"
-                  style={{
-                    fontSize: "inherit",
-                    lineHeight: "1.2",
-                    letterSpacing: "-0.04em",
-                    fontFamily: "var(--font-shrikhand)",
-                  }}
-                >
-                  Discover the
-                </div>
-                <span
-                  className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]"
-                  style={{
-                    fontSize: "inherit",
-                    lineHeight: "1.2",
-                    letterSpacing: "-0.04em",
-                    fontFamily: "var(--font-shrikhand)",
-                  }}
-                >
-                  best gifts the US
-                </span>
-                <span
-                  className="block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.6s]"
-                  style={{
-                    fontSize: "inherit",
-                    lineHeight: "1.2",
-                    letterSpacing: "-0.04em",
-                    fontFamily: "var(--font-shrikhand)",
-                  }}
-                >
-                  has to offer
-                </span>
-              </h1>
-            </div>
-          </div>
-          <div className="pb-16 md:pb-32 px-4 md:px-0 flex justify-start">
-            <div className="container mx-auto flex flex-col md:flex-row items-start md:items-center justify-start md:justify-start gap-4 ml-4 md:ml-8">
-              <div className="flex flex-col">
-                <p className="text-white text-base md:text-[30px] leading-normal tracking-[0px] font-poppins font-bold animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s] text-left">
-                  12 January 2026 - 28 February 2026
-                </p>
-                <button className="w-full md:w-[250px] bg-gradient-to-r mt-2 from-purple-600 to-pink-600 text-white px-6 md:px-8 py-2 md:py-3 rounded-full text-base md:text-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.8s]">
-                  Join the Fun!
-                </button>
-              </div>
-            </div>
+        <div className="absolute inset-0 bg-black/30">
+          <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center text-white text-center">
+            <p className="text-[#F249CD] text-lg md:text-[30px] leading-normal tracking-[0px] font-poppins font-bold animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s]">
+              12 January 2026 - 28 February 2026
+            </p>
+            <h1 className="text-4xl md:text-[96px] leading-tight md:leading-[93.5px] tracking-[-2px] md:tracking-[-8px] font-normal mb-4 font-tilt-warp">
+              <span className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]">
+                Sourcing <span className="text-[#4AD966] font-normal">toys</span> has never been
+              </span>
+              <br />
+              <span className="inline-block animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.6s]">
+                <span className="text-[#4AD966] font-normal">so much fun !</span>
+              </span>
+            </h1>
+            <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.8s]">
+              Join the fun!
+            </button>
           </div>
         </div>
       </div>
+
       {/* Video Section */}
       <div className="w-full max-w-[1300px] mx-auto px-4 py-20">
         <div className="aspect-video relative rounded-xl overflow-hidden">
@@ -276,7 +242,7 @@ export function LandingPageComponent() {
         </div>
       </div>
       {/* Industry Partners Section */}
-      <section className="py-20 bg-[#F5F0FF]">
+      <section className="py-20 bg-[#EDFFF0]">
         <div className="w-full max-w-[1300px] mx-auto px-4">
           <h2 className="text-3xl md:text-[80px] leading-tight md:leading-[90px] tracking-[-2px] md:tracking-[-8px] text-center mb-12 font-tilt-warp text-[#287838]">
             Be at the frontier of fun - the toy industry is evolving
@@ -315,7 +281,7 @@ export function LandingPageComponent() {
         </div>
       </section>
       {/* Testimonials Carousel */}
-      <section className="py-20 bg-[#F5F0FF]">
+      <section className="py-20 bg-[#EDFFF0]">
         <div className="container mx-auto px-4">
           <h3 className="text-xl md:text-[30px] leading-normal font-bold text-center mb-8 text-[#F249CD]">
             What are our exhibitors saying...
@@ -327,7 +293,7 @@ export function LandingPageComponent() {
               <CarouselContent>
                 {testimonials.map((testimonial, index) => (
                   <CarouselItem key={index}>
-                    <Card className="p-6 md:p-8 bg-[#F5F0FF] rounded-lg">
+                    <Card className="p-6 md:p-8 bg-[#EDFFF0] rounded-lg">
                       {/* Added rounded-lg and responsive padding */}
                       <blockquote className="text-base md:text-xl text-center">
                         {/* Adjusted text size */}
@@ -356,7 +322,7 @@ export function LandingPageComponent() {
         </div>
       </section>
       {/* Statistics */}
-      <section className="bg-[#F5F0FF]">
+      <section className="bg-[#EDFFF0]">
         <div className="relative w-full h-auto md:h-[360px] py-12 md:py-0 flex items-center">
           {/* Background Image */}
           <div className="absolute inset-0 overflow-hidden">
