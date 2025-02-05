@@ -9,16 +9,27 @@ import PurpleWave from "./ExhibitorPage/PurpleWave";
 import PinkWave from "./ExhibitorPage/PinkWave";
 import GreenWave from "./ExhibitorPage/GreenWave";
 import BookComponent from "./ExhibitorPage/BookComponent";
+import heading1 from "../public/images/Text1.png";
+import heading2 from "../public/images/Text2.png";
 
 export function VisitPageComponent() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar className="w-full bg-transparent" />
-      <HeroSection title={"Why you should visit?"} />
+      <HeroSection
+        title={"Why you should visit?"}
+        isImage
+        imageSrc={heading1}
+      />
       <PurpleWave color={"#FB8383"} type={"visit"} />
-      <PinkWave color={"#8CD3FB"} title={"A whole new experience"} />
-      <HeroSection title={"a better way to visit"} />
-      <GreenWave />
+      <PinkWave
+        color={"#8CD3FB"}
+        title={"A whole new experience"}
+        isImage
+        imageSrc={heading2}
+      />
+      {/* <HeroSection title={"a better way to visit"} /> */}
+      {/* <GreenWave /> */}
       <section className="relative bg-white" style={{ marginTop: "10px" }}>
         <div className="container mx-auto px-4">
           <Image
