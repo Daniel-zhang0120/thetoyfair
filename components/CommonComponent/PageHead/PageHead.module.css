@@ -1,0 +1,91 @@
+.pageHead{
+    max-width: 1200px;
+    margin: calc(100px + var(--nav-height)) auto 50px auto;
+    font-size: 80px;
+    line-height: 90px;
+    font-weight: 700;
+    letter-spacing: -4.25px !important;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.yellowBG {
+    left: -110px;
+    position: absolute !important;
+    top: -72px;
+    z-index: -1;
+}
+
+.greenMulti{
+    background: linear-gradient(65deg, #4CE417 14%, #1C772E 39%, #3B8ACC 62%,  #349EFF 75%, #2CC50A 100%);
+    background-size: auto 110%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.purpleMulti{
+    background: linear-gradient(90deg, #9747FF 0%, #349EFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.pinkMulti{
+    background: linear-gradient(120deg, #F249CD 24%, #5D43FF 49%, #9747FF 85%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.pink{
+    color: #EB829D;
+}
+
+@media screen and (max-width: 1300px){
+    .pageHead{
+        margin: calc(90px + var(--nav-height)) auto 50px auto;
+        max-width: 992px;
+        font-size: 64px;
+        line-height: 72px;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .pageHead{
+        margin: calc(70px + var(--nav-height)) auto 50px auto;
+        max-width: 992px;
+        font-size: 58px;
+        line-height: 65px;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .pageHead{
+        max-width: 720px;
+        font-size: 52px;
+        line-height: 58.5px;
+        margin: calc(50px + var(--nav-height)) auto 50px auto;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .pageHead{
+        max-width: 540px;
+        font-size: 52px;
+        margin: calc(30px + var(--nav-height)) auto 50px auto;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .pageHead{
+        max-width: 90vw;
+        letter-spacing: -3.25px;
+        font-size: 44px;
+        line-height: 58px;
+        margin: calc(20px + var(--nav-height)) auto 50px auto;
+    }
+}
