@@ -8,7 +8,7 @@ import { useMediaQuery } from "react-responsive";
 
 
 const PurpleWave = ({ color, type }) => {
-  const isMobile = useMediaQuery({ maxWidth: 600 });
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
   const isDesktop = useMediaQuery({ minWidth: 1024 });
   const getHeight = () => {
@@ -23,7 +23,7 @@ const PurpleWave = ({ color, type }) => {
 
   const getTop = () => {
     if (isMobile) {
-      return "640px";
+      return "700px";
     } else if (isTablet) {
       return "550px";
     } else {
@@ -38,7 +38,7 @@ const PurpleWave = ({ color, type }) => {
           height={getHeight()}
           top={getTop()}
         />
-        <div className={styles.landingContent}>
+        <div className={styles.landingContent} style={{height:getHeight()}}>
           <div className={styles.landingBio}>
             <h3 className={styles.bioMainHead}>
               Find fabulous recognized brands as well as the hottest newcomers

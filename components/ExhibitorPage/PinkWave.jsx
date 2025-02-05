@@ -46,7 +46,7 @@ const PinkWave = ({ color, title, isImage = false, imageSrc = text1 }) => {
           <WavyBG
             color={color ? color : "#E770C1"}
             height={isMobile ? "430px" : isTablet ? "600px" : "575px"}
-            top={isMobile ? "200px" : isTablet ? "650px" : "752px"}
+            top={isMobile ? "300px" : isTablet ? "650px" : "752px"}
             reverse
           />
         </div>

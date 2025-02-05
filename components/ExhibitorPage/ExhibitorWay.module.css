@@ -139,7 +139,7 @@
 }
 
 .whyHead {
-    font-family: 'Urbanist', Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 64px;
     line-height: 50px;
     letter-spacing: -2.25px;
@@ -505,9 +505,9 @@
         top: 350px;
     }
 
-    .expectContent {
+    /* .expectContent {
         position: relative;
-    }
+    } */
 
     .whySection {
         width: 90vw;

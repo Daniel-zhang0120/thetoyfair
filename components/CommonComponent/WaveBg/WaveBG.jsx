@@ -37,7 +37,7 @@ const WavyBG = (props) => {
         style={{
           fill: `${props.color}`,
           position: "relative",
-          bottom: -3,
+          // bottom: -3,
           zIndex: 1,
         }}
       >
