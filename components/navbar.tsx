@@ -32,7 +32,7 @@ export function Navbar({ className }: NavbarProps) {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full backdrop-blur-sm font-poppins ${
+      className={`sticky top-0 z-50 w-full backdrop-blur-sm drop-shadow-xl font-poppins ${
         className || ""
       }`}
       style={{ backgroundColor: "#FFD6FF" }}

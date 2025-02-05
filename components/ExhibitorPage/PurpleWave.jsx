@@ -5,16 +5,15 @@ import styles from "./ExhibitorWay.module.css";
 import { supportsWebP } from "../../app/helper/newFormateCheck";
 import images from "../../app/helper/imageIDs";
 import { useMediaQuery } from "react-responsive";
-import PageHead from "../CommonComponent/PageHead/PageHead";
-import HeroSection from "./HeroSection";
 
-const PurpleWave = () => {
+
+const PurpleWave = ({ color, type }) => {
   const isMobile = useMediaQuery({ maxWidth: 600 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
   const isDesktop = useMediaQuery({ minWidth: 1024 });
   const getHeight = () => {
     if (isMobile) {
-      return "1600px";
+      return "1500px";
     } else if (isTablet) {
       return "1100px";
     } else {
@@ -34,7 +33,11 @@ const PurpleWave = () => {
   return (
     <>
       <div className={styles.visitBanner}>
-        <WavyBG color="#9F70FD" height={getHeight()} top={getTop()} />
+        <WavyBG
+          color={color ? color : "#9F70FD"}
+          height={getHeight()}
+          top={getTop()}
+        />
         <div className={styles.landingContent}>
           <div className={styles.landingBio}>
             <h3 className={styles.bioMainHead}>
@@ -82,9 +85,13 @@ const PurpleWave = () => {
           <div className={styles.imageContainer}>
             <Image
               src={
-                supportsWebP()
-                  ? `https://imagedelivery.net/YRgf2OvKS547t9TWgov5Lw/${images["visit-landing-new.webp"]}/public`
-                  : `https://imagedelivery.net/YRgf2OvKS547t9TWgov5Lw/${images["visit-landing-new.png"]}/public`
+                type == "exhibit"
+                  ? supportsWebP()
+                    ? `https://imagedelivery.net/YRgf2OvKS547t9TWgov5Lw/${images["visit-landing-new.webp"]}/public`
+                    : `https://imagedelivery.net/YRgf2OvKS547t9TWgov5Lw/${images["visit-landing-new.png"]}/public`
+                  : supportsWebP()
+                  ? `https://imagedelivery.net/YRgf2OvKS547t9TWgov5Lw/${images["visit-landing.webp"]}/public`
+                  : `https://imagedelivery.net/YRgf2OvKS547t9TWgov5Lw/${images["visit-landing.png"]}/public`
               }
               alt="xpo-visit-demo"
               height={673}
