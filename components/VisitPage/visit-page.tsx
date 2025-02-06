@@ -27,6 +27,7 @@ export function VisitPageComponent() {
         title={"A whole new experience"}
         isImage
         imageSrc={heading2}
+        type={"visit"}
       />
       {/* <HeroSection title={"a better way to visit"} /> */}
       {/* <GreenWave /> */}

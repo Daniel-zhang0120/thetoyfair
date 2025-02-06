@@ -17,7 +17,7 @@ export function ExhibitorPageComponent() {
       <HeroSection title={"Why should you exhibit?"}/>
       <PurpleWave color={"#9F70FD"} type={"exhibit"}/>
       {/* <HeroSection title={"What To Expect?"}/> */}
-      <PinkWave color={"#E770C1"} title={"What To Expect?"}/>
+      <PinkWave color={"#E770C1"} title={"What To Expect?"} type={"exhibit"}/>
       <ExhibitorWay />
       <GreenWave />
       <BookComponent />

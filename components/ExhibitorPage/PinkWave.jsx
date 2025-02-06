@@ -6,7 +6,13 @@ import { PartnersCarousel } from "../CommonComponent/PartnersCarousal";
 import HeroSection from "./HeroSection";
 import text1 from "../../public/images/Text1.png";
 
-const PinkWave = ({ color, title, isImage = false, imageSrc = text1 }) => {
+const PinkWave = ({
+  color,
+  title,
+  isImage = false,
+  imageSrc = text1,
+  type,
+}) => {
   const videoRef = useRef(null);
   const [screenSize, setScreenSize] = useState({
     isMobile: false,
@@ -58,8 +64,22 @@ const PinkWave = ({ color, title, isImage = false, imageSrc = text1 }) => {
           </div>
           <WavyBG
             color={color ? color : "#E770C1"}
-            height={screenSize.isMobile ? "250px" : screenSize.isTablet ? "400px" : "575px"}
-            top={screenSize.isMobile ? "500px" : screenSize.isTablet ? "600px" : "622px"}
+            height={
+              screenSize.isMobile
+                ? "250px"
+                : screenSize.isTablet
+                ? "400px"
+                : "475px"
+            }
+            top={
+              screenSize.isMobile
+                ? type === "exhibit"
+                  ? "400px"
+                  : "350px"
+                : screenSize.isTablet
+                ? "600px"
+                : "722px"
+            }
             reverse
           />
         </div>

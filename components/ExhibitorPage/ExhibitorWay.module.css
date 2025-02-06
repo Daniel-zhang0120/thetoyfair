@@ -30,6 +30,7 @@
 
 .expectContent {
     margin-top: 250px;
+    padding-top: 50px;
 }
 
 .landingContent {
@@ -512,7 +513,7 @@
 
      .expectContent {
         /* position: relative; */
-        /* margin-top: 250px; */
+        margin-top: 80px;
     } 
 
     .whySection {
