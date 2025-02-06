@@ -3,17 +3,26 @@ import React from "react";
 
 const HomeHeroSection = () => {
   return (
-    <div className="relative h-[60vh] md:h-[100vh] w-full overflow-hidden">
-      <Image
-        src="/images/TGFUSA.png"
-        alt="The gift fair USA"
-        fill
-        className="object-cover w-full h-full brightness-100"
-        priority
-        quality={100}
-        sizes="100vw"
-        style={{ objectFit: "cover", objectPosition: "center" }}
-      />
+    <div className="relative h-[80vh] md:h-[100vh] w-full overflow-hidden">
+      <div className="relative w-full h-full">
+        <Image
+          src="/images/TGFUSA.png"
+          alt="The gift fair USA"
+          fill
+          className="object-cover w-full h-full brightness-100"
+          priority
+          quality={100}
+          sizes="(max-width: 768px) 100vw, 
+                 (max-width: 1200px) 100vw,
+                 100vw"
+          style={{
+            objectFit: "cover",
+            objectPosition: "center",
+            width: "100%",
+            height: "100%",
+          }}
+        />
+      </div>
       <div className="absolute inset-0 flex flex-col justify-between">
         <div className="mt-16 md:mt-32 px-4 md:px-0 flex justify-end">
           <div className="max-w-full md:max-w-[800px] mr-4 md:mr-8">
@@ -55,7 +64,7 @@ const HomeHeroSection = () => {
           </div>
         </div>
         <div className="pb-16 md:pb-32 px-4 md:px-0 flex justify-start">
-          <div className="container mx-auto flex flex-col md:flex-row items-start md:items-center justify-start md:justify-start gap-4 ml-4 md:ml-8">
+          <div className="container mx-auto flex flex-col md:flex-row items-start md:items-center justify-start md:justify-start gap-4 ml-[-15px] md:ml-8 mt-[200px] md:mt-0">
             <div className="flex flex-col">
               <p className="text-white text-base md:text-[30px] leading-normal tracking-[0px] font-poppins font-bold animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s] text-left">
                 12 January 2026 - 28 February 2026

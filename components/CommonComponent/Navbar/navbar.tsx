@@ -114,15 +114,15 @@ export function Navbar({ className }: NavbarProps) {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-[#F5F0FF] px-4 pb-4 absolute top-16 left-0 w-full z-50">
-          <nav className="flex flex-col space-y-4">
+        <div className="md:hidden bg-[#F5F0FF] px-4 pb-4 absolute top-16 left-0 w-full min-h-[calc(100vh-4rem)] z-50">
+          <nav className="flex flex-col space-y-4 items-center justify-center h-full">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={`
-                  text-[17px] font-semibold font-poppins transition-all duration-200
-                  hover:text-[#F249CD] py-2
+                  text-[24px] font-semibold font-poppins transition-all duration-200
+                  hover:text-[#F249CD] py-4
                   ${
                     pathname === item.href
                       ? "text-[#F249CD] font-bold"
@@ -134,26 +134,25 @@ export function Navbar({ className }: NavbarProps) {
                 {item.name}
               </Link>
             ))}
-            <div className="flex flex-col space-y-3 pt-4">
+            <div className="flex flex-col space-y-4 pt-8 w-full max-w-[300px]">
               <Button
                 variant="outline"
                 size="custom"
-                className="text-[14px] md:text-[12px] hover:font-bold w-full text-[#3D9BE9] border-[#3D9BE9] hover:bg-[#3D9BE9] hover:text-white"
+                className="text-[16px] py-6 hover:font-bold w-full text-[#3D9BE9] border-[#3D9BE9] hover:bg-[#3D9BE9] hover:text-white"
               >
                 BUY A TICKET
               </Button>
               <Button
                 variant="outline"
                 size="custom"
-                className="w-full md: text-[#F249CD] border-[#F249CD] hover:bg-[#F249CD] hover:text-white"
+                className="text-[16px] py-6 w-full text-[#F249CD] border-[#F249CD] hover:bg-[#F249CD] hover:text-white"
               >
                 BOOK A STAND
               </Button>
-              <div className="flex justify-center pt-2">
-                {/* <ShareButton /> */}
+              <div className="flex justify-center pt-4">
                 <button
                   onClick={handleShareClick}
-                  className="w-6 h-6 bg-cover bg-center top-4 right-4 z-[60]"
+                  className="w-8 h-8 bg-cover bg-center z-[60]"
                   style={{ backgroundImage: "url('/images/Share_button.svg')" }}
                 >
                   <span className="sr-only">Share</span>
