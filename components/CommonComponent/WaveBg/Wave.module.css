@@ -1,7 +1,7 @@
 .wavyBg{
     position: absolute;
-    width: 100%;
-    overflow: hidden;
+    width: 2600px;
+    overflow: hidden !important;
     z-index: -10;
     transform: translate(-50%, -50%);
     top: 53.5%;
@@ -26,7 +26,7 @@
     transform: translate(-50%, -50%) rotateY(180deg) ;
 }
 
-/* @media screen and (max-width: 1300px){
+@media screen and (max-width: 1300px){
     .wavyBg{
         width: 1400px;
     }
@@ -64,4 +64,4 @@
     .wavyMiddle{
         width: 700px;
     }
-} */
+}

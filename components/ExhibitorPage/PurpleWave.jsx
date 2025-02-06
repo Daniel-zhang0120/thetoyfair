@@ -23,14 +23,14 @@ const PurpleWave = ({ color, type }) => {
 
     updateSize();
     window.addEventListener("resize", updateSize);
-
+    
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
   const getHeight = () => {
     if (screenSize.isMobile) return "1550px";
     if (screenSize.isTablet) return "1100px";
-    return "900px";
+    return "770px";
   };
 
   const getTop = () => {

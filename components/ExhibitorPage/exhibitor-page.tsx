@@ -12,7 +12,7 @@ import PurpleWave from "@/components/ExhibitorPage/PurpleWave";
 
 export function ExhibitorPageComponent() {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-white overflow-hidden">
       <Navbar className="w-full bg-transparent" />
       <HeroSection title={"Why should you exhibit?"}/>
       <PurpleWave color={"#9F70FD"} type={"exhibit"}/>

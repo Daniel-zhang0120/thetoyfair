@@ -78,7 +78,7 @@ const PinkWave = ({
                   : "350px"
                 : screenSize.isTablet
                 ? "600px"
-                : "722px"
+                : "750px"
             }
             reverse
           />
