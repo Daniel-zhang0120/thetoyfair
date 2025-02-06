@@ -43,7 +43,7 @@ const LinkBanner = () => {
         <span className={styles.heading2}>Exhibitors</span>
         <span className={styles.aside}>projected exhibitors</span>
         <Link href="/brands" className={styles.link}>
-          See Who's Exhibiting &gt;
+          See Who&apos;s Exhibiting &gt;
         </Link>
       </div>
       <div className={styles.bannerBox}>
@@ -61,7 +61,7 @@ const LinkBanner = () => {
         <span className={styles.heading2}>Days</span>
         <span className={styles.aside}>Jan 08 - Feb 28</span>
         <Link href="/brands" className={styles.link}>
-          See Who's Exhibiting &gt;
+          See Who&apos;s Exhibiting &gt;
         </Link>
       </div>
       <div className={styles.bannerBox}>
