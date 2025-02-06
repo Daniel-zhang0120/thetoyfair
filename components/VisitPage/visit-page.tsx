@@ -2,15 +2,15 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
-import HeroSection from "./ExhibitorPage/HeroSection";
-import PurpleWave from "./ExhibitorPage/PurpleWave";
-import PinkWave from "./ExhibitorPage/PinkWave";
-import GreenWave from "./ExhibitorPage/GreenWave";
-import BookComponent from "./ExhibitorPage/BookComponent";
-import heading1 from "../public/images/Text1.png";
-import heading2 from "../public/images/Text2.png";
+import { Navbar } from "@/components/CommonComponent/Navbar/navbar";
+import { Footer } from "@/components/CommonComponent/Footer/footer";
+import HeroSection from "../ExhibitorPage/HeroSection";
+import PurpleWave from "../ExhibitorPage/PurpleWave";
+import PinkWave from "../ExhibitorPage/PinkWave";
+import GreenWave from "../ExhibitorPage/GreenWave";
+import BookComponent from "../ExhibitorPage/BookComponent";
+import heading1 from "../../public/images/Text1.png";
+import heading2 from "../../public/images/Text2.png";
 
 export function VisitPageComponent() {
   return (

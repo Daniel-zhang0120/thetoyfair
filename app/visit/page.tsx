@@ -1,4 +1,4 @@
-import { VisitPageComponent } from "@/components/visit-page"
+import { VisitPageComponent } from "@/components/VisitPage/visit-page"
 
 export default function VisitPage() {
   return (

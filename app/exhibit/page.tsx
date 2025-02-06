@@ -1,4 +1,4 @@
-import { ExhibitorPageComponent } from "@/components/exhibitor-page";
+import { ExhibitorPageComponent } from "@/components/ExhibitorPage/exhibitor-page";
 
 export default function ExhibitorPage() {
   return (

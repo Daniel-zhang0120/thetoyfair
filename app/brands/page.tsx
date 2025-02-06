@@ -1,4 +1,4 @@
-import { BrandsPageComponent } from "@/components/BrandsPage"
+import { BrandsPageComponent } from "@/components/Brand/BrandsPage"
 
 export default function BrandsPage() {
   return (

@@ -1,8 +1,8 @@
 "use client";
 
 
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
+import { Navbar } from "@/components/CommonComponent/Navbar/navbar";
+import { Footer } from "@/components/CommonComponent/Footer/footer";
 import HeroSection from "@/components/ExhibitorPage/HeroSection";
 import BookComponent from "@/components/ExhibitorPage/BookComponent";
 import ExhibitorWay from "@/components/ExhibitorPage/ExhibitorWay";

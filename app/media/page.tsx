@@ -1,4 +1,4 @@
-import BlogPage from "@/components/media"
+import BlogPage from "@/components/Media/media"
 
 export default function MediaPage() {
   return (

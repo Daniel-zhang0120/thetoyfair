@@ -1,19 +1,49 @@
-'use client';
+"use client";
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { Navbar } from './navbar'
-import { Footer } from './footer'
+import Image from "next/image";
+import Link from "next/link";
+import { Navbar } from "../CommonComponent/Navbar/navbar";
+import { Footer } from "../CommonComponent/Footer/footer";
 
 // Mock data for latest blog posts
 const latestPosts = [
-  { id: 1, title: 'The Future of AI', image: '/images/picture2.png', author: 'Jane Doe' },
-  { id: 2, title: 'Web Development Trends', image: '/images/picture3.png', author: 'John Smith' },
-  { id: 3, title: 'Mastering React Hooks', image: '/images/picture4.png', author: 'Alice Johnson' },
-  { id: 4, title: 'The Art of UX Design', image: '/images/picture5.png', author: 'Bob Williams' },
-  { id: 5, title: 'Cybersecurity Essentials', image: '/images/picture6.png', author: 'Eve Brown' },
-  { id: 6, title: 'Machine Learning Basics', image: '/images/picture7.png', author: 'Charlie Davis' },
-]
+  {
+    id: 1,
+    title: "The Future of AI",
+    image: "/images/picture2.png",
+    author: "Jane Doe",
+  },
+  {
+    id: 2,
+    title: "Web Development Trends",
+    image: "/images/picture3.png",
+    author: "John Smith",
+  },
+  {
+    id: 3,
+    title: "Mastering React Hooks",
+    image: "/images/picture4.png",
+    author: "Alice Johnson",
+  },
+  {
+    id: 4,
+    title: "The Art of UX Design",
+    image: "/images/picture5.png",
+    author: "Bob Williams",
+  },
+  {
+    id: 5,
+    title: "Cybersecurity Essentials",
+    image: "/images/picture6.png",
+    author: "Eve Brown",
+  },
+  {
+    id: 6,
+    title: "Machine Learning Basics",
+    image: "/images/picture7.png",
+    author: "Charlie Davis",
+  },
+];
 
 export default function BlogPage() {
   return (
@@ -31,10 +61,14 @@ export default function BlogPage() {
             className="rounded-lg object-cover w-full"
           />
           <div className="absolute bottom-0 left-0 w-full md:w-1/2 bg-white/90 p-4 md:p-6 m-0 md:m-6 rounded-lg shadow-lg">
-            <h1 className="text-xl md:text-3xl font-bold mb-2 line-clamp-2">The Evolution of Technology</h1>
-            <p className="text-gray-600 text-sm md:text-base">By Alex Thompson</p>
-            <Link 
-              href="#" 
+            <h1 className="text-xl md:text-3xl font-bold mb-2 line-clamp-2">
+              The Evolution of Technology
+            </h1>
+            <p className="text-gray-600 text-sm md:text-base">
+              By Alex Thompson
+            </p>
+            <Link
+              href="#"
               className="mt-2 md:mt-4 inline-block bg-blue-500 text-white px-3 py-1.5 md:px-4 md:py-2 rounded text-sm md:text-base hover:bg-blue-600 transition-colors"
             >
               Read More
@@ -75,5 +109,5 @@ export default function BlogPage() {
 
       <Footer />
     </>
-  )
+  );
 }
