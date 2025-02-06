@@ -21,8 +21,8 @@ export const Footer = ({ className }: FooterProps) => {
 
   return (
     <footer
-      className={`bg-[#F5F0FF] w-full overflow-hidden  ${className || ""}`}
-      style={{ borderTop: "80px solid #F5F0FF" }}
+      className={`bg-[#F5F0FF] w-full overflow-hidden  border    ${className || ""}`}
+      style={{ borderTop: "40px solid #F5F0FF" }}
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-14">
