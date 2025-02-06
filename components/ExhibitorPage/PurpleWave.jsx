@@ -1,44 +1,60 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import WavyBG from "../CommonComponent/WaveBg/WaveBG";
 import styles from "./ExhibitorWay.module.css";
 import { supportsWebP } from "../../app/helper/newFormateCheck";
 import images from "../../app/helper/imageIDs";
-import { useMediaQuery } from "react-responsive";
-
 
 const PurpleWave = ({ color, type }) => {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
-  const isDesktop = useMediaQuery({ minWidth: 1024 });
+  const [screenSize, setScreenSize] = useState({
+    isMobile: false,
+    isTablet: false,
+    isDesktop: false,
+  });
+
+  useEffect(() => {
+    const updateSize = () => {
+      setScreenSize({
+        isMobile: window.innerWidth <= 768,
+        isTablet: window.innerWidth > 768 && window.innerWidth <= 1023,
+        isDesktop: window.innerWidth >= 1024,
+      });
+    };
+
+    updateSize();
+    window.addEventListener("resize", updateSize);
+
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
   const getHeight = () => {
-    if (isMobile) {
-      return "1550px";
-    } else if (isTablet) {
-      return "1100px";
-    } else {
-      return "900px";
-    }
+    if (screenSize.isMobile) return "1550px";
+    if (screenSize.isTablet) return "1100px";
+    return "900px";
   };
 
   const getTop = () => {
-    if (isMobile) {
-      return "700px";
-    } else if (isTablet) {
-      return "550px";
-    } else {
-      return "475px";
-    }
+    if (screenSize.isMobile) return "700px";
+    if (screenSize.isTablet) return "550px";
+    return "475px";
   };
+
   return (
     <>
       <div className={styles.visitBanner}>
         <WavyBG
-          color={color ? color : "#9F70FD"}
+          key={
+            screenSize.isMobile
+              ? "mobile"
+              : screenSize.isTablet
+              ? "tablet"
+              : "desktop"
+          }
+          color={color || "#9F70FD"}
           height={getHeight()}
           top={getTop()}
         />
-        <div className={styles.landingContent} >
+        <div className={styles.landingContent}>
           <div className={styles.landingBio}>
             <h3 className={styles.bioMainHead}>
               Find fabulous recognized brands as well as the hottest newcomers
@@ -62,7 +78,7 @@ const PurpleWave = ({ color, type }) => {
                   Reduce the hassle and cost
                 </h4>
                 <p className={styles.listItemSmall}>
-                  Say goodbye to cramped commuter trains, car park shuttles and
+                  Say goodbye to cramped commuter trains, car park shuttles, and
                   expensive hotels.
                 </p>
                 <hr className={styles.listDivider} />
@@ -85,7 +101,7 @@ const PurpleWave = ({ color, type }) => {
           <div className={styles.imageContainer}>
             <Image
               src={
-                type == "exhibit"
+                type === "exhibit"
                   ? supportsWebP()
                     ? `https://imagedelivery.net/YRgf2OvKS547t9TWgov5Lw/${images["visit-landing-new.webp"]}/public`
                     : `https://imagedelivery.net/YRgf2OvKS547t9TWgov5Lw/${images["visit-landing-new.png"]}/public`

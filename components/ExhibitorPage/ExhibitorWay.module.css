@@ -480,7 +480,7 @@
 
 @media screen and (max-width: 600px) {
     .visitBanner {
-        /* height: 800px; */
+        height: 800px;
         width: 100%;
         margin-left: auto;
         margin-right: auto;
@@ -544,6 +544,7 @@
     .environment {
         /* width: 340px; */
         margin: 150px auto 100px auto;
+        padding: 10px;
     }
 
     .environment .block1 {

@@ -1,14 +1,31 @@
+"use client"
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ExhibitorWay.module.css";
 import { supportsWebP } from "../../app/helper/newFormateCheck";
 import images from "../../app/helper/imageIDs";
-import { useMediaQuery } from "react-responsive";
 import WavyBG from "@/components/CommonComponent/WaveBg/WaveBG";
 
 const GreenWave = () => {
-  const isMobile = useMediaQuery({ maxWidth: 600 });
-  const isTablet = useMediaQuery({ maxWidth: 768, maxHeight: 1100 });
+  const [screenSize, setScreenSize] = useState({
+    isMobile: false,
+    isTablet: false,
+  });
+
+  useEffect(() => {
+    const updateSize = () => {
+      setScreenSize({
+        isMobile: window.innerWidth <= 600,
+        isTablet: window.innerWidth <= 768,
+      });
+    };
+
+    updateSize(); // Set initial value
+    window.addEventListener("resize", updateSize);
+
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
   return (
     <>
       <div className={styles.environment}>
@@ -46,9 +63,10 @@ const GreenWave = () => {
           </div>
         </div>
         <WavyBG
+          key={screenSize.isMobile ? "mobile" : screenSize.isTablet ? "tablet" : "desktop"}
           color="#32BC42"
-          height={isMobile ? "700px" : isTablet ? "600px" : "400px"}
-          top={isMobile ? "45%" : "50%"}
+          height={screenSize.isMobile ? "700px" : screenSize.isTablet ? "600px" : "400px"}
+          top={screenSize.isMobile ? "45%" : "50%"}
           reverse
         />
       </div>

@@ -1,22 +1,34 @@
-"use client";
-import React, { useRef } from "react";
-import { PartnersCarousel } from "../CommonComponent/PartnersCarousal";
-import styles from "./ExhibitorWay.module.css";
+import Image from "next/image";
+import React, { useState, useEffect, useRef } from "react";
 import WavyBG from "../CommonComponent/WaveBg/WaveBG";
-import { useMediaQuery } from "react-responsive";
+import styles from "./ExhibitorWay.module.css";
+import { PartnersCarousel } from "../CommonComponent/PartnersCarousal";
 import HeroSection from "./HeroSection";
 import text1 from "../../public/images/Text1.png";
-import VideoComponent from "../CommonComponent/VideoComponent/VideoComponent";
 
 const PinkWave = ({ color, title, isImage = false, imageSrc = text1 }) => {
   const videoRef = useRef(null);
-  const isMobile = useMediaQuery({ maxWidth: 600 });
-  const isTablet = useMediaQuery({ maxWidth: 768, maxHeight: 1100 });
+  const [screenSize, setScreenSize] = useState({
+    isMobile: false,
+    isTablet: false,
+  });
+
+  useEffect(() => {
+    const updateSize = () => {
+      setScreenSize({
+        isMobile: window.innerWidth <= 600,
+        isTablet: window.innerWidth > 600 && window.innerWidth <= 768,
+      });
+    };
+
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
 
   return (
     <>
       <div className={styles.expectContainer}>
-        {/* <PageHead text="What To Expect?" notTop colorGradient="purpleMulti" /> */}
         <HeroSection
           title={title ? title : "What To Expect?"}
           isImage={isImage}
@@ -25,17 +37,7 @@ const PinkWave = ({ color, title, isImage = false, imageSrc = text1 }) => {
         />
         <div className={styles.expectContent}>
           <PartnersCarousel />
-          {/* <VideoComponent
-            playback={1.0}
-            overlay={false}
-            autoPlay={false}
-            muted={false}
-            controls={true}
-            loop={false}
-            poster="/video-poster.png"
-            src="/videos/Xpo720p.mp4"
-          /> */}
-          <div className="max-w-[300px] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1200px] 2xl:max-w-[1300px] mx-auto rounded-xl overflow-hidden mt-5 mb-5 relative">
+          <div className="max-w-[400px] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1200px] 2xl:max-w-[1300px] mx-auto rounded-xl overflow-hidden mt-5 mb-5 relative video-container">
             <div className="relative">
               <video
                 ref={videoRef}
@@ -56,8 +58,8 @@ const PinkWave = ({ color, title, isImage = false, imageSrc = text1 }) => {
           </div>
           <WavyBG
             color={color ? color : "#E770C1"}
-            height={isMobile ? "1050px" : isTablet ? "500px" : "575px"}
-            top={isMobile ? "500px" : isTablet ? "650px" : "752px"}
+            height={screenSize.isMobile ? "250px" : screenSize.isTablet ? "400px" : "575px"}
+            top={screenSize.isMobile ? "500px" : screenSize.isTablet ? "600px" : "622px"}
             reverse
           />
         </div>

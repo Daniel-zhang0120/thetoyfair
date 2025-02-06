@@ -1,4 +1,3 @@
-"use client";
 import { Navbar } from "@/components/CommonComponent/Navbar/navbar";
 import { Footer } from "@/components/CommonComponent/Footer/footer";
 import LinkBanner from "./Statics/LinkPage";

@@ -21,8 +21,8 @@ const VideoComponent = (props: any) => {
       <div className={styles.heroText}>
         <p className={styles.date}>08 January 2025 - 28 February 2025</p>
         <h1 className={styles.strapline}>
-          "a groundbreaking event redefining the{" "}
-          <span className={styles.highlight}>gift</span> industry."
+          &quot;a groundbreaking event redefining the{" "}
+          <span className={styles.highlight}>gift</span> industry.&quot;
         </h1>
       </div>
     </div>
