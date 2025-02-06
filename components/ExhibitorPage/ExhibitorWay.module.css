@@ -11,7 +11,8 @@
 .visitBanner {
     position: relative;
     height: 420px;
-    margin-top: 270px;
+    margin-top: 150px;
+    padding-top: 10px;
     margin-bottom: 250px;
     /* overflow: hidden; */
     z-index: 10;
@@ -372,6 +373,9 @@
         /* margin-bottom: 350px; */
     }
 
+    .expectContent {
+        /* margin-top: 150px; */
+    }
     .landingContent {
         flex-direction: column;
         width: 540px;
@@ -407,7 +411,7 @@
 
     .expectContainer {
         /* width: 540px; */
-        margin: 900px auto 300px auto;
+        margin: 900px auto 0px auto;
     }
 
     .whySection {
@@ -476,11 +480,12 @@
 
 @media screen and (max-width: 600px) {
     .visitBanner {
-        height: 800px;
+        /* height: 800px; */
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 32vh;
+        padding-top: 50px;
+        /* margin-top: 32vh; */
     }
 
     .landingContent {
@@ -501,13 +506,14 @@
 
     .expectContainer {
         /* width: 90vw; */
-        margin: 200px auto 500px auto;
+        margin:150px auto 400px auto;
         top: 350px;
     }
 
-    /* .expectContent {
-        position: relative;
-    } */
+     .expectContent {
+        /* position: relative; */
+        /* margin-top: 250px; */
+    } 
 
     .whySection {
         width: 90vw;

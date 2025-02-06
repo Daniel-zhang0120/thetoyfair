@@ -13,7 +13,7 @@ const PurpleWave = ({ color, type }) => {
   const isDesktop = useMediaQuery({ minWidth: 1024 });
   const getHeight = () => {
     if (isMobile) {
-      return "1500px";
+      return "1550px";
     } else if (isTablet) {
       return "1100px";
     } else {
@@ -38,7 +38,7 @@ const PurpleWave = ({ color, type }) => {
           height={getHeight()}
           top={getTop()}
         />
-        <div className={styles.landingContent} style={{height:getHeight()}}>
+        <div className={styles.landingContent} >
           <div className={styles.landingBio}>
             <h3 className={styles.bioMainHead}>
               Find fabulous recognized brands as well as the hottest newcomers
