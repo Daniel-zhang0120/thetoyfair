@@ -1,0 +1,110 @@
+.mobileBannerContainer {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    row-gap: 25px;
+    column-gap: 15px;
+    background: url('../../../public/images/Gradient\ Background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+}
+
+.bannerBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageContainer {
+    text-align: center;
+    width: 160px;
+    height: 123px;
+}
+
+.imageContainer img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+}
+
+.heading1 {
+    font-weight: 700;
+    font-size: 47px;
+    line-height: 57px;
+    letter-spacing: -2.35px;
+}
+
+.heading2 {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 42px;
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
+}
+
+.aside {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.link {
+    color: #FF54FB;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    padding-top: 20px;
+}
+
+@media screen and (max-width: 767px) {
+
+    .mobileBannerContainer {
+        height: auto;
+        padding: 50px 0;
+        justify-content: center;
+        grid-template-columns: repeat(2, 175px);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .imageContainer {
+        width: calc(160px/2);
+        height: calc(123px/2);
+    }
+
+    .heading1 {
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 42px;
+        letter-spacing: -1.5px;
+    }
+
+    .heading2 {
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 38px;
+        letter-spacing: -1.5px;
+    }
+
+    .aside {
+        text-align: center;
+        height: 12px;
+    }
+
+    .link {
+        height: 44px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    .mobileBannerContainer {
+        grid-template-columns: repeat(1, 200px);
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+}
