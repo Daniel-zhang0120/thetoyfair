@@ -8,7 +8,7 @@ import HomeHeroSection from "./HomeHero/HomeHeroSection";
 
 export function LandingPageComponent() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#F5F0FF]">
+    <div className="flex flex-col min-h-screen bg-[#EDFFF0]">
       <Navbar className="w-full bg-transparent" />
       <HomeHeroSection />
       <VideoSection />

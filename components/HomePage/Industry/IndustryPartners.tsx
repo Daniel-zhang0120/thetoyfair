@@ -12,7 +12,7 @@ const IndustryPartners = () => {
     { src: "/images/Partner 7.png", alt: "Partner 7" },
   ];
   return (
-    <section className="bg-[#F5F0FF] overflow-hidden">
+    <section className="bg-[#EDFFF0] overflow-hidden">
       <div className="w-full max-w-[1300px] mx-auto px-4">
         <h2 className="text-3xl md:text-[60px] leading-tight md:leading-[70px] tracking-[-1px] md:tracking-[-4px] text-center mb-10 font-bold text-[#287838]">
           Be at the frontier of fun - the toy industry is evolving

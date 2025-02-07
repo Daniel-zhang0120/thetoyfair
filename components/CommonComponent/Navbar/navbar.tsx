@@ -1,59 +1,49 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { Button } from "../../ui/button";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
-import { useContext, useState } from "react";
-import { Menu, X } from "lucide-react";
-import { BlurContext } from "@/app/blur-provider";
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { usePathname } from 'next/navigation'
+import Image from 'next/image'
+import ShareButton from "@/components/ui/ShareButton"
+import { useState } from 'react'
+import { Menu, X } from 'lucide-react'
 
 interface NavbarProps {
   className?: string;
 }
 
 export function Navbar({ className }: NavbarProps) {
-  const pathname = usePathname();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { setIsBlurred, setIsExpanded } = useContext(BlurContext);
-
+  const pathname = usePathname()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  
   const navigation = [
-    { name: "HOME", href: "/", className: "" },
-    { name: "VISIT", href: "/visit" },
-    { name: "EXHIBIT", href: "/exhibit" },
-    { name: "BRANDS", href: "/brands" },
-    { name: "MEDIA", href: "/media" },
-  ];
-
-  const handleShareClick = () => {
-    setIsBlurred(true);
-    setIsExpanded(true);
-  };
+    { name: 'HOME', href: '/', className: 'md:ml-32' },
+    { name: 'VISIT', href: '/visit' },
+    { name: 'EXHIBIT', href: '/exhibit' },
+    { name: 'BRANDS', href: '/brands' },
+    { name: 'MEDIA', href: '/media' },
+  ]
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full backdrop-blur-sm drop-shadow-xl font-poppins ${
-        className || ""
-      }`}
-      style={{ backgroundColor: "#FFD6FF" }}
+      className={`sticky top-0 z-50 w-full backdrop-blur-sm font-poppins ${className || ''}`}
+      style={{ backgroundColor: '#4AD966' }}
     >
-      <div className="flex h-16 items-center px-3 w-full justify-between">
-        <div className="flex-[0_0_150px] md:flex-[0_0_200px] flex items-center justify-start mr-2">
-          <div className="flex items-center justify-start mr-2">
-            <Image
-              src="/images/Logo.png"
-              alt="Toy show icon"
-              width={150}
-              height={60}
-              quality={100}
-              priority
-              className="max-h-[60px] w-auto"
-            />
-          </div>
+      <div className="flex h-16 items-center px-4 w-full justify-between">
+        <div className="flex-[0_0_150px] md:flex-[0_0_200px] flex items-center justify-center mr-2">
+          <Image
+            src="/images/toy_logo.png"
+            alt="Toy show icon"
+            width={180}
+            height={40}
+            quality={100}
+            priority
+            className="w-[140px] md:w-[180px]"
+          />
         </div>
 
-        <button
-          className="md:hidden p-2 ml-auto z-10"
+        <button 
+          className="md:hidden p-2 ml-auto mr-4"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
@@ -63,21 +53,17 @@ export function Navbar({ className }: NavbarProps) {
           )}
         </button>
 
-        <div className="hidden md:flex flex-grow justify-center">
-          <nav className="flex items-center space-x-6 lg:space-x-9">
+        <div className="hidden md:flex flex-1 justify-center mr-[30px]">
+          <nav className="flex items-center space-x-9">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={`
-                  text-[17px] md:text-[12px] lg:text-[17px] font-semibold font-poppins transition-all duration-200
-                  hover:text-[#F249CD]
-                  ${
-                    pathname === item.href
-                      ? "text-[#F249CD] font-bold"
-                      : "text-[#454845]"
-                  }
-                  ${item.className || ""}
+                  text-[17px] font-semibold font-poppins transition-all duration-200
+                  hover:text-black
+                  ${pathname === item.href ? 'text-[#9747FF] font-bold' : 'text-white'}
+                  ${item.className || ''}
                 `}
               >
                 {item.name}
@@ -86,82 +72,62 @@ export function Navbar({ className }: NavbarProps) {
           </nav>
         </div>
 
-        <div className="hidden md:flex items-center gap-4 shrink-0">
-          {" "}
-          <Button
+        <div className="hidden md:flex flex-[0_0_200px] items-center justify-end gap-4 mr-8">
+          <Button 
             variant="outline"
             size="custom"
-            className="text-[14px] md:text-[12px] md:px-[10px] lg:px-[24px] lg:text-[14px] hover:font-bold whitespace-nowrap text-[#3D9BE9] border-[#3D9BE9] hover:bg-[#3D9BE9] hover:text-white"
+            className="text-[14px] hover:font-bold whitespace-nowrap"
           >
             BUY A TICKET
           </Button>
-          <Button
-            variant="outline"
+          <Button 
+            variant="default"
             size="custom"
-            className="text-[14px] whitespace-nowrap md:text-[12px] md:px-[10px] lg:px-[24px] lg:text-[14px]  text-[#F249CD] border-[#F249CD] hover:bg-[#F249CD] hover:text-white"
+            className="mr-4 whitespace-nowrap"
           >
             BOOK A STAND
           </Button>
-          <button
-            onClick={handleShareClick}
-            className="w-6 h-6 bg-cover bg-center top-4 right-4 z-[60]"
-            style={{ backgroundImage: "url('/images/Share_button.svg')" }}
-          >
-            <span className="sr-only">Share</span>
-          </button>
-          {/* <ShareButton /> */}
+          <div className="flex-1" />
+          <ShareButton />
         </div>
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-[#F5F0FF] px-4 pb-4 absolute top-16 left-0 w-full min-h-[calc(100vh-4rem)] z-50">
-          <nav className="flex flex-col space-y-4 items-center justify-center h-full">
+        <div className="md:hidden bg-[#4AD966] px-4 pb-4">
+          <nav className="flex flex-col space-y-4">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={`
-                  text-[24px] font-semibold font-poppins transition-all duration-200
-                  hover:text-[#F249CD] py-4
-                  ${
-                    pathname === item.href
-                      ? "text-[#F249CD] font-bold"
-                      : "text-[#454845]"
-                  }
+                  text-[17px] font-semibold font-poppins transition-all duration-200
+                  hover:text-black py-2
+                  ${pathname === item.href ? 'text-[#9747FF] font-bold' : 'text-white'}
                 `}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="flex flex-col space-y-4 pt-8 w-full max-w-[300px]">
-              <Button
+            <div className="flex flex-col space-y-3 pt-4">
+              <Button 
                 variant="outline"
                 size="custom"
-                className="text-[16px] py-6 hover:font-bold w-full text-[#3D9BE9] border-[#3D9BE9] hover:bg-[#3D9BE9] hover:text-white"
+                className="text-[14px] hover:font-bold w-full"
               >
                 BUY A TICKET
               </Button>
-              <Button
-                variant="outline"
+              <Button 
+                variant="default"
                 size="custom"
-                className="text-[16px] py-6 w-full text-[#F249CD] border-[#F249CD] hover:bg-[#F249CD] hover:text-white"
+                className="w-full"
               >
                 BOOK A STAND
               </Button>
-              <div className="flex justify-center pt-4">
-                <button
-                  onClick={handleShareClick}
-                  className="w-8 h-8 bg-cover bg-center z-[60]"
-                  style={{ backgroundImage: "url('/images/Share_button.svg')" }}
-                >
-                  <span className="sr-only">Share</span>
-                </button>
-              </div>
             </div>
           </nav>
         </div>
       )}
     </header>
-  );
+  )
 }

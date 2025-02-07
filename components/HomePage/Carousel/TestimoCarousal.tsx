@@ -27,7 +27,7 @@ const TestimoCarousal = () => {
     },
   ];
   return (
-    <section className="py-20 bg-[#F5F0FF]">
+    <section className="py-20 bg-[#EDFFF0]">
       <div className="container mx-auto px-4">
         <h3 className="text-xl md:text-[30px] leading-normal font-bold text-center mb-8 text-[#F249CD]">
           What are our exhibitors saying...
@@ -39,7 +39,7 @@ const TestimoCarousal = () => {
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index}>
-                  <Card className="p-6 md:p-8 bg-[#F5F0FF] rounded-lg">
+                  <Card className="p-6 md:p-8 bg-[#EDFFF0] rounded-lg">
                     {/* Added rounded-lg and responsive padding */}
                     <blockquote className="text-base md:text-xl text-center pl-5 pr-5 sm:pl-5 sm:pr-5">
                       {/* Adjusted text size */}
