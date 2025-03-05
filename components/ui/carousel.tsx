@@ -9,11 +9,13 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
+// Define types for carousel API and options
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
 type CarouselOptions = UseCarouselParameters[0]
 type CarouselPlugin = UseCarouselParameters[1]
 
+// Define props for the Carousel component
 type CarouselProps = {
   opts?: CarouselOptions
   plugins?: CarouselPlugin
@@ -21,6 +23,7 @@ type CarouselProps = {
   setApi?: (api: CarouselApi) => void
 }
 
+// Define context properties for the Carousel
 type CarouselContextProps = {
   carouselRef: ReturnType<typeof useEmblaCarousel>[0]
   api: ReturnType<typeof useEmblaCarousel>[1]
@@ -30,8 +33,10 @@ type CarouselContextProps = {
   canScrollNext: boolean
 } & CarouselProps
 
+// Create a context for the Carousel
 const CarouselContext = React.createContext<CarouselContextProps | null>(null)
 
+// Custom hook to use the Carousel context
 function useCarousel() {
   const context = React.useContext(CarouselContext)
 
@@ -42,6 +47,7 @@ function useCarousel() {
   return context
 }
 
+// Carousel component definition
 const Carousel = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & CarouselProps
@@ -150,10 +156,12 @@ const Carousel = React.forwardRef<
 )
 Carousel.displayName = "Carousel"
 
+// CarouselContent component definition
 const CarouselContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
+  // Get carousel reference and orientation from context
   const { carouselRef, orientation } = useCarousel()
 
   return (
@@ -172,10 +180,12 @@ const CarouselContent = React.forwardRef<
 })
 CarouselContent.displayName = "CarouselContent"
 
+// CarouselItem component definition
 const CarouselItem = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
+  // Get orientation from context
   const { orientation } = useCarousel()
 
   return (
@@ -194,10 +204,12 @@ const CarouselItem = React.forwardRef<
 })
 CarouselItem.displayName = "CarouselItem"
 
+// CarouselPrevious button component definition
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
 >(({ className, variant = "outline", ...props }, ref) => {
+  // Get context values for orientation and scrolling
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
@@ -223,10 +235,12 @@ const CarouselPrevious = React.forwardRef<
 })
 CarouselPrevious.displayName = "CarouselPrevious"
 
+// CarouselNext button component definition
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
 >(({ className, variant = "outline", ...props }, ref) => {
+  // Get context values for orientation and scrolling
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
@@ -252,6 +266,7 @@ const CarouselNext = React.forwardRef<
 })
 CarouselNext.displayName = "CarouselNext"
 
+// Exporting types and components
 export {
   type CarouselApi,
   Carousel,

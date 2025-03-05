@@ -1,6 +1,8 @@
+// Import necessary hooks and components
 import { useState } from 'react';
 import { Search } from 'lucide-react';
 
+// Define the props for the SearchBar component
 type SearchBarProps = {
   onSearch: (filters: {
     brandName: string;
@@ -10,12 +12,15 @@ type SearchBarProps = {
   }) => void;
 };
 
+// Main SearchBar component
 export default function SearchBar({ onSearch }: SearchBarProps) {
+  // State variables for search inputs
   const [brandName, setBrandName] = useState('');
   const [location, setLocation] = useState('');
   const [hall, setHall] = useState('');
   const [productTag, setProductTag] = useState('');
 
+  // Function to handle form submission
   const handleSubmit = () => {
     onSearch({
       brandName,
@@ -25,12 +30,14 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
     });
   };
 
+  // Function to handle key down events
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       handleSubmit();
     }
   };
 
+  // Render the search bar UI
   return (
     <div className="max-w-[90%] w-[1200px] mx-auto px-4">
       <div className="flex flex-col md:flex-row bg-white rounded-[30px] md:rounded-full border shadow-sm">
@@ -54,6 +61,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
 
         {/* Desktop inputs */}
         <div className="hidden md:flex flex-1 divide-x">
+          {/* Input for brand name */}
           <div className="px-4 py-3.5 flex-1 min-w-[150px] hover:bg-gray-100 transition-colors cursor-pointer group rounded-l-full">
             <input
               type="text"
@@ -65,6 +73,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             />
           </div>
 
+          {/* Input for location */}
           <div className="px-4 py-3.5 flex-1 min-w-[150px] hover:bg-gray-100 transition-colors cursor-pointer group">
             <input
               type="text"
@@ -76,6 +85,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             />
           </div>
 
+          {/* Input for hall */}
           <div className="px-4 py-3.5 flex-1 min-w-[150px] hover:bg-gray-100 transition-colors cursor-pointer group">
             <input
               type="text"
@@ -87,6 +97,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             />
           </div>
 
+          {/* Input for product tag */}
           <div className="px-4 py-3.5 flex-1 min-w-[150px] hover:bg-gray-100 transition-colors cursor-pointer group">
             <input
               type="text"
@@ -111,4 +122,4 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
       </div>
     </div>
   );
-} 
+}

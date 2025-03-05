@@ -28,12 +28,15 @@ interface APIBrand {
   exhibitor: Exhibitor | null;
 }
 
+// This component serves as the main page for displaying brand cards.
 export function BrandsPageComponent() {
+  // State and effect hooks for managing brand data
   const [brands, setBrands] = useState<APIBrand[]>([]);
   const [filteredBrands, setFilteredBrands] = useState<APIBrand[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  // Fetch brand data when the component mounts
   useEffect(() => {
     fetch('https://admin.thetoyfair.eu/api/brands/')
       .then(response => response.json())

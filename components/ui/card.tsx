@@ -1,8 +1,13 @@
+// This file contains a set of React components that collectively form a Card UI element.
+// Each component is created using React.forwardRef, allowing them to accept a ref prop for direct DOM manipulation.
+// The components utilize the `cn` utility function for conditional class name management.
+
 import * as React from "react"
 import Image from "next/image"
 
 import { cn } from "@/lib/utils"
 
+// Card component: The main container for the card, which can display images and additional content.
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & {
@@ -34,6 +39,7 @@ const Card = React.forwardRef<
 ))
 Card.displayName = "Card"
 
+// CardHeader component: A component for the header section of the card, typically used for titles or headings.
 const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -46,6 +52,7 @@ const CardHeader = React.forwardRef<
 ))
 CardHeader.displayName = "CardHeader"
 
+// CardTitle component: A component specifically for the title text within the card header.
 const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
@@ -61,6 +68,7 @@ const CardTitle = React.forwardRef<
 ))
 CardTitle.displayName = "CardTitle"
 
+// CardDescription component: A component for providing a description or additional information about the card.
 const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
@@ -73,6 +81,7 @@ const CardDescription = React.forwardRef<
 ))
 CardDescription.displayName = "CardDescription"
 
+// CardContent component: A component for the main content area of the card, allowing for flexible content placement.
 const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -81,6 +90,7 @@ const CardContent = React.forwardRef<
 ))
 CardContent.displayName = "CardContent"
 
+// CardFooter component: A component for the footer section of the card, often used for actions or additional links.
 const CardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -93,6 +103,7 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = "CardFooter"
 
+// CardImage component: A component for displaying an image within the card, with customizable dimensions and alt text.
 const CardImage = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & {
@@ -114,4 +125,5 @@ const CardImage = React.forwardRef<
 ))
 CardImage.displayName = "CardImage"
 
+// Exporting all components for use in other parts of the application.
 export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardImage }
