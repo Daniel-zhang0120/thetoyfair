@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: "/images/toy_logo.png",
+        url: "/images/logo_meta.png",
         width: 150,
         height: 60,
         alt: "The Toy Fair Logo",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "The Toy Fair",
     description:
       "The Toy Fair is the leading trade show for toy and gift industry.",
-    images: ["/images/toy_logo.png"],
+    images: ["/images/logo_meta.png"],
 
   },
 };
